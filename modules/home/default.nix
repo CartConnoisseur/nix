@@ -4,6 +4,7 @@
   imports = [
     ./colors.nix
     ./discord.nix
+    ./eww.nix
     ./flameshot.nix
     ./git.nix
     ./i3.nix
