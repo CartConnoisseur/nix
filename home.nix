@@ -51,6 +51,8 @@
       ".local/share/Anki2"
       ".local/share/lutris"
       ".local/share/PrismLauncher"
+
+      ".config/eww"
     ];
     files = [
       ".Xresources"
