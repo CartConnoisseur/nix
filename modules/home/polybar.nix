@@ -1,0 +1,232 @@
+{ pkgs, config, ... }:
+
+{
+  services.polybar = {
+    enable = true;
+    script = "polybar";
+
+    package = pkgs.polybar.override {
+      i3Support = true;
+      pulseSupport = true;
+    };
+
+    settings = let c = config.theme.colors; in {
+      "bar/main" = {
+        width = "100%";
+        height = "24pt";
+        radius = 0;
+
+        background = "#${c.bg}";
+        foreground = "#${c.fg}";
+
+        font = [
+          "Symbols Nerd Font:size=16;2"
+          "monospace:size=11;2"
+          "Sauce Code Pro Nerd Font:size=11;2"
+          "Noto Sans CJK JP:size=11;1"
+          "sans-serif:size=11;1"
+        ];
+
+        border = {
+          top = "8px";
+          left = "8px";
+          right = "8px";
+
+          color = "#00000000";
+        };
+
+        padding = {
+          left = 2;
+          right = 2;
+        };
+
+        cursor = {
+          click = "pointer";
+          scroll = "ns-resize";
+        };
+
+        enable-ipc = true;
+
+        line.size = "3pt";
+
+        separator = {
+          text = "|";
+          foreground = "#${c.bg3}";
+        };
+
+        module.margin = 1;
+        modules = {
+          left = "cpu memory xwindow";
+          center = "i3";
+          right = "wlan eth filesystem xkeyboard pulseaudio date";
+        };
+      };
+
+
+      "module/i3" = {
+        type = "internal/i3";
+
+        strip-wsnumbers = true;
+        index-sort = true;
+
+        ws.icon = [
+          "0:Main;󱄅" "1:Terminal;" "2:Browser;󰈹" "3:Chat;󰙯" "4:Steam;󰓓"
+          "5;󰎱" "6;󰎳" "7;󰎶"
+          "8:qBittorrent;󰄛" "9:Youtube;󰗃" "10:Misc;󰁴"
+        ];
+
+        label = {
+          focused = {
+            text = "%icon%";
+            padding = 2;
+
+            foreground = "#${c.fg0}";
+            background = "#${c.bg1}";
+            underline = "#${c.accent}";
+          };
+
+          visible = {
+            text = "%icon%";
+            padding = 2;
+
+            underline = "#${c.fg4}";
+          };
+
+          unfocused = {
+            text = "%icon%";
+            padding = 2;
+          };
+
+          urgent = {
+            text = "%icon%";
+            padding = 2;
+
+            foreground = "#${c.bg}";
+            background = "#${c.accent}";
+          };
+        };
+      };
+
+      "module/xwindow" = {
+        type = "internal/xwindow";
+        label = "%title:0:64:...%";
+      };
+
+
+      "module/pulseaudio" = {
+        type = "internal/pulseaudio";
+
+        format.volume = "<ramp-volume> <label-volume>";
+    
+        label = {
+          volume = "%percentage%%";
+          muted = {
+            text = "󰝟 %percentage%%";
+            foreground = "#${c.bg3}";
+          };
+        };
+
+        ramp.volume = {
+          text = [ "󰕿" "󰖀" "󰕾" ];
+          foreground = "#${c.accent}";
+        };
+      };
+
+      "module/xkeyboard" = {
+        type = "internal/xkeyboard";
+        blacklist = [ "num lock" ];
+
+        indicator.icon = [ "caps lock;;󰌎" ];
+
+        format = {
+          text = "<label-indicator> <label-layout>";
+
+          prefix = {
+            text = "󰌌 ";
+            foreground = "#${c.accent}";
+          };
+        };
+
+        label = {
+          layout = "%layout%";
+          indicator.on = "%icon%";
+        };
+      };
+
+      "module/cpu" = {
+        type = "internal/cpu";
+        interval = 2;
+
+        format.prefix = {
+          text = "CPU ";
+          foreground = "#${c.accent}";
+        };
+
+        label = "%percentage%%";
+      };
+
+      "module/memory" = {
+        type = "internal/memory";
+        interval = 2;
+
+        format.prefix = {
+          text = "MEM ";
+          foreground = "#${c.accent}";
+        };
+
+        label = "%gb_used%";
+      };
+
+      "module/filesystem" = {
+        type = "internal/fs";
+        interval = 25;
+
+        mount = [ "/nix" "/persist" ];
+
+        label = {
+          mounted = "%{F#${c.accent}}󰋊%{F-} %used%";
+          unmounted = {
+            text = "%mountpoint%";
+            foreground = "#${c.bg3}";
+          };
+        };
+      };
+
+      "module/eth" = {
+        type = "internal/network";
+        interface.type = "wired";
+        interval = 2;
+
+        format.connected = "<label-connected>";
+        label.connected = "%{F#${c.accent}}󰈀%{F-} 󰄼 %downspeed% 󰄿 %upspeed%";
+      };
+
+      "module/wlan" = {
+        type = "internal/network";
+        interface.type = "wireless";
+        interval = 2;
+
+        format.connected = "<ramp-signal> <label-connected>";
+        label.connected = "󰄼 %downspeed% 󰄿 %upspeed%";
+
+        ramp-signal = {
+          text = [ "󰤯" "󰤟" "󰤢" "󰤥" "󰤨" ];
+          foreground = "#${c.accent}";
+        };
+      };
+
+      "module/date" = {
+        type = "internal/date";
+        interval = 1;
+
+        date = "%H:%M";
+        date-alt = "%Y-%m-%d %H:%M:%S";
+
+        format.prefix = {
+          text = "󰃰 ";
+          foreground = "#${c.accent}";
+        };
+      };
+    };
+  };
+}
