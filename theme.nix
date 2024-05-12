@@ -1,1 +1,1 @@
-themes/matama.nix
+themes/skull.nix
