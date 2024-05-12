@@ -95,7 +95,7 @@
 
   xdg.configFile."eww/eww.yuck".text = ''
     (defwindow music [pos]
-        :monitor 0
+        :monitor "<primary>"
         :geometry (geometry
             :x { pos == "right" ? "-8px" : "0px" }
             :y { pos == "right" ? "-8px" : "2px" }
