@@ -7,7 +7,7 @@
     ./modules/home
   ];
 
-  theme = import ./themes/skull.nix;
+  theme = import ./theme.nix;
 
   home.stateVersion = "23.11";
 
