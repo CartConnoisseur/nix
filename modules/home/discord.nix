@@ -1,8 +1,14 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   conversion = import ../../util/color-conversion.nix { inherit lib; };
 in {
+  home.packages = with pkgs; [
+    (discord.override {
+      withVencord = true;
+    })
+  ];
+
   xdg.configFile."Vencord/themes/nix.theme.css".text = let c = config.theme.colors; in ''
     @import url(https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/BasicBackground.css);
 

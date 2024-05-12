@@ -1,6 +1,20 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    eww
+
+    (writeShellScriptBin "eww-toggle"''
+      #!/usr/bin/env bash
+
+      if ${pkgs.eww}/bin/eww active-windows | grep $1; then
+          ${pkgs.eww}/bin/eww close $1
+      else
+          ${pkgs.eww}/bin/eww open $@
+      fi
+    '')
+  ];
+
   xdg.configFile."eww/colors.css".text = let c = config.theme.colors; in ''
     @define-color accent #${c.accent};
 

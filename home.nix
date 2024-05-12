@@ -88,25 +88,11 @@
       i3-msg restart
     '')
 
-    eww
-    (writeShellScriptBin "eww-toggle"''
-      #!/usr/bin/env bash
-
-      if ${pkgs.eww}/bin/eww active-windows | grep $1; then
-          ${pkgs.eww}/bin/eww close $1
-      else
-          ${pkgs.eww}/bin/eww open $@
-      fi
-    '')
-
     pfetch
 
     kdePackages.breeze
 
     irssi
-    (discord.override {
-      withVencord = true;
-    })
 
     qbittorrent
     jellyfin-media-player
