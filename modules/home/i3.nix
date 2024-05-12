@@ -94,7 +94,6 @@
         { command = "polybar"; always = true; notification = false; }
         { command = "systemctl --user restart picom"; always = true; notification = false; }
         { command = "${pkgs.feh}/bin/feh --bg-fill ~/Pictures/bg/${config.theme.background}"; always = true; notification = false; }
-#        { command = "${pkgs.pywal}/bin/wal -ne -b 000000 -i ~/Pictures/bg/${config.theme.background}"; always = true; notification = false; }
       ];
 
       keybindings = {
