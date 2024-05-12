@@ -40,6 +40,8 @@
 #      (cat ~/.cache/wal/sequences &)
 #      source ~/.cache/wal/colors-tty.sh
 
+      alias ssh="kitty +kitten ssh"
+
       alias toys="nix-shell -p cmatrix asciiquarium pipes cowsay figlet neofetch"
 
       alias c="codium ."
