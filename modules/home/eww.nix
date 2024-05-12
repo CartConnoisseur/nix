@@ -47,7 +47,6 @@
         color: @fg;
         background-color: @bg;
         border: 2px solid @bg1;
-        border-bottom: none;
     }
 
     .main {
@@ -98,8 +97,8 @@
     (defwindow music [pos]
         :monitor 0
         :geometry (geometry
-            :x { pos == "right" ? "2px" : "0px" }
-            :y "0px"
+            :x { pos == "right" ? "-8px" : "0px" }
+            :y { pos == "right" ? "-8px" : "2px" }
             :height {128 + 16}
             :anchor { pos == "right" ? "bottom right" : "bottom center" }
         )
