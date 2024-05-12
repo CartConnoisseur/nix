@@ -19,6 +19,8 @@
       "window.titleBarStyle" = "custom";
 
       "git.confirmSync" = false;
+
+      "vsicons.dontShowNewVersionMessage" = true;
     };
   };
 }
