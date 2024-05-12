@@ -39,4 +39,152 @@
     @define-color orange #${c.orange};
     @define-color brightOrange #${c.brightOrange};
   '';
+
+  xdg.configFile."eww/eww.css".text = ''
+    @import "colors.css";
+
+    window {
+        color: @fg;
+        background-color: @bg;
+    }
+
+    .main {
+        margin: 8px;
+    }
+
+    .left {
+        margin-top: 8px;
+    }
+
+    .song-title {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .song-album {
+        color: @fg2;
+    }
+
+    .song-artist {
+        color: @fg2;
+    }
+
+    .control {
+        font-size: 24;
+    }
+
+    button {
+        color: @fg;
+        background: @bg;
+
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        text-shadow: none;
+    }
+
+    button:hover {
+        background: @bg1;
+    }
+
+    button:active {
+        background: @bg2;
+    }
+  '';
+
+  xdg.configFile."eww/eww.yuck".text = ''
+    (defwindow music
+        :monitor 0
+        :geometry (geometry
+            :x "0px"
+            :y "0px"
+            :height {128 + 16}
+            :anchor "bottom center"
+        )
+        :stacking "fg"
+        :windowtype "dock"
+        :wm-ignore true
+
+        (box :class "main"
+            :orientation "h"
+            :spacing 8
+            :space-evenly false
+            :height {128 + 16}
+
+            (image
+                :path { substring(song-cover, 7, 255) }
+                :image-width 128
+                :image-height 128
+            )
+
+            (box :class "left"
+                :orientation "v"
+                :spacing 0
+                :space-evenly true
+                :hexpand true
+
+                (box :class "info"
+                    :orientation "v"
+                    :space-evenly false
+                    :valign "center"
+
+                    (label :class "song-title"
+                        :text song-title
+                        :halign "start"
+                    )
+                    (label :class "song-album"
+                        :text song-album
+                        :halign "start"
+                    )
+                    (label :class "song-artist"
+                        :text song-artist
+                        :halign "start"
+                    )
+                )
+
+                (box :class "control"
+                    :space-evenly false
+                    :halign "center"
+                    :valign "end"
+
+                    (button
+                        :onclick `playerctl previous`
+                        "󰒮"
+                    )
+                    (button
+                        :onclick `playerctl play-pause`
+                        { song-status == "Playing" ? "󰏤" : "󰐊" }
+                    )
+                    (button
+                        :onclick `playerctl next`
+                        "󰒭"
+                    )
+
+                    ; Offset controls to center of screen
+                    (box :width {128 + 8})
+                )
+            )
+        )
+    )
+
+    (deflisten song-title
+        `playerctl -F metadata title`
+    )
+
+    (deflisten song-album
+        `playerctl -F metadata album`
+    )
+
+    (deflisten song-artist
+        `playerctl -F metadata artist`
+    )
+
+    (deflisten song-cover
+        `playerctl -F metadata mpris:artUrl`
+    )
+
+    (deflisten song-status
+        `playerctl -F status`
+    )
+  '';
 }

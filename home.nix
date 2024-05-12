@@ -51,8 +51,6 @@
       ".local/share/Anki2"
       ".local/share/lutris"
       ".local/share/PrismLauncher"
-
-      ".config/eww"
     ];
     files = [
       ".Xresources"
@@ -75,6 +73,16 @@
 
   home.packages = with pkgs; [
     eww
+    (writeShellScriptBin "eww-toggle"''
+      #!/usr/bin/env bash
+
+      if ${pkgs.eww}/bin/eww active-windows | grep $1; then
+          ${pkgs.eww}/bin/eww close $1
+      else
+          ${pkgs.eww}/bin/eww open $1
+      fi
+    '')
+
     pfetch
 
     kdePackages.breeze
