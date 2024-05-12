@@ -17,6 +17,8 @@
       "workbench.colorTheme" = "Gruvbox Dark Medium";
       "workbench.iconTheme" = "vscode-icons";
       "window.titleBarStyle" = "custom";
+
+      "git.confirmSync" = false;
     };
   };
 }
