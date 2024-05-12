@@ -94,11 +94,16 @@
   '';
 
   xdg.configFile."eww/eww.yuck".text = ''
-    (defwindow music [pos]
+    (defwindow music [pos gaps]
         :monitor "<primary>"
         :geometry (geometry
-            :x { pos == "right" ? "-8px" : "0px" }
-            :y { pos == "right" ? "-8px" : "2px" }
+            :x {
+                pos == "right"
+                    ? gaps == "true"
+                        ? "-8px" : "2px"
+                    : "0px"
+            }
+            :y { gaps == "true" ? "-8px" : "2px" }
             :height {128 + 16}
             :anchor { pos == "right" ? "bottom right" : "bottom center" }
         )
