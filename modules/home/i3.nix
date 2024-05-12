@@ -128,7 +128,8 @@
         "XF86AudioPrev" = "exec playerctl previous";
 
         # Media controller widget
-        "${mod}+m" = "exec --no-startup-id eww-toggle music";
+        "${mod}+m" = "exec --no-startup-id eww-toggle music --arg pos=center";
+        "${mod}+n" = "exec --no-startup-id eww-toggle music --arg pos=right";
 
         # Workspaces
         "${mod}+grave" = "workspace number ${ws0}";

@@ -95,7 +95,7 @@
       if ${pkgs.eww}/bin/eww active-windows | grep $1; then
           ${pkgs.eww}/bin/eww close $1
       else
-          ${pkgs.eww}/bin/eww open $1
+          ${pkgs.eww}/bin/eww open $@
       fi
     '')
 

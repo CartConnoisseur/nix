@@ -95,13 +95,13 @@
   '';
 
   xdg.configFile."eww/eww.yuck".text = ''
-    (defwindow music
+    (defwindow music [pos]
         :monitor 0
         :geometry (geometry
-            :x "0px"
+            :x { pos == "right" ? "2px" : "0px" }
             :y "0px"
             :height {128 + 16}
-            :anchor "bottom center"
+            :anchor { pos == "right" ? "bottom right" : "bottom center" }
         )
         :stacking "fg"
         :windowtype "dock"
