@@ -46,6 +46,8 @@
     window {
         color: @fg;
         background-color: @bg;
+        border: 2px solid @bg1;
+        border-bottom: none;
     }
 
     .main {
