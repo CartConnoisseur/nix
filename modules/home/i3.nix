@@ -82,11 +82,14 @@
       ];
 
       assigns = {
-        "${ws2}" = [ { class = "Firefox"; } ];
+        "${ws2}" = [ { class = "firefox"; } ];
         "${ws3}" = [ { class = "discord"; } ];
-        "${ws4}" = [ { class = "steam"; } ];
+        "${ws4}" = [
+          { class = "steam"; }
+          { class = "prismlauncher"; }
+        ];
 
-        "${ws8}" = [ { class = "qBittorrent"; } ];
+        "${ws8}" = [ { class = "qbittorrent"; } ];
       };
 
       startup = [
