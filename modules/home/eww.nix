@@ -61,6 +61,7 @@
         color: @fg;
         background-color: @bg;
         border: 2px solid @bg1;
+        font-family: monospace, sans-serif;
     }
 
     .main {
@@ -72,7 +73,7 @@
     }
 
     .song-title {
-        font-size: 16px;
+        font-size: 17px;
         font-weight: bold;
     }
 
