@@ -9,6 +9,7 @@
     ./git.nix
     ./i3.nix
     ./kitty.nix
+    ./mpd.nix
     ./mpv.nix
     ./picom.nix
     ./polybar.nix
