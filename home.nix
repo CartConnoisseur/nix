@@ -20,6 +20,7 @@
       "Documents"
       "Pictures"
       "Videos"
+      "Music"
       "Games"
       "Persist"
 
