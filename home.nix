@@ -55,6 +55,9 @@
       ".local/share/Anki2"
       ".local/share/lutris"
       ".local/share/PrismLauncher"
+
+      ".config/nicotine"
+      ".local/share/nicotine"
     ];
     files = [
       ".Xresources"
@@ -96,6 +99,7 @@
     irssi
 
     qbittorrent
+    nicotine-plus
     jellyfin-media-player
     mkvtoolnix
 
