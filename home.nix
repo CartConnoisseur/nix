@@ -4,7 +4,7 @@
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
 
-    ./modules/home
+    ./home
   ];
 
   # theme.nix is a symlink to a theme under ./themes/

@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  conversion = import ../../util/color-conversion.nix { inherit lib; };
+  conversion = import ../util/color-conversion.nix { inherit lib; };
 in {
   home.packages = with pkgs; [
     (discord.override {
