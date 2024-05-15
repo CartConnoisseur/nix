@@ -15,13 +15,11 @@
       "/etc/nixos"
       "/var/log"
       "/var/lib/nixos"
-      #"/var/lib/bluetooth"
       "/var/lib/systemd/coredump"
-      #"/etc/NetworkManager/system-connections"
+      #"/var/lib/bluetooth"
     ];
     files = [
       "/etc/machine-id"
-      # { file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
     ];
   };
 
@@ -56,20 +54,6 @@
 
   time.timeZone = "America/Los_Angeles";
 
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   users.users = {
     root.hashedPasswordFile = "/persist/passwords/root";
 
@@ -79,8 +63,6 @@
       extraGroups = [ "wheel" ];
     };
   };
-
-  # List packages installed in system profile.
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
@@ -94,7 +76,6 @@
     wget
     firefox
     wineWowPackages.stable
-    #wine
     winetricks
 
     pulseaudio
@@ -114,9 +95,6 @@
 
   programs.steam.enable = true;
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
   services.pcscd.enable = true;
   programs.gnupg.agent = {
     enable = true;
@@ -124,16 +102,7 @@
     pinentryFlavor = "gtk2";
   };
 
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
-
+  services.printing.enable = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
