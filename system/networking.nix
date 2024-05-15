@@ -9,7 +9,11 @@
 
     wireless = {
       enable = true;
-      networks = import ./wifi.nix;
+
+      environmentFile = "/persist/secrets/wireless.env";
+      networks = {
+        "The Dwyers".psk = "@PSK@";
+      };
     };
 
     firewall = {
