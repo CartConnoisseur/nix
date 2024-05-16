@@ -1,6 +1,11 @@
 { pkgs, ... }:
 
 {
+  services.displayManager = {
+    enable = true;
+    defaultSession = "none+i3";
+  };
+
   services.xserver = {
     enable = true;
 
@@ -8,7 +13,6 @@
 
     displayManager = {
       lightdm.enable = true;
-      defaultSession = "none+i3";
 
       setupCommands = ''
         if ${pkgs.xorg.xrandr}/bin/xrandr --query | grep 2560x1080; then
