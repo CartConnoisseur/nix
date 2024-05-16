@@ -7,6 +7,9 @@
     font = { name = "monospace"; size = 8.0; };
 
     settings = let c = config.theme.colors; in {
+      foreground = "#${c.fg}";
+      background = "#000000";
+
       color0  = "#${c.black}";
       color1  = "#${c.red}";
       color2  = "#${c.green}";
