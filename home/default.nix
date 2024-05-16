@@ -5,6 +5,7 @@
     ./colors.nix
     ./discord.nix
     ./eww.nix
+    ./fastfetch.nix
     ./flameshot.nix
     ./git.nix
     ./i3.nix
