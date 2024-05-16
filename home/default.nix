@@ -15,6 +15,7 @@
     ./polybar.nix
     ./rofi.nix
     ./theme.nix
+    ./vim.nix
     ./vscode.nix
 #    ./zsh.nix
   ];
