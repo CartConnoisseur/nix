@@ -15,6 +15,8 @@
 
     syntax on
 
+    highlight Normal guibg=#000000
+
     " Awesome magical color override from
     " https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
     augroup MyColors
