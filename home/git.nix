@@ -11,5 +11,10 @@
       key = "314C14641E707B68";
       signByDefault = true;
     };
+
+    ignores = [
+      "*~"
+      "*.swp"
+    ];
   };
 }
