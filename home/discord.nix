@@ -6,6 +6,7 @@ in {
   home.packages = with pkgs; [
     (discord.override {
       withVencord = true;
+      withOpenASAR = true;
     })
   ];
 
@@ -20,7 +21,9 @@ in {
       --chatinputtransparency:        0.0;
       --memberlisttransparency:       0.15;
       --settingsicons:                0;
-      --background:                   rgba(0, 0, 0, 0.8);
+      /* A discord update messed up transparancy, and for now eyeballing it works fine */
+      /* --background:                   rgba(0, 0, 0, 0.8); */
+      --background:                   rgba(0, 0, 0, 0.55);
       --backdrop:                     rgba(0, 0, 0, 0);        
       --version1_0_5:                 none;
 
