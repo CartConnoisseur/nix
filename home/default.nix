@@ -8,6 +8,7 @@
     ./fastfetch.nix
     ./flameshot.nix
     ./git.nix
+    ./gtk.nix
     ./i3.nix
     ./kitty.nix
     ./mpd.nix
