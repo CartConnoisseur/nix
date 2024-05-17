@@ -105,6 +105,7 @@
     enableSSHSupport = true;
   };
 
+  programs.dconf.enable = true;
   services.printing.enable = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
