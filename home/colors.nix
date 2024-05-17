@@ -8,8 +8,7 @@ with lib;
       mkColorOption = name: {
         inherit name;
         value = mkOption {
-#          type = types.strMatching "[a-fA-F0-9]{6}";
-          type = types.strMatching "[a-fA-F0-9]*";
+          type = types.strMatching "[a-fA-F0-9]{6}";
           description = "Color ${name}.";
         };
       };
