@@ -53,10 +53,12 @@
         "break"
         { type = "terminal"; key = "  "; }
         { type = "shell"; key = " 󱆃 "; }
-        { type = "font"; key = " 󰬈 "; }
+#        { type = "font"; key = " 󰬈 "; }
+        { type = "font"; key = " 󰬈 "; format = "Caskaydia Mono (8pt)"; }
         "break"
         { type = "wm"; key = "  "; }
-        { type = "theme"; key = " 󰏘 "; }
+#        { type = "theme"; key = " 󰏘 "; }
+        { type = "theme"; key = " 󰏘 "; format = "gruvbox"; }
         "break"
         { type = "media"; key = " 󰝚 "; }
         { type = "datetime"; key = " 󰃰 "; }
