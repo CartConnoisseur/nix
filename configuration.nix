@@ -50,6 +50,10 @@
         cd "$1"
       }
     '';
+
+    variables = {
+      EDITOR = "vim";
+    };
   };
 
   time.timeZone = "America/Los_Angeles";
