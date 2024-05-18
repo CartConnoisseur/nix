@@ -113,6 +113,8 @@
     prismlauncher
 
     jetbrains.idea-community
+
+    cloc
   ];
 
   home.file = {
