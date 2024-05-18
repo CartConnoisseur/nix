@@ -10,7 +10,7 @@
     settings = {
       logo = {
         type = "kitty-direct";
-        source = ../assets/nonon.png;
+        source = "$(ls ${../assets/fastfetch}/*.png | shuf -n 1)";
 
         width = 36;
         height = 32;
