@@ -79,7 +79,7 @@
   ];
 
   home.packages = with pkgs; [
-    (writeShellScriptBin "switch-theme"''
+    (writeShellScriptBin "switch-theme" ''
       #!/usr/bin/env bash
 
       cd /etc/nixos
