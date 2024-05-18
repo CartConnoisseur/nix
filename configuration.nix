@@ -97,16 +97,21 @@
     libGL
   ];
 
-  programs.steam.enable = true;
+  programs = {
+    steam.enable = true;
 
-  services.pcscd.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+
+    dconf.enable = true;
   };
 
-  programs.dconf.enable = true;
-  services.printing.enable = true;
+  services = {
+    pcscd.enable = true;
+    printing.enable = true;
+  };
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
