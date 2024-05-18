@@ -10,7 +10,7 @@
     settings = {
       logo = {
         type = "kitty-direct";
-        source = "~/Pictures/nonon.png";
+        source = ../assets/nonon.png;
 
         width = 36;
         height = 32;
