@@ -37,6 +37,7 @@
     interactiveShellInit = ''
       alias ssh="kitty +kitten ssh"
 
+      alias lsa="ls -lAsh"
       alias c="codium ."
       alias p="nix-shell -p"
 
@@ -70,7 +71,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    (writeShellScriptBin "lsa" "ls -lAsh")
     (writeShellScriptBin "rb" "sudo nixos-rebuild switch --flake /etc/nixos#default")
     (writeShellScriptBin "toys" "nix-shell -p cmatrix asciiquarium pipes cowsay figlet neofetch")
 
