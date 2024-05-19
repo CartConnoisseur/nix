@@ -47,7 +47,7 @@
     '';
 
     variables = {
-      EDITOR = "vim";
+      EDITOR = "${pkgs.vim}/bin/vim";
     };
   };
 
