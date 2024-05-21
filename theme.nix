@@ -1,1 +1,1 @@
-themes/skull.nix
+./themes/skull.nix

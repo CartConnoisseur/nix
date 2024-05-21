@@ -7,9 +7,8 @@
     ./home
   ];
 
-  # theme.nix is a symlink to a theme under ./themes/
-  # This lets me switch out my theme while only altering
-  #   theme.nix, which I dont commit changes to.
+  # theme.nix is an untracked symlink to a theme under ./themes/
+  # This lets me switch out my theme without making changes in git
   theme = import ./theme.nix;
 
   home.stateVersion = "23.11";
