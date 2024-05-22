@@ -5,7 +5,8 @@
     enable = true;
 
     config = let
-      mod = "Mod1";
+      #NOTE: Alt (Mod1) and meta (Mod4) have been swapped by keyd.
+      mod = "Mod4";
 
       ws0 = "0:Main";
       ws1 = "1:Terminal";
@@ -117,7 +118,7 @@
         "Shift+Print" = "exec ${pkgs.flameshot}/bin/flameshot screen -c";
         "Print" = "exec ${pkgs.flameshot}/bin/flameshot full -c";
         "${mod}+Shift+s" = "exec ${pkgs.flameshot}/bin/flameshot gui -c";
-        "Mod4+Shift+s" = "exec ${pkgs.flameshot}/bin/flameshot gui -c";
+        "Mod1+Shift+s" = "exec ${pkgs.flameshot}/bin/flameshot gui -c";
         "${mod}+Ctrl+Shift+s" = "exec ${pkgs.flameshot}/bin/flameshot launcher -c";
 
         # Media keys
