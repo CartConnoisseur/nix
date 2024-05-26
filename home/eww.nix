@@ -13,6 +13,43 @@
           ${pkgs.eww}/bin/eww open $@
       fi
     '')
+
+    (writeShellScriptBin "get-album-art"''
+        #!/usr/bin/env bash
+
+        OUTFILE=".mpris-art"
+
+        while read -r line; do
+            if [[ -n $line ]]; then
+                rm -f ~/$OUTFILE
+
+                cmus_path=$(cmus-remote -Q | grep file | cut -c 6-)
+                if [[ -n $cmus_path ]]; then
+                    if [[ -f $(dirname "$cmus_path")/cover.jpg ]]; then
+                        cp "$(dirname "$cmus_path")/cover.jpg" ~/$OUTFILE
+                    else
+                        ffmpeg -y -v quiet -i "$cmus_path" -c:v copy -f mjpeg ~/$OUTFILE
+                    fi
+                else
+                    mpris=$(playerctl --player=cmus,firefox,%any metadata mpris:artUrl)
+
+                    if [[ $mpris == data:image* ]]; then
+                        echo $mpris | sed s/.*,//g | base64 --decode > ~/$OUTFILE
+                    elif [[ -n $mpris ]]; then
+                        curl -s -o ~/$OUTFILE $mpris
+                    fi
+                fi
+
+                if [[ -f ~/$OUTFILE ]]; then
+                    :
+                else
+                    cp ${../assets/album_art_placeholder.png} ~/$OUTFILE
+                fi
+
+                echo ~/$OUTFILE
+            fi
+        done
+    '')
   ];
 
   xdg.configFile."eww/colors.css".text = let c = config.theme.colors; in ''
@@ -133,7 +170,7 @@
             :height {128 + 16}
 
             (image
-                :path { substring(song-cover, 7, 255) }
+                :path song-cover
                 :image-width 128
                 :image-height 128
             )
@@ -150,15 +187,15 @@
                     :valign "center"
 
                     (label :class "song-title"
-                        :text song-title
+                        :text {song.title}
                         :halign "start"
                     )
                     (label :class "song-album"
-                        :text song-album
+                        :text {song.album}
                         :halign "start"
                     )
                     (label :class "song-artist"
-                        :text song-artist
+                        :text {song.artist}
                         :halign "start"
                     )
                 )
@@ -169,15 +206,15 @@
                     :valign "end"
 
                     (button
-                        :onclick `playerctl previous`
+                        :onclick `playerctl --player=cmus,firefox,%any previous`
                         "󰒮"
                     )
                     (button
-                        :onclick `playerctl play-pause`
-                        { song-status == "Playing" ? "󰏤" : "󰐊" }
+                        :onclick `playerctl --player=cmus,firefox,%any play-pause`
+                        { song.status == "Playing" ? "󰏤" : "󰐊" }
                     )
                     (button
-                        :onclick `playerctl next`
+                        :onclick `playerctl --player=cmus,firefox,%any next`
                         "󰒭"
                     )
 
@@ -188,24 +225,12 @@
         )
     )
 
-    (deflisten song-title
-        `playerctl -F metadata title`
-    )
-
-    (deflisten song-album
-        `playerctl -F metadata album`
-    )
-
-    (deflisten song-artist
-        `playerctl -F metadata artist`
-    )
-
     (deflisten song-cover
-        `playerctl -F metadata mpris:artUrl`
+        `playerctl --player=cmus,firefox,%any -F metadata title | get-album-art`
     )
 
-    (deflisten song-status
-        `playerctl -F status`
+    (deflisten song
+        `playerctl --player=cmus,firefox,%any -F metadata --format='{"title": "{{title}}", "album": "{{album}}", "artist": "{{artist}}", "status": "{{status}}"}'`
     )
   '';
 }
