@@ -127,11 +127,11 @@
         "XF86AudioMute" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
         "XF86AudioMicMute" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle";
 
-        "XF86AudioPlay" = "exec playerctl play-pause";
-        "XF86AudioPause" = "exec playerctl play-pause";
-        "XF86AudioStop" = "exec playerctl stop";
-        "XF86AudioNext" = "exec playerctl next";
-        "XF86AudioPrev" = "exec playerctl previous";
+        "XF86AudioPlay" = "exec \"playerctl --player=cmus,firefox,%any play-pause\"";
+        "XF86AudioPause" = "exec \"playerctl --player=cmus,firefox,%any play-pause\"";
+        "XF86AudioStop" = "exec \"playerctl --player=cmus,firefox,%any stop\"";
+        "XF86AudioNext" = "exec \"playerctl --player=cmus,firefox,%any next\"";
+        "XF86AudioPrev" = "exec \"playerctl --player=cmus,firefox,%any previous\"";
 
         # Media controller widget
         "${mod}+m" = "exec --no-startup-id eww-toggle music --arg pos=center --arg gaps=false";
