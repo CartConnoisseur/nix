@@ -114,6 +114,7 @@
     jetbrains.idea-community
 
     cloc
+    cmus
   ];
 
   home.file = {
