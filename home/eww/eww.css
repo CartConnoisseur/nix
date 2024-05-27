@@ -1,0 +1,51 @@
+@import "colors.css";
+
+window {
+    color: @fg;
+    background-color: @bg;
+    border: 2px solid @bg1;
+    font-family: monospace, sans-serif;
+}
+
+.main {
+    margin: 8px;
+}
+
+.left {
+    margin-top: 8px;
+}
+
+.song-title {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.song-album {
+    color: @fg2;
+}
+
+.song-artist {
+    color: @fg2;
+}
+
+.control {
+    font-size: 24;
+}
+
+button {
+    color: @fg;
+    background: @bg;
+
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+button:hover {
+    background: @bg1;
+}
+
+button:active {
+    background: @bg2;
+}

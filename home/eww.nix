@@ -52,6 +52,11 @@
     '')
   ];
 
+  xdg.configFile."eww/eww.yuck".source = eww/eww.yuck;
+  xdg.configFile."eww/eww.css".source = eww/eww.css;
+  
+  xdg.configFile."eww/windows".source = eww/windows;
+
   xdg.configFile."eww/colors.css".text = let c = config.theme.colors; in ''
     @define-color accent #${c.accent};
 
@@ -89,148 +94,5 @@
 
     @define-color orange #${c.orange};
     @define-color brightOrange #${c.brightOrange};
-  '';
-
-  xdg.configFile."eww/eww.css".text = ''
-    @import "colors.css";
-
-    window {
-        color: @fg;
-        background-color: @bg;
-        border: 2px solid @bg1;
-        font-family: monospace, sans-serif;
-    }
-
-    .main {
-        margin: 8px;
-    }
-
-    .left {
-        margin-top: 8px;
-    }
-
-    .song-title {
-        font-size: 17px;
-        font-weight: bold;
-    }
-
-    .song-album {
-        color: @fg2;
-    }
-
-    .song-artist {
-        color: @fg2;
-    }
-
-    .control {
-        font-size: 24;
-    }
-
-    button {
-        color: @fg;
-        background: @bg;
-
-        border: none;
-        border-radius: 0;
-        box-shadow: none;
-        text-shadow: none;
-    }
-
-    button:hover {
-        background: @bg1;
-    }
-
-    button:active {
-        background: @bg2;
-    }
-  '';
-
-  xdg.configFile."eww/eww.yuck".text = ''
-    (defwindow music [pos gaps]
-        :monitor "<primary>"
-        :geometry (geometry
-            :x {
-                pos == "right"
-                    ? gaps == "true"
-                        ? "-8px" : "2px"
-                    : "0px"
-            }
-            :y { gaps == "true" ? "-8px" : "2px" }
-            :height {128 + 16}
-            :anchor { pos == "right" ? "bottom right" : "bottom center" }
-        )
-        :stacking "fg"
-        :windowtype "dock"
-        :wm-ignore true
-
-        (box :class "main"
-            :orientation "h"
-            :spacing 8
-            :space-evenly false
-            :height {128 + 16}
-
-            (image
-                :path song-cover
-                :image-width 128
-                :image-height 128
-            )
-
-            (box :class "left"
-                :orientation "v"
-                :spacing 0
-                :space-evenly true
-                :hexpand true
-
-                (box :class "info"
-                    :orientation "v"
-                    :space-evenly false
-                    :valign "center"
-
-                    (label :class "song-title"
-                        :text {song.title}
-                        :halign "start"
-                    )
-                    (label :class "song-album"
-                        :text {song.album}
-                        :halign "start"
-                    )
-                    (label :class "song-artist"
-                        :text {song.artist}
-                        :halign "start"
-                    )
-                )
-
-                (box :class "control"
-                    :space-evenly false
-                    :halign "center"
-                    :valign "end"
-
-                    (button
-                        :onclick `playerctl --player=cmus,firefox,%any previous`
-                        "󰒮"
-                    )
-                    (button
-                        :onclick `playerctl --player=cmus,firefox,%any play-pause`
-                        { song.status == "Playing" ? "󰏤" : "󰐊" }
-                    )
-                    (button
-                        :onclick `playerctl --player=cmus,firefox,%any next`
-                        "󰒭"
-                    )
-
-                    ; Offset controls to center of screen
-                    (box :width {128 + 8})
-                )
-            )
-        )
-    )
-
-    (deflisten song-cover
-        `playerctl --player=cmus,firefox,%any -F metadata title | get-album-art`
-    )
-
-    (deflisten song
-        `playerctl --player=cmus,firefox,%any -F metadata --format='{"title": "{{title}}", "album": "{{album}}", "artist": "{{artist}}", "status": "{{status}}"}'`
-    )
   '';
 }
