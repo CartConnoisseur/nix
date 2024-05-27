@@ -37,6 +37,7 @@
       ".irssi"      
       ".config/discord"
       ".config/Vencord"
+      ".config/vesktop"
 
       {
         directory = ".local/share/Steam";
