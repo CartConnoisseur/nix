@@ -4,9 +4,7 @@
   home.packages = with pkgs; [
     eww
 
-    (writeShellScriptBin "eww-toggle"''
-      #!/usr/bin/env bash
-
+    (writeShellScriptBin "eww-toggle" ''
       if ${pkgs.eww}/bin/eww active-windows | grep $1; then
           ${pkgs.eww}/bin/eww close $1
       else
@@ -14,24 +12,22 @@
       fi
     '')
 
-    (writeShellScriptBin "get-album-art"''
-        #!/usr/bin/env bash
-
+    (writeShellScriptBin "get-album-art" ''
         OUTFILE=".mpris-art"
 
         while read -r line; do
             if [[ -n $line ]]; then
                 rm -f ~/$OUTFILE
 
-                cmus_path=$(cmus-remote -Q | grep file | cut -c 6-)
+                cmus_path=$(${pkgs.cmus}/bin/cmus-remote -Q | grep file | cut -c 6-)
                 if [[ -n $cmus_path ]]; then
                     if [[ -f $(dirname "$cmus_path")/cover.jpg ]]; then
                         cp "$(dirname "$cmus_path")/cover.jpg" ~/$OUTFILE
                     else
-                        ffmpeg -y -v quiet -i "$cmus_path" -c:v copy -f mjpeg ~/$OUTFILE
+                        ${pkgs.ffmpeg}/bin/ffmpeg -y -v quiet -i "$cmus_path" -c:v copy -f mjpeg ~/$OUTFILE
                     fi
                 else
-                    mpris=$(playerctl --player=cmus,firefox,%any metadata mpris:artUrl)
+                    mpris=$(${pkgs.playerctl}/bin/playerctl --player=cmus,firefox,%any metadata mpris:artUrl)
 
                     if [[ $mpris == data:image* ]]; then
                         echo $mpris | sed s/.*,//g | base64 --decode > ~/$OUTFILE
@@ -54,7 +50,7 @@
 
   xdg.configFile."eww/eww.yuck".source = eww/eww.yuck;
   xdg.configFile."eww/eww.css".source = eww/eww.css;
-  
+
   xdg.configFile."eww/windows".source = eww/windows;
 
   xdg.configFile."eww/colors.css".text = let c = config.theme.colors; in ''
