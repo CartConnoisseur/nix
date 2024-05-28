@@ -91,6 +91,7 @@
         ];
 
         "${ws8}" = [ { class = "qbittorrent"; } ];
+        "${ws9}" = [ { title = "cmus"; } ];
       };
 
       startup = [
@@ -115,11 +116,11 @@
 
         # Screenshots
         #TODO: screen and full should be swapped, but currently screen is fucky :'(
-        "Shift+Print" = "exec ${pkgs.flameshot}/bin/flameshot screen -c";
-        "Print" = "exec ${pkgs.flameshot}/bin/flameshot full -c";
-        "${mod}+Shift+s" = "exec ${pkgs.flameshot}/bin/flameshot gui -c";
-        "Mod1+Shift+s" = "exec ${pkgs.flameshot}/bin/flameshot gui -c";
-        "${mod}+Ctrl+Shift+s" = "exec ${pkgs.flameshot}/bin/flameshot launcher -c";
+        "Shift+Print" = "exec --no-startup-id ${pkgs.flameshot}/bin/flameshot screen -c";
+        "Print" = "exec --no-startup-id ${pkgs.flameshot}/bin/flameshot full -c";
+        "${mod}+Shift+s" = "exec --no-startup-id ${pkgs.flameshot}/bin/flameshot gui -c";
+        "Mod1+Shift+s" = "exec --no-startup-id ${pkgs.flameshot}/bin/flameshot gui -c";
+        "${mod}+Ctrl+Shift+s" = "exec --no-startup-id ${pkgs.flameshot}/bin/flameshot launcher -c";
 
         # Media keys
         "XF86AudioRaiseVolume" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +2%";
@@ -127,11 +128,11 @@
         "XF86AudioMute" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
         "XF86AudioMicMute" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle";
 
-        "XF86AudioPlay" = "exec \"playerctl --player=cmus,firefox,%any play-pause\"";
-        "XF86AudioPause" = "exec \"playerctl --player=cmus,firefox,%any play-pause\"";
-        "XF86AudioStop" = "exec \"playerctl --player=cmus,firefox,%any stop\"";
-        "XF86AudioNext" = "exec \"playerctl --player=cmus,firefox,%any next\"";
-        "XF86AudioPrev" = "exec \"playerctl --player=cmus,firefox,%any previous\"";
+        "XF86AudioPlay" = "exec --no-startup-id \"playerctl --player=cmus,firefox,%any play-pause\"";
+        "XF86AudioPause" = "exec --no-startup-id \"playerctl --player=cmus,firefox,%any play-pause\"";
+        "XF86AudioStop" = "exec --no-startup-id \"playerctl --player=cmus,firefox,%any stop\"";
+        "XF86AudioNext" = "exec --no-startup-id \"playerctl --player=cmus,firefox,%any next\"";
+        "XF86AudioPrev" = "exec --no-startup-id \"playerctl --player=cmus,firefox,%any previous\"";
 
         # Media controller widget
         "${mod}+m" = "exec --no-startup-id eww-toggle music --arg pos=center --arg gaps=false";
