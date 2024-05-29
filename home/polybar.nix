@@ -58,10 +58,26 @@
         modules = {
           left = "cpu memory xwindow";
           center = "i3";
-          right = "wlan eth filesystem xkeyboard pulseaudio date";
+          right = "wlan eth filesystem keyboard xkeyboard pulseaudio date";
         };
       };
 
+      "module/keyboard" = {
+        type = "custom/script";
+
+        exec = "if [[ $(fcitx5-remote -n) == 'mozc' ]]; then printf 'jp'; else printf 'en'; fi";
+        
+        interval = 1;
+
+        click.left = "${pkgs.fcitx5}/bin/fcitx5-remote -t";
+
+        format = {
+          prefix = {
+            text = "󰌌 ";
+            foreground = "#${c.accent}";
+          };
+        };
+      };
 
       "module/i3" = {
         type = "internal/i3";
@@ -139,16 +155,10 @@
         indicator.icon = [ "caps lock;;󰌎" ];
 
         format = {
-          text = "<label-indicator> <label-layout>";
-
-          prefix = {
-            text = "󰌌 ";
-            foreground = "#${c.accent}";
-          };
+          text = "<label-indicator>";
         };
 
         label = {
-          layout = "%layout%";
           indicator.on = "%icon%";
         };
       };
