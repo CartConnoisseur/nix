@@ -39,6 +39,8 @@
       ".config/Vencord"
       ".config/vesktop"
 
+      ".config/Obsidian"
+      
       {
         directory = ".local/share/Steam";
         method = "symlink";
