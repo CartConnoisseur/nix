@@ -40,6 +40,9 @@
       ".config/vesktop"
 
       ".config/Obsidian"
+
+      ".config/fcitx"
+      ".config/fcitx5"
       
       {
         directory = ".local/share/Steam";

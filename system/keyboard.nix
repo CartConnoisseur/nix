@@ -20,4 +20,14 @@
       };
     };
   };
+
+  i18n.inputMethod = { 
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [ fcitx5-mozc ];
+  };
+
+  environment.variables = {
+    # Required for fcitx5 support in kitty
+    GLFW_IM_MODULE = "ibus";
+  };
 }

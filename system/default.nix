@@ -3,7 +3,7 @@
 {
   imports = [
     ./fonts.nix
-    ./keyd.nix
+    ./keyboard.nix
     ./networking.nix
     ./pipewire.nix
     ./xserver.nix
