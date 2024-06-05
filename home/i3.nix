@@ -233,5 +233,9 @@
 
       bars = [];
     };
+
+    extraConfig = ''
+      default_border normal 0
+    '';
   };
 }
