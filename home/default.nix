@@ -6,6 +6,7 @@
     ./discord.nix
     ./eww.nix
     ./fastfetch.nix
+    ./fcitx5.nix
     ./flameshot.nix
     ./git.nix
     ./gtk.nix
