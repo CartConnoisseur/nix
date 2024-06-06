@@ -11,6 +11,7 @@
 
       jnoortheen.nix-ide
       golang.go
+      ziglang.vscode-zig
     ];
 
     userSettings = {
@@ -21,6 +22,15 @@
       "git.confirmSync" = false;
 
       "vsicons.dontShowNewVersionMessage" = true;
+
+      # Zig
+      "zig.initialSetupDone" = true;
+      "zig.path" = "";
+      "zig.formattingProvider" = "off";
+
+      "zig.zls.path" = "";
+      "zig.zls.enableAutofix" = false;
+      "zig.zls.enableInlayHints" = false;
     };
   };
 }
