@@ -56,7 +56,7 @@
 
         module.margin = 1;
         modules = {
-          left = "cpu memory music";
+          left = "stat music";
           center = "i3";
           right = "wlan eth filesystem keyboard xkeyboard pulseaudio date";
         };
@@ -87,6 +87,20 @@
         format = {
           prefix = {
             text = "󰎄 ";
+            foreground = "#${c.accent}";
+          };
+        };
+      };
+
+      "module/stat" = {
+        type = "custom/script";
+
+        exec = "vmstat -n 1 | awk '{printf \"%.0f%% %.2f GiB\\\\n\", 100-$15, (31998756-($4+$5+$6))/1024/1024};fflush()'";
+        tail = true;
+
+        format = {
+          prefix = {
+            text = "󱕍 ";
             foreground = "#${c.accent}";
           };
         };
