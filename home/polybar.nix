@@ -95,7 +95,7 @@
       "module/stat" = {
         type = "custom/script";
 
-        exec = "vmstat -n 1 | awk '{printf \"%.0f%% %.2f GiB\\\\n\", 100-$15, (31998756-($4+$5+$6))/1024/1024};fflush()'";
+        exec = "vmstat -n 2 | awk '{printf \"%.0f%% %.2f GiB\\\\n\", 100-$15, (31998756-($4+$5+$6))/1024/1024};fflush()'";
         tail = true;
 
         format = {
