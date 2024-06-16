@@ -56,7 +56,7 @@
 
         module.margin = 1;
         modules = {
-          left = "cpu memory xwindow";
+          left = "cpu memory music";
           center = "i3";
           right = "wlan eth filesystem keyboard xkeyboard pulseaudio date";
         };
@@ -66,7 +66,6 @@
         type = "custom/script";
 
         exec = "if [[ $(fcitx5-remote -n) == 'mozc' ]]; then printf 'jp'; else printf 'en'; fi";
-        
         interval = 1;
 
         click.left = "${pkgs.fcitx5}/bin/fcitx5-remote -t";
@@ -74,6 +73,20 @@
         format = {
           prefix = {
             text = "󰌌 ";
+            foreground = "#${c.accent}";
+          };
+        };
+      };
+
+      "module/music" = {
+        type = "custom/script";
+
+        exec = "playerctl --player=cmus,firefox,%any -F metadata --format='{{title}} - {{artist}}'";
+        tail = true;
+
+        format = {
+          prefix = {
+            text = "󰎄 ";
             foreground = "#${c.accent}";
           };
         };
