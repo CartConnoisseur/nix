@@ -117,7 +117,8 @@
     obsidian
     prismlauncher
 
-    jetbrains.idea-community
+    #TODO: latest update broke
+    # jetbrains.idea-community
 
     cloc
     cmus
