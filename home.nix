@@ -114,8 +114,6 @@
 
     anki-bin
 
-    vesktop
-
     obsidian
     prismlauncher
 

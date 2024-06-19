@@ -5,9 +5,10 @@ let
 in {
   home.packages = with pkgs; [
     (discord.override {
-      withVencord = true;
-      withOpenASAR = true;
+      withVencord = false;
+      withOpenASAR = false;
     })
+    vesktop
   ];
 
   xdg.configFile."Vencord/themes/nix.theme.css".text = let c = config.theme.colors; in ''
