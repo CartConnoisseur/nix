@@ -3,3 +3,7 @@
 # using `eww -c /etc/nixos/home/eww`.
 # It is just a static copy of the generated file
 home/eww/colors.css
+
+# NixOS VM files
+result
+*.qcow2
