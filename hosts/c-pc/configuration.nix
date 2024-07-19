@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./networking.nix
+    ../../core
     ../../roles
   ];
 
@@ -29,27 +30,6 @@
     extraSpecialArgs = { inherit inputs; };
     users = {
       "c" = import ./home.nix;
-    };
-  };
-
-  environment = {
-    localBinInPath = true;
-
-    interactiveShellInit = ''
-      alias kitty-ssh="kitty +kitten ssh"
-
-      alias lsa="ls -lAsh"
-      alias c="codium ."
-      alias p="nix-shell -p"
-
-      mkcd() {
-        mkdir -p "$1"
-        cd "$1"
-      }
-    '';
-
-    variables = {
-      EDITOR = "${pkgs.vim}/bin/vim";
     };
   };
 
@@ -96,9 +76,6 @@
     (writeShellScriptBin "rbf" "sudo nixos-rebuild switch --flake path:/etc/nixos#default")
     (writeShellScriptBin "toys" "nix-shell -p cmatrix asciiquarium pipes cowsay figlet neofetch")
 
-    git
-    vim
-    wget
     firefox
     wineWowPackages.stable
     winetricks
@@ -108,8 +85,6 @@
 
     ffmpeg
     jellyfin
-  
-    killall
 
     go
     jdk21

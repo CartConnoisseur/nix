@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../core
     ../../roles
   ];
 
@@ -10,32 +11,6 @@
 
   networking.hostName = "copenhagen";
   time.timeZone = "America/Los_Angeles";
-
-  # home-manager = {
-  #   extraSpecialArgs = { inherit inputs; };
-  #   users = {
-  #     "c" = import ./home.nix;
-  #   };
-  # };
-
-  environment = {
-    localBinInPath = true;
-
-    interactiveShellInit = ''
-      alias lsa="ls -lAsh"
-      alias c="codium ."
-      alias p="nix-shell -p"
-
-      mkcd() {
-        mkdir -p "$1"
-        cd "$1"
-      }
-    '';
-
-    variables = {
-      EDITOR = "${pkgs.vim}/bin/vim";
-    };
-  };
 
   users.users = {
     root.password = "password";
@@ -51,10 +26,6 @@
     (writeShellScriptBin "rb" "sudo nixos-rebuild switch --flake /etc/nixos#copenhagen")
     (writeShellScriptBin "rbf" "sudo nixos-rebuild switch --flake path:/etc/nixos#copenhagen")
 
-    git
-    vim
-    wget
-    killall
     ffmpeg
   ];
 
