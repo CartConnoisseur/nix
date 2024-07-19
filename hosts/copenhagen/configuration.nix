@@ -17,17 +17,10 @@
 
     "c" = {
       isNormalUser = true;
-      password = "password";
       extraGroups = [ "wheel" "minecraft" ];
+      openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIDO8JxqS7B2n3YlNtlVMZGARi+GG/z7wLiiyl52qSZc caroline@larimo.re" ];
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    (writeShellScriptBin "rb" "sudo nixos-rebuild switch --flake /etc/nixos#copenhagen")
-    (writeShellScriptBin "rbf" "sudo nixos-rebuild switch --flake path:/etc/nixos#copenhagen")
-
-    ffmpeg
-  ];
 
   roles = {
     minecraft = {
@@ -46,9 +39,22 @@
     };
   };
 
-  # services = {
-  #   pcscd.enable = true;
-  # };
+  services = {
+    openssh = {
+      enable = true;
+      settings = {
+        PermitRootLogin = "no";
+        PasswordAuthentication = false;
+      };
+    };
+  };
+
+  environment.systemPackages = with pkgs; [
+    (writeShellScriptBin "rb" "sudo nixos-rebuild switch --flake /etc/nixos#copenhagen")
+    (writeShellScriptBin "rbf" "sudo nixos-rebuild switch --flake path:/etc/nixos#copenhagen")
+
+    ffmpeg
+  ];
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
