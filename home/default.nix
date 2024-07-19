@@ -1,5 +1,6 @@
 { ... }:
 
+#TODO: properly migrate to a module/role
 {
   imports = [
     ./discord.nix

@@ -2,18 +2,13 @@
 
 {
   services.displayManager = {
-    enable = true;
     defaultSession = "none+i3";
   };
 
   services.xserver = {
-    enable = true;
-
     videoDrivers = [ "amdgpu" ];
 
     displayManager = {
-      lightdm.enable = true;
-
       setupCommands = ''
         if ${pkgs.xorg.xrandr}/bin/xrandr --query | grep 2560x1080; then
           ${pkgs.xorg.xrandr}/bin/xrandr --output DVI-D-0 --mode 1920x1080  --rate 60  --pos 0x0
@@ -25,10 +20,6 @@
           ${pkgs.xorg.xrandr}/bin/xrandr --output DisplayPort-1 --mode 1920x1200 --rate 60 --pos 4480x0
         fi
       '';
-    };
-
-    windowManager.i3 = {
-      enable = true;
     };
 
     xkb.layout = "us";

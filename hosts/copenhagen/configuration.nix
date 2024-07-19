@@ -3,40 +3,25 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./system
+    ../../roles
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  fileSystems."/persist".neededForBoot = true;
-  environment.persistence."/persist/system" = {
-    hideMounts = true;
-    directories = [
-      "/etc/nixos"
-      "/var/log"
-      "/var/lib/nixos"
-      "/var/lib/systemd/coredump"
-      #"/var/lib/bluetooth"
-    ];
-    files = [
-      "/etc/machine-id"
-    ];
-  };
+  networking.hostName = "copenhagen";
+  time.timeZone = "America/Los_Angeles";
 
-  programs.fuse.userAllowOther = true;
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "c" = import ./home.nix;
-    };
-  };
+  # home-manager = {
+  #   extraSpecialArgs = { inherit inputs; };
+  #   users = {
+  #     "c" = import ./home.nix;
+  #   };
+  # };
 
   environment = {
     localBinInPath = true;
 
     interactiveShellInit = ''
-      alias ssh="kitty +kitten ssh"
-
       alias lsa="ls -lAsh"
       alias c="codium ."
       alias p="nix-shell -p"
@@ -52,66 +37,47 @@
     };
   };
 
-  time.timeZone = "America/Los_Angeles";
-
   users.users = {
-    root.hashedPasswordFile = "/persist/secrets/passwords/root";
+    root.password = "password";
 
     "c" = {
       isNormalUser = true;
-      hashedPasswordFile = "/persist/secrets/passwords/c";
-      extraGroups = [ "wheel" ];
+      password = "password";
+      extraGroups = [ "wheel" "minecraft" ];
     };
   };
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "steam"
-    "steam-original"
-    "steam-run"
-  ];
-
   environment.systemPackages = with pkgs; [
-    (writeShellScriptBin "rb" "sudo nixos-rebuild switch --flake /etc/nixos#default")
-    (writeShellScriptBin "rbf" "sudo nixos-rebuild switch --flake path:/etc/nixos#default")
-    (writeShellScriptBin "toys" "nix-shell -p cmatrix asciiquarium pipes cowsay figlet neofetch")
+    (writeShellScriptBin "rb" "sudo nixos-rebuild switch --flake /etc/nixos#copenhagen")
+    (writeShellScriptBin "rbf" "sudo nixos-rebuild switch --flake path:/etc/nixos#copenhagen")
 
     git
     vim
     wget
-    firefox
-    wineWowPackages.stable
-    winetricks
-
-    pulseaudio
-    playerctl
-
-    ffmpeg
-    jellyfin
-  
     killall
-
-    go
-    jdk21
-
-    lutris
-    libGL
+    ffmpeg
   ];
 
-  programs = {
-    steam.enable = true;
-
-    gnupg.agent = {
+  roles = {
+    minecraft = {
       enable = true;
-      enableSSHSupport = true;
+      servers = {
+        test = {
+          enable = true;
+          port = 25566;
+        };
+      };
     };
-
-    dconf.enable = true;
+    web = {
+      proxy.enable = true;
+      stargazers.enable = true;
+      test.enable = true;
+    };
   };
 
-  services = {
-    pcscd.enable = true;
-    printing.enable = true;
-  };
+  # services = {
+  #   pcscd.enable = true;
+  # };
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
@@ -131,4 +97,3 @@
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "23.11"; # Did you read the comment? 🤨
 }
-

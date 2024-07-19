@@ -1,0 +1,9 @@
+{ ... }:
+
+{
+  imports = [
+    ./desktop
+    ./minecraft
+    ./web
+  ];
+}
