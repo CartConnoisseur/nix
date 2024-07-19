@@ -12,6 +12,11 @@ let cfg = config.roles.desktop; in {
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      pulseaudio
+      playerctl
+    ];
+
     security.rtkit.enable = true;
 
     i18n.inputMethod.enable = true;

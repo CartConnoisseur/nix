@@ -80,9 +80,6 @@
     wineWowPackages.stable
     winetricks
 
-    pulseaudio
-    playerctl
-
     ffmpeg
     jellyfin
 
