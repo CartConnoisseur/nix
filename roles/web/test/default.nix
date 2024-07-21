@@ -28,7 +28,7 @@ let cfg = config.roles.web.test; in {
         services.nginx = {
           enable = true;
           virtualHosts = {
-            "192.168.0.2".root = "/srv/web/test";
+            "web-test".root = "/srv/web/test";
           };
         };
       };

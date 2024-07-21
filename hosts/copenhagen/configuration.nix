@@ -34,8 +34,9 @@
     };
     web = {
       proxy.enable = true;
-      stargazers.enable = true;
+      stargazers.enable = false;
       test.enable = true;
+      personal.enable = true;
     };
   };
 
