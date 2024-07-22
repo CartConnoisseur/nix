@@ -51,7 +51,7 @@
     minecraft = {
       enable = true;
       servers = {
-        test = {
+        stargazers = {
           enable = true;
           port = 25566;
         };
