@@ -28,13 +28,17 @@ in {
   };
 
   config = mkIf cfg.enable {
-    networking.firewall.allowedTCPPorts = [ 80 ];
+    networking.firewall.allowedTCPPorts = [ 80 443 ];
     
     services.nginx = {
       enable = true;
       virtualHosts = {
         "caroline.larimo.re" = {
-          serverAliases = [ "cxl.sh" "localhost" ];
+          serverAliases = [ "cxl.sh" ];
+
+          addSSL = true;
+          enableACME = true;
+
           locations."/" = {
             recommendedProxySettings = true;
             proxyPass = "http://localhost:8080/";

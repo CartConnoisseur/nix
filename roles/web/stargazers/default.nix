@@ -7,12 +7,17 @@ let cfg = config.roles.web.stargazers; in {
   };
 
   config = mkIf cfg.enable {
-    networking.firewall.allowedTCPPorts = [ 80 ];
+    networking.firewall.allowedTCPPorts = [ 80 443 ];
     
     services.nginx = {
       enable = true;
       virtualHosts = {
-        "stargazers.xn--6frz82g".root = "/srv/web/stargazers";
+        "stargazers.xn--6frz82g" = {
+          addSSL = true;
+          enableACME = true;
+
+          root = "/srv/web/stargazers";
+        };
       };
     };
   };
