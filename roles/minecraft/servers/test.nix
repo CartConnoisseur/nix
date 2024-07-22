@@ -44,7 +44,8 @@ let cfg = config.roles.minecraft.servers.test; in {
         gamemode = 1;
         max-players = 1;
         motd = ":3";
-        port = cfg.port;
+        server-port = cfg.port;
+        query-port = cfg.port;
       };
 
       symlinks.mods = pkgs.linkFarmFromDrvs "mods" (builtins.attrValues {
