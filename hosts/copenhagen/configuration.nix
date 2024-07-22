@@ -55,7 +55,7 @@
       };
     };
     web = {
-      stargazers.enable = false;
+      stargazers.enable = true;
       personal.enable = true;
     };
   };
