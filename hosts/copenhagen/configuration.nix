@@ -25,6 +25,13 @@
 
   programs.fuse.userAllowOther = true;
 
+  networking = {
+    hostName = "copenhagen";
+    hostId = "a50062ff";
+
+    useDHCP = true;
+  };
+
   time.timeZone = "America/Los_Angeles";
 
   users.users = {
@@ -58,6 +65,7 @@
   services = {
     openssh = {
       enable = true;
+      ports = [ 42069 ];
       settings = {
         PermitRootLogin = "no";
         PasswordAuthentication = false;
