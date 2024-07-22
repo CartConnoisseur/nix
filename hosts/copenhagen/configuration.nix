@@ -17,6 +17,9 @@
       "/var/log"
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
+
+      "/srv/web"
+      "/srv/minecraft"
     ];
     files = [
       "/etc/machine-id"
