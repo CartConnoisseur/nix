@@ -55,7 +55,6 @@
       };
     };
     web = {
-      proxy.enable = true;
       stargazers.enable = false;
       personal.enable = true;
     };

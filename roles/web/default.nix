@@ -3,7 +3,6 @@
 {
   imports = [
     ./personal
-    ./proxy
     ./stargazers
   ];
 }
