@@ -60,8 +60,3 @@ let cfg = config.roles.minecraft.servers.test; in {
     };
   };
 }
-
-
-
-
-
