@@ -5,6 +5,5 @@
     ./personal
     ./proxy
     ./stargazers
-    ./test
   ];
 }
