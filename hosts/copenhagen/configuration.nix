@@ -48,6 +48,13 @@
     };
   };
 
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "c" = import ./home/c.nix;
+    };
+  };
+
   roles = {
     minecraft = {
       enable = true;
