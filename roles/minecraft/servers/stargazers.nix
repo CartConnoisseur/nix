@@ -54,7 +54,7 @@ let cfg = config.roles.minecraft.servers.stargazers; in {
         };
         lithium = pkgs.fetchurl {
           url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/my7uONjU/lithium-fabric-mc1.21-0.12.7.jar";
-          sha256 = "lith";
+          sha256 = "sha256-Qku6c545jVgrdxDSNe3BULVQlMtgGuXebNqirRcmsh0=";
         };
         noChatReports = pkgs.fetchurl {
           url = "https://cdn.modrinth.com/data/qQyHxfxd/versions/riMhCAII/NoChatReports-FABRIC-1.21-v2.8.0.jar";
@@ -62,7 +62,7 @@ let cfg = config.roles.minecraft.servers.stargazers; in {
         };
         appleskin = pkgs.fetchurl {
           url = "https://cdn.modrinth.com/data/EsAfCjCV/versions/YxFxnyd4/appleskin-fabric-mc1.21-3.0.2.jar";
-          sha256 = "appleskin";
+          sha256 = "sha256-8XaZREWzA5Mi2/LTs/a6ACvDKmHWYIy8JcOfQaq4yiE=";
         };
       });
     };
