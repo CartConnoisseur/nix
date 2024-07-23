@@ -71,7 +71,15 @@
     };
   };
 
+  programs = {
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+  };
+
   services = {
+    pcscd.enable = true;
     openssh = {
       enable = true;
       ports = [ 42069 ];
