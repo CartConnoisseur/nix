@@ -38,10 +38,11 @@
   time.timeZone = "America/Los_Angeles";
 
   users.users = {
-    root.password = "password";
+    root.hashedPasswordFile = "/secrets/passwords/root";
 
     "c" = {
       isNormalUser = true;
+      hashedPasswordFile = "/secrets/passwords/c";
       extraGroups = [ "wheel" "minecraft" ];
       openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIDO8JxqS7B2n3YlNtlVMZGARi+GG/z7wLiiyl52qSZc caroline@larimo.re" ];
     };

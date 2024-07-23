@@ -36,11 +36,11 @@
   time.timeZone = "America/Los_Angeles";
 
   users.users = {
-    root.hashedPasswordFile = "/persist/secrets/passwords/root";
+    root.hashedPasswordFile = "/secrets/passwords/root";
 
     "c" = {
       isNormalUser = true;
-      hashedPasswordFile = "/persist/secrets/passwords/c";
+      hashedPasswordFile = "/secrets/passwords/c";
       extraGroups = [ "wheel" ];
     };
   };

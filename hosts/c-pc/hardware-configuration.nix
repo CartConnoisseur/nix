@@ -36,6 +36,7 @@
     "/"        = { fsType = "zfs"; device = "zpool/root"; };
     "/home"    = { fsType = "zfs"; device = "zpool/home"; };
     "/persist" = { fsType = "zfs"; device = "zpool/persist"; };
+    "/secrets" = { fsType = "zfs"; device = "zpool/secrets"; };
     "/nix"     = { fsType = "zfs"; device = "zpool/nix"; };
 
     "/boot"    = { fsType = "vfat"; device = "/dev/disk/by-uuid/12CE-A600"; };
