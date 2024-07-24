@@ -65,6 +65,7 @@
       };
     };
     web = {
+      images.enable = true;
       stargazers.enable = true;
       personal.enable = true;
     };
