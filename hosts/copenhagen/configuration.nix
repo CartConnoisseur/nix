@@ -9,7 +9,6 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  fileSystems."/persist".neededForBoot = true;
   environment.persistence."/persist/system" = {
     hideMounts = true;
     directories = [
