@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
-    ./networking.nix
+    ./hardware.nix
+    ./network.nix
     ../../core
     ../../roles
   ];
