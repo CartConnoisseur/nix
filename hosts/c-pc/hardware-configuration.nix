@@ -42,7 +42,7 @@
     "/"        = { fsType = "zfs"; device = "zpool/root"; };
     "/home"    = { fsType = "zfs"; device = "zpool/home"; };
     "/persist" = { fsType = "zfs"; device = "zpool/persist"; neededForBoot = true; };
-    "/secrets" = { fsType = "zfs"; device = "zpool/secrets"; neededForBoot = true; };
+    "/secrets" = { fsType = "zfs"; device = "zpool/secure/secrets"; neededForBoot = true; };
     "/nix"     = { fsType = "zfs"; device = "zpool/nix"; };
 
     "/boot"    = { fsType = "vfat"; device = "/dev/disk/by-uuid/12CE-A600"; };
