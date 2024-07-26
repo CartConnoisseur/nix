@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   services.displayManager = {
@@ -6,7 +6,7 @@
   };
 
   services.xserver = {
-    videoDrivers = [ "amdgpu" ];
+    videoDrivers = config.roles.desktop.videoDrivers;
 
     displayManager = {
       setupCommands = config.roles.desktop.setupCommands;

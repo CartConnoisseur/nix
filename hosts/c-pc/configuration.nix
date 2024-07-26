@@ -56,6 +56,7 @@
   roles = {
     desktop = {
       enable = true;
+      videoDrivers = [ "amdgpu" ];
       setupCommands = ''
         if ${pkgs.xorg.xrandr}/bin/xrandr --query | grep 2560x1080; then
           ${pkgs.xorg.xrandr}/bin/xrandr --output DVI-D-0 --mode 1920x1080  --rate 60  --pos 0x0

@@ -10,6 +10,11 @@ let cfg = config.roles.desktop; in {
   options.roles.desktop = {
     enable = mkEnableOption "desktop";
 
+    videoDrivers = mkOption {
+      type = types.listOf types.str;
+      default = [ "modesetting" "fbdev" ];
+    };
+    
     setupCommands = mkOption {
       type = types.lines;
       default = "";
