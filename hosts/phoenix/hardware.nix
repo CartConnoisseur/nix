@@ -38,11 +38,11 @@
   };
 
   fileSystems = {
-    "/"        = { fsType = "zfs"; device = "zpool/root"; };
-    "/nix"     = { fsType = "zfs"; device = "zpool/secure/nix"; };
-    "/home"    = { fsType = "zfs"; device = "zpool/home"; };
-    "/persist" = { fsType = "zfs"; device = "zpool/secure/persist"; neededForBoot = true; };
-    "/secrets" = { fsType = "zfs"; device = "zpool/secure/secrets"; neededForBoot = true; };
+    "/"        = { fsType = "zfs"; neededForBoot = true; device = "zpool/root"; };
+    "/nix"     = { fsType = "zfs"; neededForBoot = true; device = "zpool/secure/nix"; };
+    "/home"    = { fsType = "zfs"; neededForBoot = true; device = "zpool/home"; };
+    "/persist" = { fsType = "zfs"; neededForBoot = true; device = "zpool/secure/persist"; };
+    "/secrets" = { fsType = "zfs"; neededForBoot = true; device = "zpool/secure/secrets"; };
 
     "/boot"    = { fsType = "vfat"; device = "/dev/disk/by-uuid/C48C-5EE1"; };
   };
