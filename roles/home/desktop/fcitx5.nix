@@ -1,5 +1,5 @@
 # This file only handles theming of fcitx5.
-{ lib, pkgs, config, ... }:
+{ config, lib, pkgs, ... }:
 
 lib.mkIf config.home.roles.desktop.enable {
   xdg.dataFile."fcitx5/themes/nix-theme/theme.conf".source = let c = config.theme.colors; in (pkgs.formats.ini { }).generate "what" {

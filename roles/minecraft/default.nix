@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, lib, inputs, ... }:
 with lib;
 
 let cfg = config.roles.minecraft; in {

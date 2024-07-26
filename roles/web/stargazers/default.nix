@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, lib, ... }:
 with lib;
 
 let cfg = config.roles.web.stargazers; in {

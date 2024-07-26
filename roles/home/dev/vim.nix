@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 # Honestly, I'm pretty disappointed with
 #   home-manager's `programs.vim`. It's kinda bad and

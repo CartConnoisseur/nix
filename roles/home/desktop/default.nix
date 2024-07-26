@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, lib, pkgs, ... }:
 with lib;
 
 let cfg = config.home.roles.desktop; in {
