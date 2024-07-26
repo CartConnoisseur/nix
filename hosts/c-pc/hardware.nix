@@ -40,16 +40,17 @@
   };
 
   fileSystems = {
-    "/"        = { fsType = "zfs"; device = "zpool/root"; };
-    "/nix"     = { fsType = "zfs"; device = "zpool/nix";  };
-    "/home"    = { fsType = "zfs"; device = "zpool/home"; };
-    "/persist" = { fsType = "zfs"; device = "zpool/persist"; neededForBoot = true; };
-    "/secrets" = { fsType = "zfs"; device = "zpool/secure/secrets"; neededForBoot = true; };
+    "/"               = { fsType = "zfs"; device = "zpool/root"; };
+    "/nix"            = { fsType = "zfs"; device = "zpool/nix";  };
+    "/home"           = { fsType = "zfs"; device = "zpool/home"; };
+    "/persist"        = { fsType = "zfs"; device = "zpool/persist"; neededForBoot = true; };
+    "/persist/secure" = { fsType = "zfs"; device = "zpool/secure/persist"; neededForBoot = true; };
+    "/secrets"        = { fsType = "zfs"; device = "zpool/secure/secrets"; neededForBoot = true; };
 
-    "/boot"    = { fsType = "vfat"; device = "/dev/disk/by-uuid/12CE-A600"; };
+    "/boot"           = { fsType = "vfat"; device = "/dev/disk/by-uuid/12CE-A600"; };
 
-    "/mnt/4tb" = { fsType = "ext4"; device = "/dev/disk/by-label/4tb"; };
-    "/mnt/ssd" = { fsType = "ext4"; device = "/dev/disk/by-label/ssd-256"; };
+    "/mnt/4tb"        = { fsType = "ext4"; device = "/dev/disk/by-label/4tb"; };
+    "/mnt/ssd"        = { fsType = "ext4"; device = "/dev/disk/by-label/ssd-256"; };
   };
 
   swapDevices = [ ];

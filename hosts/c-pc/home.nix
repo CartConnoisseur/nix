@@ -26,9 +26,6 @@
       "Persist"
 
       "code"
-
-      ".gnupg"
-      ".ssh"
       
       ".local/bin"
       ".local/share/applications"
@@ -71,6 +68,15 @@
 
     files = [
       ".Xresources"
+    ];
+  };
+
+  home.persistence."/persist/secure/home" = {
+    allowOther = true;
+
+    directories = [
+      ".gnupg"
+      ".ssh"
     ];
   };
 

@@ -17,6 +17,7 @@ See [Hardware Configuration](hosts/c-pc/hardware-configuration.nix)
         - `persist` -> `/persist`
         - `secure` (encrypted)
             - `secrets` -> `/secrets`
+            - `persist` -> `/persist/secure`
         - `nix` -> `/nix`
 - 4tb HDD
     - `4tb` (ext4) -> `/mnt/4tb`
