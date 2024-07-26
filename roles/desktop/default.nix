@@ -9,6 +9,14 @@ let cfg = config.roles.desktop; in {
 
   options.roles.desktop = {
     enable = mkEnableOption "desktop";
+
+    setupCommands = mkOption {
+      type = types.lines;
+      default = "";
+      description = ''
+        Shell commands executed just after the X server has started.
+      '';
+    };
   };
 
   config = mkIf cfg.enable {
