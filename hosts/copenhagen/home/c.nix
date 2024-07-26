@@ -8,13 +8,14 @@
   home.stateVersion = "23.11";
 
   home.persistence."/persist/home/c" = {
+    allowOther = true;
+    
     directories = [
       ".gnupg"
       ".ssh"
       
       ".local/bin"
     ];
-    allowOther = true;
   };
 
 

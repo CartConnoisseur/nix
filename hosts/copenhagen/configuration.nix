@@ -11,6 +11,7 @@
 
   environment.persistence."/persist/system" = {
     hideMounts = true;
+    
     directories = [
       "/etc/nixos"
       "/var/log"
@@ -20,6 +21,7 @@
       "/srv/web"
       "/srv/minecraft"
     ];
+
     files = [
       "/etc/machine-id"
     ];

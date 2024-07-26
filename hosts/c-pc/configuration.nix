@@ -12,6 +12,7 @@
 
   environment.persistence."/persist/system" = {
     hideMounts = true;
+
     directories = [
       "/etc/nixos"
       "/var/log"
@@ -19,6 +20,7 @@
       "/var/lib/systemd/coredump"
       #"/var/lib/bluetooth"
     ];
+    
     files = [
       "/etc/machine-id"
     ];

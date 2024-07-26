@@ -14,6 +14,8 @@
   home.stateVersion = "23.11";
 
   home.persistence."/persist/home" = {
+    allowOther = true;
+
     directories = [
       "Downloads"
       "Documents"
@@ -66,10 +68,10 @@
       ".config/nicotine"
       ".local/share/nicotine"
     ];
+
     files = [
       ".Xresources"
     ];
-    allowOther = true;
   };
 
   programs = {

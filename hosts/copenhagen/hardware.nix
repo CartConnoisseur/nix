@@ -12,6 +12,7 @@
       zfsSupport = true;
       efiSupport = true;
       efiInstallAsRemovable = true;
+      
       mirroredBoots = [
         { devices = [ "nodev" ]; path = "/boot"; }
       ];
@@ -38,10 +39,10 @@
 
   fileSystems = {
     "/"        = { fsType = "zfs"; device = "zpool/root"; };
+    "/nix"     = { fsType = "zfs"; device = "zpool/nix";  };
     "/home"    = { fsType = "zfs"; device = "zpool/home"; };
     "/persist" = { fsType = "zfs"; device = "zpool/persist"; neededForBoot = true; };
     "/secrets" = { fsType = "zfs"; device = "zpool/secrets"; neededForBoot = true; };
-    "/nix"     = { fsType = "zfs"; device = "zpool/nix"; };
 
     "/boot"    = { fsType = "vfat"; device = "/dev/disk/by-uuid/DF61-E3BD"; };
 
