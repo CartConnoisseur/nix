@@ -11,8 +11,6 @@
   # This lets me switch out my theme without making changes in git
   theme = import ../../theme.nix;
 
-  home.stateVersion = "23.11";
-
   home.persistence."/persist/home" = {
     allowOther = true;
 
@@ -135,4 +133,6 @@
   home.file = {
     ".0b".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.local/share/PrismLauncher/instances/0b/.minecraft";
   };
+
+  home.stateVersion = "23.11";
 }
