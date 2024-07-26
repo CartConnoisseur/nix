@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   programs.vscode = {
@@ -44,5 +44,12 @@
       "zig.zls.enableAutofix" = false;
       "zig.zls.enableInlayHints" = false;
     };
+  };
+
+  xdg.desktopEntries.nixeditor = lib.mkIf config.programs.vscode.enable {
+    name = "NixOS Config";
+    genericName = "Edit in VSCode";
+    icon = "nix-snowflake";
+    exec = "${pkgs.vscodium}/bin/codium /etc/nixos";
   };
 }
