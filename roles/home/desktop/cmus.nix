@@ -5,6 +5,13 @@ lib.mkIf config.home.roles.desktop.music {
     cmus
   ];
 
+  xdg.desktopEntries.cmus = {
+    name = "cmus";
+    genericName = "Music Player";
+    exec = "${pkgs.kitty}/bin/kitty ${pkgs.cmus}/bin/cmus";
+    categories = [ "Music" "Player" "Audio" "ConsoleOnly" ];
+  };
+
   xdg.configFile."cmus/rc".text = let c = config.theme.colors; in ''
     set auto_expand_albums_follow=false
     set pause_on_output_change=true
