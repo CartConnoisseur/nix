@@ -16,7 +16,7 @@
 
   outputs = {nixpkgs, ...} @inputs: {
     nixosConfigurations = {
-      default = nixpkgs.lib.nixosSystem {
+      c-pc = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/c-pc/configuration.nix
