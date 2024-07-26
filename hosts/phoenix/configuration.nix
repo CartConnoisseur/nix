@@ -46,8 +46,15 @@
     };
   };
 
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "c" = import ./home.nix;
+    };
+  };
+
   roles = {
-    
+    desktop.enable = true;
   };
 
   programs = {
@@ -55,6 +62,8 @@
       enable = true;
       enableSSHSupport = true;
     };
+
+    dconf.enable = true;
   };
 
   services = {
