@@ -5,8 +5,6 @@
     inputs.impermanence.nixosModules.home-manager.impermanence
   ];
 
-  home.stateVersion = "23.11";
-
   home.persistence."/persist/home/c" = {
     allowOther = true;
     
@@ -17,7 +15,6 @@
       ".local/bin"
     ];
   };
-
 
   programs = {
     git = {
@@ -41,4 +38,6 @@
   home.packages = with pkgs; [
     cloc
   ];
+
+  home.stateVersion = "23.11";
 }
