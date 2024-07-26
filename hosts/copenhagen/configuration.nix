@@ -93,9 +93,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    (writeShellScriptBin "rb" "sudo nixos-rebuild switch --flake /etc/nixos#copenhagen")
-    (writeShellScriptBin "rbf" "sudo nixos-rebuild switch --flake path:/etc/nixos#copenhagen")
-
     ffmpeg
   ];
 

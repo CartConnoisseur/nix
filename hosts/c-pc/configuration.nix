@@ -87,8 +87,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    (writeShellScriptBin "rb" "sudo nixos-rebuild switch --flake /etc/nixos#default")
-    (writeShellScriptBin "rbf" "sudo nixos-rebuild switch --flake path:/etc/nixos#default")
     (writeShellScriptBin "toys" "nix-shell -p cmatrix asciiquarium pipes cowsay figlet neofetch")
 
     firefox
