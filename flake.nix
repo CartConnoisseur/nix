@@ -14,8 +14,7 @@
     nix-minecraft.url = "github:CartConnoisseur/nix-minecraft";
   };
 
-  outputs = {nixpkgs, ...} @ inputs:
-  {
+  outputs = {nixpkgs, ...} @inputs: {
     nixosConfigurations = {
       default = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
