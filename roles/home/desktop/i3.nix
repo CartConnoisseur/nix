@@ -2,8 +2,6 @@
 
 {
   xsession.windowManager.i3 = {
-    enable = true;
-
     config = let
       #NOTE: Alt (Mod1) and meta (Mod4) have been swapped by keyd.
       mod = "Mod4";
@@ -98,7 +96,7 @@
         { command = "polybar-msg cmd quit"; always = true; notification = false; }
         { command = "polybar"; always = true; notification = false; }
         { command = "systemctl --user restart picom"; always = true; notification = false; }
-        { command = "${pkgs.feh}/bin/feh --bg-fill ${../assets/bg/${config.theme.background}}"; always = true; notification = false; }
+        { command = "${pkgs.feh}/bin/feh --bg-fill ${../../../assets/bg/${config.theme.background}}"; always = true; notification = false; }
         { command = "${pkgs.fcitx5}/bin/fcitx5 -r -d"; always = true; notification = false; }
 
         { command = "${pkgs.premid}/bin/premid --no-sandbox"; always = false; notification = false; }

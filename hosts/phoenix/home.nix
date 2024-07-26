@@ -4,7 +4,7 @@
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
 
-    ../../home
+    ../../roles/home
   ];
   
   theme = import ../../theme.nix;
@@ -58,6 +58,15 @@
     files = [
       ".Xresources"
     ];
+  };
+
+  home.roles = {
+    dev = {
+      enable = true;
+      key = ""; #TODO: create signing key for phoenix
+    };
+    
+    desktop.enable = true;
   };
 
   programs = {

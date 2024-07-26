@@ -2,7 +2,6 @@
 
 {
   programs.fastfetch = {
-    enable = true;
     package = (pkgs.fastfetch.overrideAttrs (finalAttrs: previousAttrs: {
       cmakeFlags = [(lib.cmakeBool "ENABLE_IMAGEMAGICK6" true)];
     }));
@@ -10,7 +9,7 @@
     settings = {
       logo = {
         type = "kitty-direct";
-        source = "$(ls ${../assets/fastfetch}/*.png | shuf -n 1)";
+        source = "$(ls ${../../../assets/fastfetch}/*.png | shuf -n 1)";
 
         width = 36;
         height = 32;

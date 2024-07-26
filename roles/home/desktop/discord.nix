@@ -1,8 +1,8 @@
 { config, lib, pkgs, ... }:
 
 let
-  conversion = import ../util/color-conversion.nix { inherit lib; };
-in {
+  conversion = import ../../../util/color-conversion.nix { inherit lib; };
+in lib.mkIf config.home.roles.desktop.discord {
   home.packages = with pkgs; [
     (discord.override {
       withVencord = false;

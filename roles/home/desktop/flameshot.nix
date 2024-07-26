@@ -2,8 +2,6 @@
 
 {
   services.flameshot = {
-    enable = true;
-
     settings = let c = config.theme.colors; in {
       General = {
         savePath = "Pictures/Screenshots";

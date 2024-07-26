@@ -2,8 +2,6 @@
 
 {
   programs.rofi = {
-    enable = true;
-
     font = "monospace 12";
 
     theme = let

@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 # Honestly, I'm pretty disappointed with
 #   home-manager's `programs.vim`. It's kinda bad and
 #   won't let me run `highlight` after `colorscheme`
 
-{
+lib.mkIf config.home.roles.dev.enable {
   home.file.".vim/vimrc".text = ''
     set number
     set relativenumber

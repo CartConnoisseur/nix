@@ -2,8 +2,6 @@
 
 {
   programs.kitty = {
-    enable = true;
-
     font = { name = "monospace"; size = 8.0; };
 
     settings = let c = config.theme.colors; in {

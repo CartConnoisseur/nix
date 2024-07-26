@@ -16,24 +16,12 @@
     ];
   };
 
-  programs = {
-    git = {
+  home.roles = {
+    dev = {
       enable = true;
-
-      userName = "Caroline Larimore";
-      userEmail = "caroline@larimo.re";
-
-      signing = {
-        key = "DE64538967CA0C68";
-        signByDefault = true;
-      };
-
-      ignores = [
-        "*~"
-        "*.swp"
-      ];
+      key = "DE64538967CA0C68";
     };
-  };
+  }
 
   home.packages = with pkgs; [
     cloc

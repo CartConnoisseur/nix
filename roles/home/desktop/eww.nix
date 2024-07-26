@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 
-{
+lib.mkIf config.home.roles.desktop.eww {
   home.packages = with pkgs; [
     eww
 
@@ -39,7 +39,7 @@
                 if [[ -f ~/$OUTFILE ]]; then
                     :
                 else
-                    cp ${../assets/album_art_placeholder.png} ~/$OUTFILE
+                    cp ${../../../assets/album_art_placeholder.png} ~/$OUTFILE
                 fi
 
                 echo ~/$OUTFILE

@@ -2,7 +2,6 @@
 
 {
   services.polybar = {
-    enable = true;
     script = "polybar";
 
     package = pkgs.polybar.override {

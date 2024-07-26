@@ -4,7 +4,7 @@
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
 
-    ../../home
+    ../../roles/home
   ];
 
   # theme.nix is an untracked symlink to a theme under ./themes/
@@ -76,6 +76,15 @@
       ".gnupg"
       ".ssh"
     ];
+  };
+
+  home.roles = {
+    dev = {
+      enable = true;
+      key = "314C14641E707B68";
+    };
+    
+    desktop.enable = true;
   };
 
   programs = {
