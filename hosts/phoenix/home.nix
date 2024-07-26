@@ -99,8 +99,6 @@
 
     obsidian
     prismlauncher
-
-    cloc
   ];
 
   home.stateVersion = "23.11";

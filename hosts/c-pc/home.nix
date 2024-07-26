@@ -128,8 +128,6 @@
 
     #TODO: latest update broke
     # jetbrains.idea-community
-
-    cloc
   ];
 
   home.file = {

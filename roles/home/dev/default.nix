@@ -22,5 +22,9 @@ let cfg = config.home.roles.dev; in {
       git.enable = true;
       vscode.enable = config.home.roles.desktop.enable;
     };
+
+    home.packages = with pkgs; [
+      cloc
+    ];
   };
 }
