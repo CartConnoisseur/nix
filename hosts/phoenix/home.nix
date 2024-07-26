@@ -101,7 +101,6 @@
     prismlauncher
 
     cloc
-    cmus
   ];
 
   home.stateVersion = "23.11";

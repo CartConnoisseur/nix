@@ -19,6 +19,7 @@ let cfg = config.home.roles.desktop; in {
     ./mpv.nix
     ./flameshot.nix
     ./fastfetch.nix
+    ./cmus.nix
   ];
 
   options.home.roles.desktop = {
@@ -28,19 +29,28 @@ let cfg = config.home.roles.desktop; in {
       type = types.bool;
       default = true;
     };
+
     eww = mkOption {
       type = types.bool;
       default = true;
     };
+
     mpv = mkOption {
       type = types.bool;
       default = true;
     };
+
     screenshot = mkOption {
       type = types.bool;
       default = true;
     };
+
     fetch = mkOption {
+      type = types.bool;
+      default = true;
+    };
+
+    music = mkOption {
       type = types.bool;
       default = true;
     };
