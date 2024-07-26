@@ -41,3 +41,18 @@ See [Hardware Configuration](hosts/copenhagen/hardware-configuration.nix)
 - Old Server HDD
     - `boot` (fat32, unlabeled)
     - `box` (ext4) -> `/mnt/old`
+
+## phoenix
+Rarely-used laptop
+
+### Disks / Partitions
+See [Hardware Configuration](hosts/phoenix/hardware-configuration.nix)
+- Main SSD
+    - `boot` (fat32) -> `/boot`
+    - `zpool` (zfs pool)
+        - `root` -> `/`
+        - `home` -> `/home`
+        - `secure` (encrypted)
+            - `nix` -> `/nix`
+            - `persist` -> `/persist`
+            - `secrets` -> `/secrets`
