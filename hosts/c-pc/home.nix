@@ -63,10 +63,6 @@
       ".config/nicotine"
       ".local/share/nicotine"
     ];
-
-    files = [
-      ".Xresources"
-    ];
   };
 
   home.persistence."/persist/secure/home" = {
@@ -83,7 +79,7 @@
       enable = true;
       key = "314C14641E707B68";
     };
-    
+
     desktop.enable = true;
   };
 
@@ -115,8 +111,6 @@
     '')
 
     pfetch
-
-    kdePackages.breeze
 
     irssi
 

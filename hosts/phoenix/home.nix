@@ -54,10 +54,6 @@
       ".local/share/lutris"
       ".local/share/PrismLauncher"
     ];
-
-    files = [
-      ".Xresources"
-    ];
   };
 
   home.roles = {
@@ -65,7 +61,7 @@
       enable = true;
       key = ""; #TODO: create signing key for phoenix
     };
-    
+
     desktop.enable = true;
   };
 
@@ -95,8 +91,6 @@
     '')
 
     pfetch
-
-    kdePackages.breeze
 
     qbittorrent
     jellyfin-media-player
