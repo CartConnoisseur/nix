@@ -27,12 +27,6 @@
   };
 
   programs.fuse.userAllowOther = true;
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "c" = import ./home.nix;
-    };
-  };
 
   time.timeZone = "America/Los_Angeles";
 
@@ -43,6 +37,13 @@
       isNormalUser = true;
       hashedPasswordFile = "/secrets/passwords/c";
       extraGroups = [ "wheel" ];
+    };
+  };
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "c" = import ./home.nix;
     };
   };
 
@@ -90,6 +91,6 @@
     lutris
     libGL
   ];
-
+  
   system.stateVersion = "23.11";
 }
