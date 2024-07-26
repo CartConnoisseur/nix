@@ -30,7 +30,7 @@
     hostName = "phoenix";
     hostId = "d62900ff";
 
-    useDHCP = true;
+    networkmanager.enable = true;
   };
 
   time.timeZone = "America/Los_Angeles";
