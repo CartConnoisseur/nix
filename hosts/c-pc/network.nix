@@ -10,9 +10,9 @@
     wireless = {
       enable = true;
 
-      environmentFile = "/persist/secrets/wireless.env";
+      environmentFile = "/secrets/wireless.env";
       networks = {
-        "The Dwyers".psk = "@PSK@";
+        "@SSID@".psk = "@PSK@";
       };
     };
 
