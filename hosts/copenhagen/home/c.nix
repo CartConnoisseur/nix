@@ -21,7 +21,7 @@
       enable = true;
       key = "DE64538967CA0C68";
     };
-  }
+  };
 
   home.packages = with pkgs; [
     cloc
