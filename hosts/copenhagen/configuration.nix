@@ -18,6 +18,8 @@
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
 
+      "/var/lib/acme"
+
       "/srv/web"
       "/srv/minecraft"
     ];
