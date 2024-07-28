@@ -27,32 +27,32 @@ let cfg = config.home.roles.desktop; in {
 
     discord = mkOption {
       type = types.bool;
-      default = true;
+      default = cfg.enable;
     };
 
     eww = mkOption {
       type = types.bool;
-      default = true;
+      default = cfg.enable;
     };
 
     mpv = mkOption {
       type = types.bool;
-      default = true;
+      default = cfg.enable;
     };
 
     screenshot = mkOption {
       type = types.bool;
-      default = true;
+      default = cfg.enable;
     };
 
     fetch = mkOption {
       type = types.bool;
-      default = true;
+      default = cfg.enable;
     };
 
     music = mkOption {
       type = types.bool;
-      default = true;
+      default = cfg.enable;
     };
   };
 
