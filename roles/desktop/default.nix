@@ -43,6 +43,7 @@ let cfg = config.roles.desktop; in {
         windowManager.i3.enable = true;
       };
       
+      libinput.enable = true;
       keyd.enable = true;
 
       pipewire = {
