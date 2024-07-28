@@ -79,6 +79,7 @@
 
   environment.systemPackages = with pkgs; [
     ffmpeg
+    firefox
   ];
 
   system.stateVersion = "24.05";
