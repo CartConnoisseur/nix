@@ -59,7 +59,7 @@
   home.roles = {
     dev = {
       enable = true;
-      key = ""; #TODO: create signing key for phoenix
+      key = "46008DE7867DA084";
     };
 
     desktop.enable = true;
