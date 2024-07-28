@@ -3,6 +3,8 @@
 {
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
+
+    ../../../roles/home
   ];
 
   home.persistence."/persist/home/c" = {
