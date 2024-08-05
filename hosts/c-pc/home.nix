@@ -97,19 +97,6 @@
   ];
 
   home.packages = with pkgs; [
-    (writeShellScriptBin "switch-theme" ''
-      #!/usr/bin/env bash
-
-      cd /etc/nixos
-
-      rm theme.nix
-      ln -s ./themes/$1.nix theme.nix
-
-      sudo nixos-rebuild switch --flake /etc/nixos#default
-
-      i3-msg restart
-    '')
-
     pfetch
 
     irssi
