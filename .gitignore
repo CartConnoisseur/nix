@@ -1,8 +1,8 @@
 # eww colors.css is generated from the current theme. This copy is for local
 # widget development without rebuilding my entire system for every change,
-# using `eww -c /etc/nixos/home/eww`.
+# using `eww -c /etc/nixos/roles/home/desktop/eww/`.
 # It is just a static copy of the generated file
-home/eww/colors.css
+roles/home/desktop/eww/colors.css
 
 # NixOS VM files
 result
