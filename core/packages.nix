@@ -9,5 +9,6 @@
     vim
     wget
     killall
+    jq
   ];
 }
