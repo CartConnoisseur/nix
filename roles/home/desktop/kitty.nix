@@ -56,6 +56,8 @@
 
       color166 = "#${c.orange}";
       color208 = "#${c.brightOrange}";
+
+      color231 = "#${c.accent}";
     };
 
     shellIntegration = {
