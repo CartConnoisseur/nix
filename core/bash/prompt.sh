@@ -45,14 +45,18 @@ function prompt.git {
 function prompt.prepare {
     local err=$?
     PS1='\n'
-    
+
     local subshell=''
+    local base_shlvl=1
+    if [[ "$TERM_PROGRAM" == 'vscode' ]]; then base_shlvl=2; fi
+    local shlvl=$((SHLVL-base_shlvl))
+
     if [[ -n "$IN_NIX_SHELL" ]]; then
         subshell="\\[\e[33m\\]nix"
     fi
-    if [[ $SHLVL != 1 && ! ($SHLVL == 2 && -n "$IN_NIX_SHELL") ]]; then
+    if [[ $shlvl != 0 && ! ($shlvl == 1 && -n "$IN_NIX_SHELL") ]]; then
         if [[ -n "$subshell" ]]; then subshell+="\\[\e[39m\\] "; fi
-        subshell+="\\[\e[2;37m\\]$SHLVL"
+        subshell+="\\[\e[2;37m\\]$shlvl"
     fi
     if [[ -n "$subshell" ]]; then
         PS1+="$(prompt.bubble "$subshell") "
