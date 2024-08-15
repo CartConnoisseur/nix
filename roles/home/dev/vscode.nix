@@ -24,6 +24,7 @@
       "workbench.colorTheme" = "Gruvbox Dark Medium";
       "workbench.iconTheme" = "vscode-icons";
       "window.titleBarStyle" = "custom";
+      "editor.fontFamily" = "monospace";
 
       "git.confirmSync" = false;
 
