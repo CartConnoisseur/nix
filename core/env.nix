@@ -6,6 +6,8 @@
 
     #TODO: migrate to writeShellScriptBin
     interactiveShellInit = ''
+      source "${./bash}/prompt.sh"
+
       alias lsa="ls -lAsh"
       alias c="codium ."
       alias p="nix-shell -p"
