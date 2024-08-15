@@ -1,71 +1,82 @@
-if [[ "$TERM" == "xterm-kitty" ]]; then
-    source "$(dirname "${BASH_SOURCE[0]}")/git-prompt.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/git-prompt.sh"
 
+PROMPT_CHAR='❯'
+
+if [[ "$TERM" == "xterm-kitty" ]]; then
     function prompt.bubble {
         printf '\[\e[49m\e[38;5;237m\]◖\[\e[48;5;237m\e[39m\]%s\[\e[0m\e[49m\e[38;5;237m\]◗\[\e[0m\]' "$@";
     }
-
-    function prompt.git {
-        GIT_PS1_STATESEPARATOR=';'
-        GIT_PS1_SHOWDIRTYSTATE=1
-        GIT_PS1_SHOWUNTRACKEDFILES=
-        GIT_PS1_SHOWUPSTREAM=
-
-        GIT_PS1_HIDE_IF_PWD_IGNORED=1
-        
-        local git_ps1="$(__git_ps1)"
-        git_ps1="${git_ps1##' ('}"
-        git_ps1="${git_ps1%')'}"
-
-        IFS=';' read -r branch state _ <<< "$git_ps1"
-
-        if [[ -n "$branch" ]]; then
-            printf ' '
-
-            if [[ "$state" == '*' ]]; then
-                prompt.bubble "$(printf '\[\e[4;32m\]%s' "$branch")"
-            else
-                prompt.bubble "$(printf '\[\e[32m\]%s' "$branch")"
-            fi
-        fi
+elif [[ "$TERM" == "xterm-256color" ]]; then
+    function prompt.bubble {
+        printf '\[\e[38;5;237m\](\[\e[0m\]%s\[\e[0m\e[38;5;237m\])\[\e[0m\]' "$@";
     }
-
-    function prompt.prepare {
-        local err=$?
-        PS1='\n'
-        
-        local subshell=''
-        if [[ -n "$IN_NIX_SHELL" ]]; then
-            subshell="\\[\e[33m\\]nix"
-        fi
-        if [[ $SHLVL != 1 && ! ($SHLVL == 2 && -n "$IN_NIX_SHELL") ]]; then
-            if [[ -n "$subshell" ]]; then subshell+="\\[\e[39m\\] "; fi
-            subshell+="\\[\e[2;37m\\]$SHLVL"
-        fi
-        if [[ -n "$subshell" ]]; then
-            PS1+="$(prompt.bubble "$subshell") "
-        fi
-
-        if [[ $EUID == 0 ]]; then
-            PS1+="$(prompt.bubble "\\[\e[4m\\]\u@\H")"
-        else
-            PS1+="$(prompt.bubble "\u@\H")"
-        fi
-
-        PS1+=" $(prompt.bubble "\\[\e[34m\\]\w")"
-        PS1+="$(prompt.git)"
-        if [[ $err != 0 ]]; then
-            PS1+=" $(prompt.bubble "\\[\e[31m\\]$err")"
-        fi
-        PS1+=" $(prompt.bubble "❯") "
-
-        if [[ $err != 0 ]]; then
-            (exit "$err")
-        fi
+else
+    PROMPT_CHAR='>'
+    function prompt.bubble {
+        printf '\[\e[2;39m\](\[\e[0m\]%s\[\e[0m\e[2;39m\])\[\e[0m\]' "$@";
     }
-
-    PROMPT_COMMAND='prompt.prepare'
 fi
+
+function prompt.git {
+    GIT_PS1_STATESEPARATOR=';'
+    GIT_PS1_SHOWDIRTYSTATE=1
+    GIT_PS1_SHOWUNTRACKEDFILES=
+    GIT_PS1_SHOWUPSTREAM=
+
+    GIT_PS1_HIDE_IF_PWD_IGNORED=1
+    
+    local git_ps1="$(__git_ps1)"
+    git_ps1="${git_ps1##' ('}"
+    git_ps1="${git_ps1%')'}"
+
+    IFS=';' read -r branch state _ <<< "$git_ps1"
+
+    if [[ -n "$branch" ]]; then
+        printf ' '
+
+        if [[ "$state" == '*' ]]; then
+            prompt.bubble "$(printf '\[\e[4;32m\]%s' "$branch")"
+        else
+            prompt.bubble "$(printf '\[\e[32m\]%s' "$branch")"
+        fi
+    fi
+}
+
+function prompt.prepare {
+    local err=$?
+    PS1='\n'
+    
+    local subshell=''
+    if [[ -n "$IN_NIX_SHELL" ]]; then
+        subshell="\\[\e[33m\\]nix"
+    fi
+    if [[ $SHLVL != 1 && ! ($SHLVL == 2 && -n "$IN_NIX_SHELL") ]]; then
+        if [[ -n "$subshell" ]]; then subshell+="\\[\e[39m\\] "; fi
+        subshell+="\\[\e[2;37m\\]$SHLVL"
+    fi
+    if [[ -n "$subshell" ]]; then
+        PS1+="$(prompt.bubble "$subshell") "
+    fi
+
+    if [[ $EUID == 0 ]]; then
+        PS1+="$(prompt.bubble "\\[\e[4m\\]\u@\H")"
+    else
+        PS1+="$(prompt.bubble "\u@\H")"
+    fi
+
+    PS1+=" $(prompt.bubble "\\[\e[34m\\]\w")"
+    PS1+="$(prompt.git)"
+    if [[ $err != 0 ]]; then
+        PS1+=" $(prompt.bubble "\\[\e[31m\\]$err")"
+    fi
+    PS1+=" $(prompt.bubble "$PROMPT_CHAR") "
+
+    if [[ $err != 0 ]]; then
+        (exit "$err")
+    fi
+}
+
+PROMPT_COMMAND='prompt.prepare'
 
 function baller {
     printf '🮲🮳⚽︎ \n'
