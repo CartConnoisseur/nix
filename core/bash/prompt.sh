@@ -5,10 +5,6 @@ if [[ "$TERM" == "xterm-kitty" ]]; then
         printf '\[\e[49m\e[38;5;237m\]◖\[\e[48;5;237m\e[39m\]%s\[\e[0m\e[49m\e[38;5;237m\]◗\[\e[0m\]' "$@";
     }
 
-    function prompt.bubble_squared {
-        printf '\[\e[48;5;237m\e[39m\] %s\[\e[0m\e[49m\e[38;5;237m\]◗\[\e[0m\]' "$@";
-    }
-
     function prompt.git {
         GIT_PS1_STATESEPARATOR=';'
         GIT_PS1_SHOWDIRTYSTATE=1
@@ -36,10 +32,20 @@ if [[ "$TERM" == "xterm-kitty" ]]; then
 
     function prompt.prepare {
         local err=$?
-
         PS1='\n'
+        
+        local subshell=''
+        if [[ -n "$IN_NIX_SHELL" ]]; then
+            subshell="\\[\e[33m\\]nix"
+        fi
+        if [[ $SHLVL != 1 && ! ($SHLVL == 2 && -n "$IN_NIX_SHELL") ]]; then
+            if [[ -n "$subshell" ]]; then subshell+="\\[\e[39m\\] "; fi
+            subshell+="\\[\e[2;37m\\]$SHLVL"
+        fi
+        if [[ -n "$subshell" ]]; then
+            PS1+="$(prompt.bubble "$subshell") "
+        fi
 
-        # change these to prompt.bubble_squared for squared user/hostname
         if [[ $EUID == 0 ]]; then
             PS1+="$(prompt.bubble "\\[\e[4m\\]\u@\H")"
         else
