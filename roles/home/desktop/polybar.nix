@@ -112,9 +112,9 @@
         index-sort = true;
 
         ws.icon = [
-          "0:Main;󱄅" "1:Terminal;" "2:Browser;󰈹" "3:Chat;󰙯" "4:Steam;󰓓"
+          "0:Main;󱄅" "1:Terminal;" "2:Browser;󰈹" "3:Chat;󰙯" "4:Gaming;󰓓"
           "5;󰎱" "6;󰎳" "7;󰎶"
-          "8:qBittorrent;󰄛" "9:Youtube;󰗃" "10:Misc;󰁴"
+          "8:Meow;󰄛" "9:Music;󰲸" "10:Misc;󰁴"
         ];
 
         label = {

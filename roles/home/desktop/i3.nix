@@ -10,12 +10,12 @@
       ws1 = "1:Terminal";
       ws2 = "2:Browser";
       ws3 = "3:Chat";
-      ws4 = "4:Steam";
+      ws4 = "4:Gaming";
       ws5 = "5";
       ws6 = "6";
       ws7 = "7";
-      ws8 = "8:qBittorrent";
-      ws9 = "9:Youtube";
+      ws8 = "8:Meow";
+      ws9 = "9:Music";
       ws10 = "10:Misc";
       ws11 = "11:Empty";
 
