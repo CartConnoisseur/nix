@@ -44,7 +44,7 @@ function prompt.git {
 
 function prompt.prepare {
     local err=$?
-    PS1='\n'
+    PS1="\\[\e[0m\\]\n"
 
     local subshell=''
     local base_shlvl=1
