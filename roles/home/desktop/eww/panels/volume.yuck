@@ -1,0 +1,40 @@
+(defwidget volume []
+    (box :class "volume panel"
+        :orientation "v"
+        :space-evenly false
+
+        (label :markup "<b>Volume</b>")
+    
+        (box
+            :orientation "h"
+            :vexpand true
+    
+            (box
+                :orientation "v"
+                :space-evenly false
+                :vexpand true
+
+                (scale
+                    :orientation "v"
+                    :flipped true
+                    :value {sink-volume}
+                    :max 101
+                    :onchange `pactl set-sink-volume @DEFAULT_SINK@ {}%`
+                    :vexpand true
+                )
+
+                {sink-volume + "%"}
+            )
+        )
+    )
+)
+
+(defpoll sink-volume
+    :interval "0.2s"
+    `pactl get-sink-volume @DEFAULT_SINK@ | head -n1 | awk '{print substr($5, 1, length($5)-1)}'`
+)
+
+;(defpoll source-volume
+;    :interval "0.2s"
+;    `pactl get-source-volume @DEFAULT_SOURCE@ | head -n1 | awk '{print substr($5, 1, length($5)-1)}'`
+;)

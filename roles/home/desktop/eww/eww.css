@@ -1,35 +1,29 @@
 @import "colors.css";
+@import "panels/default.css";
+@import "widgets/default.css";
 
 window {
     color: @fg;
-    background-color: @bg;
-    border: 2px solid @bg1;
+    background-color: rgba(0, 0, 0, 0);
+    /*border: 2px solid @yellow;*/
     font-family: monospace, sans-serif;
 }
 
-.main {
-    margin: 8px;
+.panel {
+    color: @fg;
+    background-color: @bg;
+    opacity: 1;
+    border: 2px solid @bg1;
+    font-family: monospace, sans-serif;
+    padding: 8px;
 }
 
-.left {
-    margin-top: 8px;
+.unpadded {
+    padding: 0px;
 }
 
-.song-title {
-    font-size: 17px;
-    font-weight: bold;
-}
-
-.song-album {
-    color: @fg2;
-}
-
-.song-artist {
-    color: @fg2;
-}
-
-.control {
-    font-size: 24;
+.padded {
+    padding: 8px;
 }
 
 button {
@@ -40,6 +34,8 @@ button {
     border-radius: 0;
     box-shadow: none;
     text-shadow: none;
+    margin: 0;
+    padding: 0;
 }
 
 button:hover {
@@ -48,4 +44,41 @@ button:hover {
 
 button:active {
     background: @bg2;
+}
+
+button.icon {
+    font-family: 'monospace';
+    font-size: 24;
+}
+
+.cutout {
+    background: @bg1;
+}
+
+.faint {
+    font-weight: normal;
+    color: @fg4;
+}
+
+graph {
+    color: @accent;
+    background: alpha(@accent, 0.2);
+}
+
+scale trough {
+	background: @bg2;
+	min-height: 4px;
+	min-width: 4px;
+}
+
+scale highlight {
+	background: @accent;
+}
+
+scale slider {
+	box-shadow: none;
+	background: @accent;
+	margin: -6px;
+	min-height: 0;
+	min-width: 0;
 }

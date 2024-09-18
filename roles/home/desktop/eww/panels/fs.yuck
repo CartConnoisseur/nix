@@ -1,0 +1,74 @@
+(defwidget disks []
+    (box :class "panel disks"
+        :orientation "h"
+        :spacing 8
+        :space-evenly false
+        :height {100+16}
+
+        (disk :mount "total"
+            :zfs true
+            :name "zpool"
+        )
+
+        (disk :mount "/mnt/4tb"
+            :name "4tb"
+        )
+        (disk :mount "/mnt/ssd"
+            :name "ssd"
+        )
+    )
+)
+
+(defwidget zfs []
+    (box :class "panel zfs"
+        :orientation "v"
+        :spacing 8
+        :space-evenly false
+        :hexpand true
+
+        (label :halign "start" :markup "<b>ZFS Volumes</b>")
+
+        (zvol :mount "/nix")
+        (zvol :mount "/persist")
+
+        (zvol :class "faint"
+            :mount "/home"
+        )
+
+        (zvol :class "faint"
+            :mount "/"
+        )
+
+        (zvol :class "total"
+            :mount "total"
+            :name "Total"
+        )
+    )
+)
+
+(defwidget disk [mount ?name ?zfs]
+    (meter
+        :value {
+            (zfs == true ? zpool : disks)[mount].used / ((zfs == true ? zpool : disks)[mount].used + (zfs == true ? zpool : disks)[mount].free) * 100}
+        :label {name != "" ? name : mount}
+
+        {round((zfs == true ? zpool : disks)[mount].used/1024/1024, 0) + " GiB"}
+    )
+)
+
+(defwidget zvol [mount ?name ?class]
+    (stat :class {class}
+        :key {name != "" ? name : mount}
+        :value {round(zpool[mount].used/1024/1024, 2) + " GiB"}
+    )
+)
+
+(defpoll disks
+    :interval "10s"
+    `df -x fuse -x tmpfs -x efivarfs -x devtmpfs -x zfs | tail -n +2 | awk '{ printf "%s free %d\\n%s used %d\\n", $6, $4, $6, $3 }' | xargs printf '{"%s": {"%s": %d}}\\n' | jq -scaM 'map(to_entries) | flatten | group_by(.key) | map({"\\(.[0].key)": map(.value | to_entries) | flatten | from_entries}) | add'`
+)
+
+(defpoll zpool
+    :interval "10s"
+    `df -t zfs --total | tail -n +2 | awk '{ printf "%s free %d\\n%s used %d\\n", $6, $4, $6, $3 }' | xargs printf '{"%s": {"%s": %d}}\\n' | jq -scaM 'map(to_entries) | flatten | group_by(.key) | map({"\\(.[0].key)": map(.value | to_entries) | flatten | from_entries}) | add | .total = ."-" | del(."-") | .total.free = ."/zpool".free'`
+)

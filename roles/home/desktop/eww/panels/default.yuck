@@ -1,0 +1,7 @@
+(include "./panels/bar.yuck")
+(include "./panels/cpu.yuck")
+(include "./panels/fs.yuck")
+(include "./panels/launcher.yuck")
+(include "./panels/memory.yuck")
+(include "./panels/music.yuck")
+(include "./panels/volume.yuck")

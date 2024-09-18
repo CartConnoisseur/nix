@@ -1,0 +1,84 @@
+(defwindow sys
+    ;:monitor "<primary>"
+    :monitor "DisplayPort-1"
+    :geometry (geometry
+        :x "0px"
+        :y "0px"
+        :anchor "center"
+    )
+    :stacking "fg"
+    :windowtype "dialog"
+    :wm-ignore false
+
+    (box :class "main"
+        :orientation "v"
+        :spacing 8
+        :space-evenly false
+
+        (bar)
+
+        (box
+            :orientation "h"
+            :spacing 8
+            :space-evenly false
+
+            (box
+                :orientation "v"
+                :spacing 8
+                :space-evenly false
+
+                (disks)
+
+                (box
+                    :orientation "h"
+                    :spacing 8
+                    :space-evenly false
+                
+                    (zfs)
+
+                    (box :class "unpadded panel"
+                        (image
+                            :path "/home/c/Pictures/suit ryo.png"
+                            :image-width 134
+                        )
+                    )
+                )
+
+                (centerbox :class "panel"
+                    (image
+                        :path "/home/c/Pictures/car.png"
+                        :image-height 13
+                    )
+
+                    "silly zone :3"
+
+                    (image
+                        :path "/home/c/Pictures/car.png"
+                        :image-height 13
+                    )
+                )
+
+                (memory)
+                (cpu)
+            )
+
+            (box
+                :orientation "v"
+                :spacing 8
+                :space-evenly false
+
+                (launcher)
+
+                (box
+                    :orientation "h"
+                    :spacing 8
+                    :space-evenly false
+
+                    (box :hexpand true (music))
+                    
+                    (volume)
+                )
+            )
+        )
+    )
+)

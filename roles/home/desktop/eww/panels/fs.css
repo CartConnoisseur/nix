@@ -1,0 +1,13 @@
+.disks .meter.almost-full .progress {
+    color: @orange;
+    background: rgba(0, 0, 0, 0);
+}
+
+.disks .meter.full .progress {
+    color: @red;
+    background: rgba(0, 0, 0, 0);
+}
+
+.zfs .total {
+    font-weight: bold;
+}

@@ -1,0 +1,7 @@
+.launcher entry {
+    border-radius: 0;
+}
+
+.launcher entry:focus {
+    box-shadow: 0 0 0 2px @accent inset;
+}

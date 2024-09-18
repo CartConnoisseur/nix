@@ -1,0 +1,9 @@
+.meter .background {
+    color: @bg1;
+    background: rgba(0, 0, 0, 0);
+}
+
+.meter .progress {
+    color: @accent;
+    background: rgba(0, 0, 0, 0);
+}

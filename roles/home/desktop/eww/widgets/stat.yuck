@@ -1,0 +1,24 @@
+(defwidget stat [key value ?class]
+    (overlay
+        (box :class {class}
+            :orientation "h"
+            :spacing 45
+            
+            (label
+                :text {key}
+                :halign "start"
+                :hexpand true
+            )
+            
+            (label
+                :text {value}
+                :halign "end"
+                :hexpand true
+            )
+        )
+
+        (label :class "faint"
+            :text "..."
+        )
+    )
+)

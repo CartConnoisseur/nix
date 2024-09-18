@@ -1,0 +1,39 @@
+.bar .shutdown {
+    color: @brightRed;
+}
+
+.bar .restart {
+    color: @brightGreen;
+}
+
+.bar .sleep {
+    color: @brightYellow;
+}
+
+.bar .dismiss {
+    color: @red;
+}
+
+.bar .ws {
+    font-family: 'Symbols Nerd Font Mono';
+    font-size: 18;
+
+    color: @bg2;
+}
+
+.bar .ws.active {
+    color: @fg4;
+}
+
+.bar .ws.visible {
+    color: @fg;
+}
+
+.bar .ws.focused {
+    background: @bg1;
+    color: @fg0;
+}
+
+.bar .ws.urgent {
+    background: @red;
+}

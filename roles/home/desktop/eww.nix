@@ -51,7 +51,9 @@ lib.mkIf config.home.roles.desktop.eww {
   xdg.configFile."eww/eww.yuck".source = eww/eww.yuck;
   xdg.configFile."eww/eww.css".source = eww/eww.css;
 
+  xdg.configFile."eww/panels".source = eww/panels;
   xdg.configFile."eww/windows".source = eww/windows;
+  xdg.configFile."eww/widgets".source = eww/widgets;
 
   xdg.configFile."eww/colors.css".text = let c = config.theme.colors; in ''
     @define-color accent #${c.accent};

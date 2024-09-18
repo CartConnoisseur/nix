@@ -1,0 +1,27 @@
+(defwidget launcher []
+    (box :class "launcher panel"
+        :orientation "v"
+        :spacing 8
+        :space-evenly false
+        :height {556 - ((128 + 16 + 4) + 8)}
+        :width 768
+
+        (input
+            :valign "start"
+        )
+
+        (scroll
+            :vscroll true
+            :hscroll false
+            :vexpand true
+            
+            (literal :content {lunch})
+        )
+    )
+)
+
+(defpoll lunch
+    :interval "60s"
+    ;`~/lunch.sh`
+    `~/code/lunch/zig-out/bin/lunch`
+)

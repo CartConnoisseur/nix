@@ -1,0 +1,41 @@
+(defwidget meter [value label]
+    (overlay :class {"meter"
+            + (value >= 90 ? " almost-full" : "")
+            + (value >= 99 ? " full" : "")
+            + (value <= 10 ? " almost-empty" : "")
+            + (value <= 1  ? " empty" : "")
+        }
+
+        :width 100
+
+        (circular-progress :class "background"
+            :value 80
+            :start-at 35
+            :thickness 10
+            :width 100
+        )
+
+        (circular-progress :class "progress"
+            :value {value*0.8}
+            :start-at 35
+            :thickness 10
+            :width 100
+        )
+
+        (box
+            :orientation "v"
+            :valign "center"
+            :space-evenly false
+            :spacing 2
+
+            (children)
+            
+            {round(value, 2)+"%"}
+        )
+
+        (transform
+            :translate-y "44px"
+            (label :markup {"<b>"+label+"</b>"})
+        )
+    )
+)

@@ -1,0 +1,38 @@
+.music {
+    padding: 8px;
+    opacity: 1.0;
+}
+
+.music .right {
+    margin-top: 8px;
+}
+
+.music .song-title {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.music .song-album {
+    color: @fg2;
+}
+
+.music .song-artist {
+    color: @fg2;
+}
+
+.music scale trough {
+	background: @bg2;
+	min-height: 4px;
+}
+
+.music scale highlight {
+	background: @accent;
+}
+
+.music scale slider {
+	box-shadow: none;
+	background: @accent;
+	margin: -6px;
+	min-height: 0;
+	min-width: 0;
+}

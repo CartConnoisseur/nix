@@ -1,0 +1,102 @@
+
+(defwidget music []
+    (box :class "panel music"
+        :orientation "h"
+        :spacing 8
+        :space-evenly false
+        :height {128 + 16 + 4}
+
+        (image
+            :path song-cover
+            :image-width 128
+            :image-height 128
+        )
+
+        (box :class "right"
+            :orientation "v"
+            :spacing 0
+            :space-evenly true
+            :hexpand true
+
+            (box :class "info"
+                :orientation "v"
+                :space-evenly false
+                :valign "center"
+
+                (tooltip {song.title}
+                    (label :class "song-title"
+                        :text {song.title}
+                        :halign "start"
+                        :truncate true
+                    )
+                )
+                (tooltip {song.album}
+                    (label :class "song-album"
+                        :text {song.album}
+                        :halign "start"
+                        :truncate true
+                    )
+                )
+                (tooltip {song.artist}
+                    (label :class "song-artist"
+                        :text {song.artist}
+                        :halign "start"
+                        :truncate true
+                    )
+                )
+            )
+
+            (box
+                :valign "end"
+                :space-evenly false
+
+                (box :class "control"
+                    :space-evenly false
+
+                    (button :class "icon"
+                        :width 36
+                        :onclick `playerctl --player=cmus,firefox,%any previous`
+                        
+                        "󰒮"
+                    )
+                    (button :class "icon"
+                        :onclick `playerctl --player=cmus,firefox,%any play-pause`
+                        :width 36
+
+                        { song.status == "Playing" ? "󰏤" : "󰐊" }
+                    )
+                    (button :class "icon"
+                        :width 36
+                        :onclick `playerctl --player=cmus,firefox,%any next`
+
+                        "󰒭"
+                    )
+                )
+
+                (scale
+                    :hexpand true
+                    :value {song-position}
+                    :max {song.length/1000/1000}
+                    ;:onchange `/home/c/seek.sh {}`
+                )
+
+                {formattime(round(song-position, 0), "%M:%S") + " / " + formattime(round(song.length/1000/1000, 0), "%M:%S")}
+
+                (box :width 16)
+            )
+        )
+    )
+)
+
+(deflisten song-cover
+    `playerctl --player=cmus,firefox,%any -F metadata title | get-album-art`
+)
+
+(deflisten song
+    `playerctl --player=cmus,firefox,%any -F metadata --format='{"title": "{{title}}", "album": "{{album}}", "artist": "{{artist}}", "status": "{{status}}", "length": "{{mpris:length}}"}'`
+)
+
+(defpoll song-position
+    :interval "0.2s"
+    `playerctl --player=cmus,firefox,%any position`
+)

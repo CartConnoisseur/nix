@@ -1,0 +1,28 @@
+(defwidget memory []
+    (box :class "panel"
+        :orientation "v"
+        :spacing 8
+        :space-evenly false
+
+        (box
+            (label :markup "<b>Memory</b>"
+                :halign "start"
+            )
+
+            (label :markup {round(EWW_RAM.used_mem/1024/1024/1024, 2) + " GiB / " + round(EWW_RAM.total_mem/1024/1024/1024, 2) + " GiB"}
+                :halign "end"
+            )
+        )
+
+        (tooltip :class "cutout"
+            {round(EWW_RAM.used_mem_perc, 2) + "%"}
+            (graph
+                :hexpand true
+                :value {EWW_RAM.used_mem}
+                :max {EWW_RAM.total_mem}
+                :time-range "30s"
+                :height 100
+            )
+        )
+    )
+)

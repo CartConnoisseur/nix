@@ -1,0 +1,102 @@
+(defwidget bar []
+    (centerbox :class "bar"
+        :orientation "h"
+
+        (box
+            :orientation "h"
+            :spacing 8
+            :space-evenly false
+
+            (tooltip :class "panel"
+                {EWW_TIME}
+                {formattime(EWW_TIME, "%T", "America/Los_Angeles")}
+            )
+
+            (tooltip :class "panel"
+                {formattime(EWW_TIME, "%F", "America/Los_Angeles")}
+                {formattime(EWW_TIME, "%A, %B %d, %Y", "America/Los_Angeles")}
+            )
+        )
+
+        (box
+            :orientation "h"
+            :spacing 8
+            :space-evenly false
+
+            ;(label :class "panel"
+            ;    :text "i have no idea what to put here :3"
+            ;)
+
+            (box :class "unpadded panel"
+                (ws :num  0 :icon "󱄅" :name "Main")
+                (ws :num  1 :icon "" :name "Terminal")
+                (ws :num  2 :icon "󰈹" :name "Browser")
+                (ws :num  3 :icon "󰙯" :name "Chat")
+                (ws :num  4 :icon "󰓓" :name "Gaming")
+                (ws :num  5 :icon "󰎱" :name "5")
+                (ws :num  6 :icon "󰎳" :name "6")
+                (ws :num  7 :icon "󰎶" :name "7")
+                (ws :num  8 :icon "󰄛" :name "Meow")
+                (ws :num  9 :icon "󰲸" :name "Music")
+                (ws :num 10 :icon "󰁴" :name "Misc")
+            )
+        )
+
+        (box
+            :orientation "h"
+            :spacing 8
+            :space-evenly false
+            :halign "end"
+
+            (box :class "unpadded panel"
+                :space-evenly false
+                (button :class "sleep icon"
+                    :width 31
+                    "󰤄"
+                )
+
+                (button :class "restart icon"
+                    :width 33
+                    "󰜉"
+                )
+
+                (button :class "shutdown icon"
+                    :width 31
+                    "󰐥"
+                )
+            )
+
+            (box :class "unpadded panel"
+                (button :class "dismiss icon"
+                    :width 29
+                    :onclick `${EWW_CMD} close sys`
+                    "󰅖"
+                )
+            )
+        )
+    )
+)
+
+(defwidget ws [num icon name]
+    (tooltip {name}
+        (button :class {"ws"
+                + (ws-status[num].active  ? " active"  : "")
+                + (ws-status[num].visible ? " visible" : "")
+                + (ws-status[num].focused ? " focused" : "")
+                + (ws-status[num].urgent  ? " urgent"  : "")
+            }
+            :width {
+                num ==  0 ? 31 :
+                num == 10 ? 31 :
+                33
+            }
+
+            {icon}
+        )
+    )
+)
+
+(defpoll ws-status
+    :interval "0.1s"
+    `i3-msg -t get_workspaces | jq -caM 'map({"ws-\\(.num)": {visible, focused, urgent, active: true}}) | add as $orig | [range(0;11)] | [.[] as $i | $orig."ws-\\($i)" // {visible: false, focused: false, urgent: false, active: false}]'`
+)

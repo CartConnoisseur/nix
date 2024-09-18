@@ -1,1 +1,3 @@
-(include "./windows/music.yuck")
+(include "./panels/default.yuck")
+(include "./widgets/default.yuck")
+(include "./windows/default.yuck")

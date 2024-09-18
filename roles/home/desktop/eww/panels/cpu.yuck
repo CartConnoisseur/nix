@@ -1,0 +1,45 @@
+(defwidget cpu []
+    (box :class "panel"
+        :orientation "h"
+        :spacing 8
+        :space-evenly false
+
+        (tooltip :class "cutout"
+            {round(EWW_CPU.avg, 2) + "%"}
+            (graph
+                :value {EWW_CPU.avg}
+                :time-range "30s"
+                :width 76
+                :height 76
+                :hexpand true
+            )
+        )
+
+        (box :orientation "v"
+            :spacing 8
+            :space-evenly false
+            :hexpand true
+
+            (label :halign "start" :markup {"<b>" + cpu-name + "</b>"})
+
+            (stat :key "Temperature" :value {round(EWW_TEMPS.K10TEMP_TCTL, 2) + "°C"})
+            (stat :key "Frequency" :value {round(cpu-max-freq * cpu-freq/100, 0) + " MHz"})
+            (stat :key "Usage" :value {round(EWW_CPU.avg, 2) + "%"})
+        )
+    )
+)
+
+(defpoll cpu-freq
+    :interval "2s"
+    `lscpu | sed -n '/CPU(s) scaling MHz/ s/.*:\\s*\\(.*\\)%/\\1/p'`
+)
+
+(defpoll cpu-max-freq
+    :interval "9999s"
+    `lscpu | sed -n '/CPU max MHz/ s/.*:\\s*\\(.*\\)/\\1/p'`
+)
+
+(defpoll cpu-name
+    :interval "9999s"
+    `lscpu | sed -n '/Model name/ s/.*:\\s*\\(.*\\)/\\1/p'`
+)
