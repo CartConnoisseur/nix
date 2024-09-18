@@ -86,7 +86,7 @@ let cfg = config.home.roles.desktop; in {
           rm theme.nix
           ln -s ./themes/$1.nix theme.nix
 
-          sudo nixos-rebuild switch --flake /etc/nixos
+          sudo nixos-rebuild switch --flake path:/etc/nixos
 
           i3-msg restart
         '')
