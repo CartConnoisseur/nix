@@ -4,6 +4,7 @@ with lib;
 let cfg = config.roles.minecraft; in {
   imports = [
     ./servers
+    ./zenith
   ];
 
   options.roles.minecraft = {

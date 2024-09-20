@@ -64,11 +64,17 @@
   roles = {
     minecraft = {
       enable = true;
+
       servers = {
         stargazers = {
           enable = true;
           port = 25566;
         };
+      };
+
+      zenith = {
+        enable = true;
+        port = 25569;
       };
     };
     web = {
