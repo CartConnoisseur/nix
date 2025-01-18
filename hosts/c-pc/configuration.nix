@@ -85,6 +85,8 @@
   services = {
     pcscd.enable = true;
     printing.enable = true;
+
+    hardware.openrgb.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
