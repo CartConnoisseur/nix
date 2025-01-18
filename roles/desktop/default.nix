@@ -58,15 +58,13 @@ let cfg = config.roles.desktop; in {
 
     fonts = {
       packages = with pkgs; [
-        nerdfonts
         noto-fonts
-        noto-fonts-cjk
         noto-fonts-cjk-sans
         noto-fonts-cjk-serif
         noto-fonts-emoji
 
         minecraftia
-      ];
+      ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
       fontconfig = {
         defaultFonts = {

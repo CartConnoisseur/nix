@@ -9,11 +9,9 @@
 
     wireless = {
       enable = true;
-
-      environmentFile = "/secrets/wireless.env";
-      networks = {
-        "@SSID@".psk = "@PSK@";
-      };
+      
+      # Import /etc/wpa_supplicant.conf networks
+      allowAuxiliaryImperativeNetworks = true;
     };
 
     firewall = {
@@ -22,5 +20,9 @@
       allowedTCPPorts = [ 8096 50000 ];
       allowedUDPPorts = [ ];
     };
+  };
+
+  environment.etc."wpa_supplicant.conf" = {
+    source = "/secrets/wireless.conf";
   };
 }
