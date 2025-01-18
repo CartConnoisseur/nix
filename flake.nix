@@ -23,6 +23,7 @@
           inputs.home-manager.nixosModules.default
           inputs.impermanence.nixosModules.impermanence
           inputs.nix-minecraft.nixosModules.minecraft-servers
+          (import ./overlays)
         ];
       };
 
