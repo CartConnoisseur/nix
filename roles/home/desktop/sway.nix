@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  xsession.windowManager.i3 = {
+  wayland.windowManager.sway = {
     config = let
       #NOTE: Alt (Mod1) and meta (Mod4) have been swapped by keyd.
       mod = "Mod4";
@@ -20,9 +20,9 @@
       ws11 = "11:Empty";
 
       output = {
-        primary = "primary";
-        left = "DVI-D-0";
-        right = "DisplayPort-1 HDMI-A-0";
+        primary = "DP-3";
+        left = "DVI-D-1";
+        right = "DP-2 HDMI-A-0";
       };
     in {
       modifier = "${mod}";
@@ -93,20 +93,19 @@
       };
 
       startup = [
-        #{ command = "polybar-msg cmd quit"; always = true; notification = false; }
-        #{ command = "polybar"; always = true; notification = false; }
-        { command = "waybar"; always = true; notification = false; }
+        { command = "waybar"; always = true; }
 
-        #{ command = "systemctl --user restart picom"; always = true; notification = false; }
-        #{ command = "${pkgs.feh}/bin/feh --bg-fill ${../../../assets/bg/${config.theme.background}}"; always = true; notification = false; }
-        { command = "${pkgs.swww}/bin/swww-daemon"; always = true; notification = false; }
-        { command = "${pkgs.swww}/bin/swww img ${../../../assets/bg/${config.theme.background}}"; always = true; notification = false; }
-        { command = "${pkgs.fcitx5}/bin/fcitx5 -r -d"; always = true; notification = false; }
+        #TODO: make sure swww-daemon is *re*starting
+        { command = "${pkgs.swww}/bin/swww-daemon"; always = true; }
+        { command = "${pkgs.swww}/bin/swww img ${../../../assets/bg/${config.theme.background}}"; always = true; }
+
+        { command = "${pkgs.fcitx5}/bin/fcitx5 -r -d"; always = true; }
       ];
 
       keybindings = {
         "${mod}+Shift+c" = "reload";
         "${mod}+Shift+r" = "restart";
+        #TODO: remove i3-nagbar
         "${mod}+Shift+e" = "exec \"i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'\"";
 
         "${mod}+q" = "kill";

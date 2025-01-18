@@ -5,7 +5,7 @@ let cfg = config.home.roles.desktop; in {
   imports = [
     ./theme.nix
 
-    ./i3.nix
+    ./sway.nix
     ./picom.nix
     ./polybar.nix
     ./rofi.nix
@@ -57,7 +57,7 @@ let cfg = config.home.roles.desktop; in {
   };
 
   config = mkIf cfg.enable {
-    xsession.windowManager.i3.enable = true;
+    wayland.windowManager.sway.enable = true;
 
     gtk.enable = true;
 
@@ -70,8 +70,8 @@ let cfg = config.home.roles.desktop; in {
     };
 
     services = {
-      picom.enable = true;
-      polybar.enable = true;
+      #picom.enable = true;
+      #polybar.enable = true;
 
       flameshot.enable = cfg.screenshot;
     };
