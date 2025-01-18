@@ -56,6 +56,14 @@ let cfg = config.roles.desktop; in {
       };
     };
 
+    programs.sway = {
+      enable = true;
+      #package = pkgs.swayfx;
+      xwayland.enable = true;
+    };
+
+    programs.waybar.enable = true;
+
     fonts = {
       packages = with pkgs; [
         noto-fonts
