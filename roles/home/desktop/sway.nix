@@ -93,7 +93,9 @@
       };
 
       startup = [
-        { command = "${pkgs.waybar}/bin/waybar"; always = true; }
+        # { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
+
+        { command = "${pkgs.waybar}/bin/waybar"; }
 
         #TODO: make sure swww-daemon is *re*starting
         { command = "${pkgs.swww}/bin/swww-daemon"; always = true; }
