@@ -62,8 +62,6 @@ let cfg = config.roles.desktop; in {
       xwayland.enable = true;
     };
 
-    programs.waybar.enable = true;
-
     fonts = {
       packages = with pkgs; [
         noto-fonts

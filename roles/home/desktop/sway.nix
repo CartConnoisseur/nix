@@ -93,7 +93,7 @@
       };
 
       startup = [
-        { command = "waybar"; always = true; }
+        { command = "${pkgs.waybar}/bin/waybar"; always = true; }
 
         #TODO: make sure swww-daemon is *re*starting
         { command = "${pkgs.swww}/bin/swww-daemon"; always = true; }

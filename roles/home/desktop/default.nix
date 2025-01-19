@@ -6,8 +6,7 @@ let cfg = config.home.roles.desktop; in {
     ./theme.nix
 
     ./sway.nix
-    ./picom.nix
-    ./polybar.nix
+    ./waybar.nix
     ./rofi.nix
     ./kitty.nix
 
@@ -62,6 +61,7 @@ let cfg = config.home.roles.desktop; in {
     gtk.enable = true;
 
     programs = {
+      waybar.enable = true;
       rofi.enable = true;
       kitty.enable = true;
 
