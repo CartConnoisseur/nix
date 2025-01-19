@@ -1,7 +1,11 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   services.flameshot = {
+    package = pkgs.flameshot.override {
+      enableWlrSupport = true;
+    };
+
     settings = let c = config.theme.colors; in {
       General = {
         savePath = "Pictures/Screenshots";
