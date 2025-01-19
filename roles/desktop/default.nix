@@ -31,6 +31,7 @@ let cfg = config.roles.desktop; in {
     ];
 
     security.rtkit.enable = true;
+    security.polkit.enable = true;
 
     i18n.inputMethod.enable = true;
 
