@@ -18,6 +18,12 @@
         version = "1.1.5";
         sha256 = "sha256-Pf37FeQMNlv74f7LMz9+CKscF6UjTZ7ZpcaZFKtX2ZM=";
       }
+      {
+        name = "yuck";
+        publisher = "eww-yuck";
+        version = "0.0.3";
+        sha256 = "sha256-DITgLedaO0Ifrttu+ZXkiaVA7Ua5RXc4jXQHPYLqrcM=";
+      }
     ];
 
     userSettings = {
