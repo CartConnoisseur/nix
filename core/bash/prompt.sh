@@ -48,7 +48,6 @@ function prompt.prepare {
 
     local subshell=''
     local base_shlvl=1
-    if [[ "$TERM_PROGRAM" == 'vscode' ]]; then base_shlvl=2; fi
     local shlvl=$((SHLVL-base_shlvl))
 
     if [[ -n "$IN_NIX_SHELL" ]]; then
