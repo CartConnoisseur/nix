@@ -2,9 +2,6 @@
 
 {
   networking = {
-    hostName = "c-pc";
-    hostId = "23ce94ff";
-
     useDHCP = true;
 
     wireless = {
