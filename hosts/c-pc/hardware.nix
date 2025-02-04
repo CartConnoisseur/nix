@@ -50,7 +50,6 @@
     "/boot"           = { fsType = "vfat"; device = "/dev/disk/by-uuid/12CE-A600"; };
 
     "/mnt/4tb"        = { fsType = "ext4"; device = "/dev/disk/by-label/4tb"; };
-    "/mnt/ssd"        = { fsType = "ext4"; device = "/dev/disk/by-label/ssd-256"; };
   };
 
   swapDevices = [ ];
