@@ -1,6 +1,6 @@
 {
   description = "Nixos config flake";
-     
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -18,38 +18,51 @@
     nix-minecraft.url = "github:CartConnoisseur/nix-minecraft";
   };
 
-  outputs = {nixpkgs, ...} @inputs: {
-    nixosConfigurations = {
-      c-pc = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/c-pc/configuration.nix
-          inputs.home-manager.nixosModules.default
-          inputs.impermanence.nixosModules.impermanence
-          inputs.nix-minecraft.nixosModules.minecraft-servers
-          (import ./overlays)
-        ];
-      };
+  outputs = inputs: 
+    inputs.snowfall-lib.mkFlake {
+      inherit inputs;
+      src = ./.;
 
-      copenhagen = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/copenhagen/configuration.nix
-          inputs.home-manager.nixosModules.default
-          inputs.impermanence.nixosModules.impermanence
-          inputs.nix-minecraft.nixosModules.minecraft-servers
-        ];
-      };
+      snowfall = {
+        root = ./snowfall;
+        namespace = "cxl";
 
-      phoenix = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/phoenix/configuration.nix
-          inputs.home-manager.nixosModules.default
-          inputs.impermanence.nixosModules.impermanence
-          inputs.nix-minecraft.nixosModules.minecraft-servers
-        ];
+        meta = {
+          name = "cxl";
+          title = "cxl flake";
+        };
       };
     };
-  };
+  # nixosConfigurations = {
+  #   c-pc = nixpkgs.lib.nixosSystem {
+  #     specialArgs = { inherit inputs; };
+  #     modules = [
+  #       ./hosts/c-pc/configuration.nix
+  #       inputs.home-manager.nixosModules.default
+  #       inputs.impermanence.nixosModules.impermanence
+  #       inputs.nix-minecraft.nixosModules.minecraft-servers
+  #       (import ./overlays)
+  #     ];
+  #   };
+
+  #   copenhagen = nixpkgs.lib.nixosSystem {
+  #     specialArgs = { inherit inputs; };
+  #     modules = [
+  #       ./hosts/copenhagen/configuration.nix
+  #       inputs.home-manager.nixosModules.default
+  #       inputs.impermanence.nixosModules.impermanence
+  #       inputs.nix-minecraft.nixosModules.minecraft-servers
+  #     ];
+  #   };
+
+  #   phoenix = nixpkgs.lib.nixosSystem {
+  #     specialArgs = { inherit inputs; };
+  #     modules = [
+  #       ./hosts/phoenix/configuration.nix
+  #       inputs.home-manager.nixosModules.default
+  #       inputs.impermanence.nixosModules.impermanence
+  #       inputs.nix-minecraft.nixosModules.minecraft-servers
+  #     ];
+  #   };
+
 }
