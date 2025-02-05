@@ -10,22 +10,6 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  environment.persistence."/persist/system" = {
-    hideMounts = true;
-
-    directories = [
-      "/etc/nixos"
-      "/var/log"
-      "/var/lib/nixos"
-      "/var/lib/systemd/coredump"
-      #"/var/lib/bluetooth"
-    ];
-    
-    files = [
-      "/etc/machine-id"
-    ];
-  };
-
   programs.fuse.userAllowOther = true;
 
   time.timeZone = "America/Los_Angeles";

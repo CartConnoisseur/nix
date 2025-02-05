@@ -10,6 +10,7 @@ with lib; with lib.${namespace}; {
     system = {
       hostname = "c-pc";
       id = "23ce94ff";
+      impermanent = true;
     };
 
     suites = {
