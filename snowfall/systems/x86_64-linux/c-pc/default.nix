@@ -1,4 +1,4 @@
-{ lib, namespace, ... }:
+{ lib, pkgs, namespace, ... }:
 
 with lib; with lib.${namespace}; {
   imports = [
@@ -14,7 +14,12 @@ with lib; with lib.${namespace}; {
 
     suites = {
       common.enable = true;
+      desktop.enable = true;
     };
+
+    fonts.extra = with pkgs; [
+      minecraftia
+    ];
   };
 
   system.stateVersion = "23.11";
