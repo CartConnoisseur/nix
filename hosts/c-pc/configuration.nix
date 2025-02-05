@@ -47,14 +47,7 @@
     };
   };
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "steam"
-    "steam-unwrapped"
-  ];
-
   programs = {
-    steam.enable = true;
-
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;

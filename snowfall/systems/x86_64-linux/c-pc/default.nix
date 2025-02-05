@@ -15,6 +15,7 @@ with lib; with lib.${namespace}; {
     suites = {
       common.enable = true;
       desktop.enable = true;
+      gaming.enable = true;
     };
 
     fonts.extra = with pkgs; [
