@@ -6,7 +6,6 @@
     (writeShellScriptBin "rbf" "sudo nixos-rebuild switch --flake path:/etc/nixos")
     
     moreutils
-    wget
     killall
     jq
   ];
