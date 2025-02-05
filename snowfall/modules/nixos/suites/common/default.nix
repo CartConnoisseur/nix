@@ -9,6 +9,10 @@ in {
 
   config = mkIf cfg.enable {
     cxl = {
+      hardware = {
+        keyboard.enable = true;
+      };
+      
       apps = {
         bash.enable = true;
       };
