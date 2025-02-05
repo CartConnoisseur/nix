@@ -8,8 +8,6 @@
     ../../roles
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   programs.fuse.userAllowOther = true;
 
   time.timeZone = "America/Los_Angeles";
