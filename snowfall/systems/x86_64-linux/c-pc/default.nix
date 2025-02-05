@@ -11,6 +11,10 @@ with lib; with lib.${namespace}; {
       hostname = "c-pc";
       id = "23ce94ff";
     };
+
+    suites = {
+      common.enable = true;
+    };
   };
 
   system.stateVersion = "23.11";
