@@ -18,7 +18,7 @@
     nix-minecraft.url = "github:CartConnoisseur/nix-minecraft";
   };
 
-  outputs = inputs: 
+  outputs = inputs:
     inputs.snowfall-lib.mkFlake {
       inherit inputs;
       src = ./.;
@@ -32,6 +32,12 @@
           title = "cxl flake";
         };
       };
+
+      systems.modules.nixos = with inputs; [
+        inputs.home-manager.nixosModules.default
+        impermanence.nixosModules.impermanence
+        nix-minecraft.nixosModules.minecraft-servers
+      ];
     };
   # nixosConfigurations = {
   #   c-pc = nixpkgs.lib.nixosSystem {
