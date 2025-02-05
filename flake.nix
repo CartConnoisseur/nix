@@ -60,15 +60,4 @@
   #       inputs.nix-minecraft.nixosModules.minecraft-servers
   #     ];
   #   };
-
-  #   phoenix = nixpkgs.lib.nixosSystem {
-  #     specialArgs = { inherit inputs; };
-  #     modules = [
-  #       ./hosts/phoenix/configuration.nix
-  #       inputs.home-manager.nixosModules.default
-  #       inputs.impermanence.nixosModules.impermanence
-  #       inputs.nix-minecraft.nixosModules.minecraft-servers
-  #     ];
-  #   };
-
 }
