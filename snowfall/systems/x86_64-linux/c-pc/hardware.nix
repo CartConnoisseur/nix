@@ -24,9 +24,10 @@
       availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
       kernelModules = [ "amdgpu" ];
 
-      postDeviceCommands = lib.mkAfter ''
-        zfs rollback -r zpool/root@blank && zfs rollback -r zpool/home@blank
-      '';
+      #TODO: re-enable impermanence
+      # postDeviceCommands = lib.mkAfter ''
+      #   zfs rollback -r zpool/root@blank && zfs rollback -r zpool/home@blank
+      # '';
 
       postMountCommands = lib.mkAfter ''
         chmod u=rw,g=,o= /secrets
