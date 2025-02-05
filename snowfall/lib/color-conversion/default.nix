@@ -1,4 +1,5 @@
 { lib }:
+
 let
   hexToDecMap = {
     "0" = 0;
@@ -102,8 +103,7 @@ let
       hexToDecMap."${lowerHex}"
     else
       throw "Character ${hex} is not a hexadecimal value.";
-in
-rec {
+in rec {
   /* Converts from hexadecimal to decimal.
 
      Type: hexToDec :: string -> int
