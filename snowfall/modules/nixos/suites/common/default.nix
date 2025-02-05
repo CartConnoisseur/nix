@@ -15,6 +15,7 @@ in {
       
       apps = {
         bash.enable = true;
+        vim.enable = true;
       };
     };
   };
