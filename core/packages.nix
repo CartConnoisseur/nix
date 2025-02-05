@@ -7,7 +7,6 @@
     
     moreutils
     git
-    vim
     wget
     killall
     jq
