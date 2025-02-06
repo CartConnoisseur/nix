@@ -19,7 +19,7 @@ in {
         playerctl.enable = true;
       };
 
-      fonts.enable = true;
+      system.fonts.enable = true;
     };
   };
 }
