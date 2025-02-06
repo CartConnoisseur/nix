@@ -12,6 +12,11 @@ in {
       default = null;
       type = nullOr str;
     };
+
+    timezone = mkOption {
+      default = "America/Los_Angeles";
+      type = nullOr str;
+    };
   };
 
   config = {
@@ -19,5 +24,7 @@ in {
   
     networking.hostName = cfg.hostname;
     networking.hostId = cfg.id;
+
+    time.timeZone = cfg.timezone;
   };
 }
