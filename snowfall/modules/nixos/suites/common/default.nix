@@ -12,10 +12,12 @@ in {
       hardware = {
         keyboard.enable = true;
       };
-      
-      apps = {
+
+      tools = {
         bash.enable = true;
         vim.enable = true;
+        git.enable = true;
+        misc.enable = true;
       };
     };
   };

@@ -1,9 +1,9 @@
 { options, config, lib, pkgs, namespace, ... }:
 
 with lib; with lib.${namespace}; let
-  cfg = config.${namespace}.apps.vim;
+  cfg = config.${namespace}.tools.vim;
 in {
-  options.${namespace}.apps.vim = with types; {
+  options.${namespace}.tools.vim = with types; {
     enable = mkEnableOption "vim";
   };
 
