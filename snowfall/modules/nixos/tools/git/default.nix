@@ -8,6 +8,9 @@ in {
   };
 
   config = mkIf cfg.enable {
-    programs.git.enable = true;
+    programs.git = {
+      enable = true;
+      prompt.enable = true;
+    };
   };
 }

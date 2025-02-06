@@ -1,5 +1,3 @@
-source "$(dirname "${BASH_SOURCE[0]}")/git-prompt.sh"
-
 PROMPT_CHAR='❯'
 
 if [[ "$TERM" == "xterm-kitty" ]]; then
