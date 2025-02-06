@@ -41,5 +41,9 @@ with lib; with lib.${namespace}; {
     };
   };
 
+  snowfallorg.users."c" = {
+    admin = true;
+  };
+
   system.stateVersion = "23.11";
 }
