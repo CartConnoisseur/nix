@@ -1,9 +1,9 @@
 { options, config, lib, namespace, ... }:
 
 with lib; with lib.${namespace}; let
-  cfg = config.${namespace}.apps.git;
+  cfg = config.${namespace}.tools.git;
 in {
-  options.${namespace}.apps.git = with types; {
+  options.${namespace}.tools.git = with types; {
     enable = mkEnableOption "git";
   };
 

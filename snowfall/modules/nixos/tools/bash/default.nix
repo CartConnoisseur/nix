@@ -1,10 +1,10 @@
 { options, config, lib, namespace, ... }:
 
 with lib; with lib.${namespace}; let
-  cfg = config.${namespace}.apps.bash;
+  cfg = config.${namespace}.tools.bash;
 in {
-  options.${namespace}.apps.bash = with types; {
-    enable = mkEnableOption "bash";
+  options.${namespace}.tools.bash = with types; {
+    enable = mkEnableOption "tools";
   };
 
   config = mkIf cfg.enable {
