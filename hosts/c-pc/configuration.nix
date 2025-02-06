@@ -10,8 +10,6 @@
 
   programs.fuse.userAllowOther = true;
 
-  time.timeZone = "America/Los_Angeles";
-
   users.users = {
     root.hashedPasswordFile = "/secrets/passwords/root";
 
