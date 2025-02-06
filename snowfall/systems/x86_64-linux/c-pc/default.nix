@@ -10,7 +10,12 @@ with lib; with lib.${namespace}; {
     system = {
       hostname = "c-pc";
       id = "23ce94ff";
-      impermanent = true;
+      
+      impermanence.enable = true;
+
+      fonts.extra = with pkgs; [
+        minecraftia
+      ];
     };
 
     suites = {
@@ -18,10 +23,6 @@ with lib; with lib.${namespace}; {
       desktop.enable = true;
       gaming.enable = true;
     };
-
-    fonts.extra = with pkgs; [
-      minecraftia
-    ];
 
     apps.i3 = {
       videoDrivers = [ "amdgpu" ];

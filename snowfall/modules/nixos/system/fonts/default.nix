@@ -1,9 +1,9 @@
 { options, config, lib, pkgs, namespace, ... }:
 
 with lib; with lib.${namespace}; let
-  cfg = config.${namespace}.fonts;
+  cfg = config.${namespace}.system.fonts;
 in {
-  options.${namespace}.fonts = with types; {
+  options.${namespace}.system.fonts = with types; {
     enable = mkEnableOption "fonts";
     nerdfonts = mkEnableOption "nerdfonts";
     extra = mkOption {
