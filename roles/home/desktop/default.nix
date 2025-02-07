@@ -57,8 +57,6 @@ let cfg = config.home.roles.desktop; in {
   };
 
   config = mkIf cfg.enable {
-    xsession.windowManager.i3.enable = true;
-
     gtk.enable = true;
 
     programs = {
