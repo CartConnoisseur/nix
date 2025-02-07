@@ -10,6 +10,7 @@ in {
   config = mkIf cfg.enable {
     cxl = {
       tools = {
+        vim.enable = true;
         git.enable = true;
       };
     };
