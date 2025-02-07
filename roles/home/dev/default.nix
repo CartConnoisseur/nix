@@ -19,7 +19,6 @@ let cfg = config.home.roles.dev; in {
 
   config = mkIf cfg.enable {
     programs = {
-      git.enable = true;
       vscode.enable = config.home.roles.desktop.enable;
     };
 
