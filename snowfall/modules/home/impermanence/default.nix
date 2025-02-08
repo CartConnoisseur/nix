@@ -7,7 +7,7 @@ in {
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
   ];
-  
+
   options.${namespace}.impermanence = with types; {
     skeleton = mkOption {
       type = bool;
@@ -45,6 +45,7 @@ in {
 
     home.persistence.${cfg.secure.location} = {
       enable = builtins.elem host hosts;
+      allowOther = false;
     };
   };
 }
