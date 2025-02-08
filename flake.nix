@@ -33,7 +33,6 @@
     };
 
     systems.modules.nixos = with inputs; [
-      inputs.home-manager.nixosModules.default
       impermanence.nixosModules.impermanence
       nix-minecraft.nixosModules.minecraft-servers
     ];
