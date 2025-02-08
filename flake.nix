@@ -36,5 +36,9 @@
       impermanence.nixosModules.impermanence
       nix-minecraft.nixosModules.minecraft-servers
     ];
+
+    channels-config.allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) [
+      "discord"
+    ];
   };
 }

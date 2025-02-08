@@ -23,10 +23,7 @@
       ".mozilla"
       ".wine"
 
-      ".irssi"      
-      ".config/discord"
-      ".config/Vencord"
-      ".config/vesktop"
+      ".irssi"
 
       ".config/Obsidian"
 
@@ -82,7 +79,6 @@
   };
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "discord"
     "obsidian"
   ];
 
