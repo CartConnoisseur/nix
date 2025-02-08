@@ -52,15 +52,6 @@
     ];
   };
 
-  home.roles = {
-    dev = {
-      enable = true;
-      key = "314C14641E707B68";
-    };
-
-    desktop.enable = true;
-  };
-
   programs = {
     feh.enable = true;
     btop.enable = true;

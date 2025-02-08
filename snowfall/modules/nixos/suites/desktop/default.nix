@@ -21,5 +21,7 @@ in {
 
       system.fonts.enable = true;
     };
+
+    programs.dconf.enable = true;
   };
 }
