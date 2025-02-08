@@ -30,8 +30,6 @@
 
       ".config/Obsidian"
 
-      ".config/cmus"
-
       ".config/fcitx"
       ".config/fcitx5"
       
