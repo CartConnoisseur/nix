@@ -10,6 +10,7 @@ in {
   config = mkIf cfg.enable {
     cxl = {
       apps = {
+        steam.enable = true;
         prismlauncher.enable = true;
       };
     };
