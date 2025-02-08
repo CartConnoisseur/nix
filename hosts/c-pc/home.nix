@@ -15,14 +15,6 @@
     allowOther = true;
 
     directories = [
-      "Downloads"
-      "Documents"
-      "Pictures"
-      "Videos"
-      "Music"
-      "Games"
-      "Persist"
-
       "code"
       
       ".local/bin"
