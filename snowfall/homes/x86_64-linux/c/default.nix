@@ -1,7 +1,9 @@
-{ lib, namespace, ... }:
+{ config, lib, namespace, ... }:
 
 with lib; with lib.${namespace}; {
   cxl = {
+    desktop.background = "shinobu.png";
+
     suites = {
       common.enable = true;
       desktop.enable = true;
@@ -9,7 +11,7 @@ with lib; with lib.${namespace}; {
       media.enable = true;
     };
 
-    desktop.background = "shinobu.png";
+    apps.discord.enable = true;
 
     tools.git = {
       name = "Caroline Larimore";
