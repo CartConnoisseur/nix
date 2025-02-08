@@ -27,11 +27,6 @@
 
       ".config/fcitx"
       ".config/fcitx5"
-      
-      {
-        directory = ".local/share/Steam";
-        method = "symlink";
-      }
 
       ".config/qBittorrent"
       ".local/share/qBittorrent"
