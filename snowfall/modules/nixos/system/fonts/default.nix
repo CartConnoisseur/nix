@@ -24,7 +24,7 @@ in {
         noto-fonts-emoji
       ] ++ (
         optionals cfg.nerdfonts (
-          cfg.nerdfonts builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts)
+          builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts)
         )
       ) ++ cfg.extra;
 
