@@ -1,8 +1,9 @@
-{ options, config, lib, namespace, inputs, host, ... }:
+{ options, config, osConfig, lib, namespace, inputs, host, ... }:
 
 with lib; with lib.${namespace}; let
-  cfg = config.${namespace}.impermanence;
-  hosts = [ "c-pc" ];
+  cfg = config.${namespace}.impermanence // {
+    inherit (osConfig.${namespace}.system.impermanence.home) enable location secure;
+  };
 in {
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
@@ -14,22 +15,18 @@ in {
       default = true;
     };
 
-    location = mkOption {
-      type = str;
-      default = "/persist/home";
-    };
-
-    secure = {
-      location = mkOption {
-        type = str;
-        default = "/persist/secure/home";
-      };
-    };
+    enable = mkOption { type = uniq bool; };
+    location = mkOption { type = uniq str; };
+    secure.location = mkOption { type = uniq str; };
   };
 
   config = {
+    ${namespace}.impermanence = {
+      inherit (cfg) enable location secure;
+    };
+
     home.persistence.${cfg.location} = {
-      enable = builtins.elem host hosts;
+      enable = cfg.enable;
       allowOther = true;
 
       directories = mkIf cfg.skeleton [
@@ -44,7 +41,7 @@ in {
     };
 
     home.persistence.${cfg.secure.location} = {
-      enable = builtins.elem host hosts;
+      enable = cfg.enable;
       allowOther = false;
     };
   };

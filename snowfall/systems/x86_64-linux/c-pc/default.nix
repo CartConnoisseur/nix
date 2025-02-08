@@ -12,6 +12,7 @@ with lib; with lib.${namespace}; {
       id = "23ce94ff";
       
       impermanence.enable = true;
+      impermanence.home.enable = true;
 
       fonts.nerdfonts = true;
       fonts.extra = with pkgs; [
