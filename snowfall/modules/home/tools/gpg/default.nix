@@ -16,5 +16,17 @@ in {
     };
 
     programs.gpg.enable = true;
+
+    services.gpg-agent = {
+      enable = true;
+      enableSshSupport = true;
+      pinentryPackage = (pkgs.writeShellScriptBin "pinentry-wrapper" ''
+        if [[ -v DISPLAY ]]; then
+          exec ${pkgs.pinentry-gnome3}/bin/pinentry-gnome3 "$@"
+        fi
+        
+        exec ${pkgs.pinentry-gnome3}/bin/pinentry-tty "$@"
+      '');
+    };
   };
 }
