@@ -27,17 +27,7 @@
     };
   };
 
-  programs = {
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-
-    dconf.enable = true;
-  };
-
   services = {
-    pcscd.enable = true;
     printing.enable = true;
 
     hardware.openrgb.enable = true;
