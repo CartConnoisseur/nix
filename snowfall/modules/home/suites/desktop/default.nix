@@ -19,6 +19,10 @@ in {
         kitty.enable = true;
         flameshot.enable = true;
       };
+
+      desktop.components = {
+        gtk.enable = true;
+      };
     };
   };
 }
