@@ -2,6 +2,7 @@
 
 with lib; with lib.${namespace}; let
   cfg = config.${namespace}.apps.cmus;
+  impermanence = config.${namespace}.impermanence;
 in {
   options.${namespace}.apps.cmus = with types; {
     enable = mkEnableOption "cmus";
@@ -11,6 +12,12 @@ in {
     home.packages = with pkgs; [
       cmus
     ];
+
+    home.persistence.${impermanence.location} = {
+      directories = [
+        ".config/cmus"
+      ];
+    };
 
     xdg.desktopEntries.cmus = {
       name = "cmus";
