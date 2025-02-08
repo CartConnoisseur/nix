@@ -43,7 +43,6 @@
 
       ".local/share/Anki2"
       ".local/share/lutris"
-      ".local/share/PrismLauncher"
 
       ".config/nicotine"
       ".local/share/nicotine"
@@ -77,15 +76,10 @@
     anki-bin
 
     obsidian
-    prismlauncher
 
     #TODO: latest update broke
     # jetbrains.idea-community
   ];
-
-  home.file = {
-    ".0b".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.local/share/PrismLauncher/instances/0b/.minecraft";
-  };
 
   home.stateVersion = "23.11";
 }
