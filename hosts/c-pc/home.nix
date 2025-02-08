@@ -52,14 +52,6 @@
     ];
   };
 
-  home.persistence."/persist/secure/home" = {
-    allowOther = true;
-
-    directories = [
-      ".gnupg"
-    ];
-  };
-
   home.roles = {
     dev = {
       enable = true;
