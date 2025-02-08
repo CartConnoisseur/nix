@@ -9,10 +9,12 @@ with lib; with lib.${namespace}; {
       desktop.enable = true;
       dev.enable = true;
       media.enable = true;
+      gaming.enable = true;
       misc.enable = true;
     };
 
     apps.discord.enable = true;
+    apps.prismlauncher.extra.rusherhack.enable = true;
 
     tools.git = {
       name = "Caroline Larimore";
