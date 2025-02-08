@@ -36,6 +36,7 @@ in {
         "Videos"
         "Music"
         "Games"
+        "Links"
         "Persist"
       ];
     };
