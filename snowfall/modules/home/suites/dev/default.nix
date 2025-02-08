@@ -13,6 +13,10 @@ in {
       apps = {
         vscode.enable = desktop.enable;
       };
+
+      tools = {
+        cloc.enable = true;
+      };
     };
   };
 }
