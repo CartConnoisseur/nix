@@ -60,8 +60,6 @@ let cfg = config.home.roles.desktop; in {
     gtk.enable = true;
 
     programs = {
-      rofi.enable = true;
-
       fastfetch.enable = cfg.fetch;
     };
 
