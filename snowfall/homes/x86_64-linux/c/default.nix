@@ -5,6 +5,7 @@ with lib; with lib.${namespace}; {
     suites = {
       common.enable = true;
       desktop.enable = true;
+      dev.enable = true;
     };
 
     desktop.background = "shinobu.png";

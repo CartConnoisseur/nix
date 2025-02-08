@@ -18,10 +18,6 @@ let cfg = config.home.roles.dev; in {
   };
 
   config = mkIf cfg.enable {
-    programs = {
-      vscode.enable = config.home.roles.desktop.enable;
-    };
-
     home.packages = with pkgs; [
       cloc
     ];
