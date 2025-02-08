@@ -1,10 +1,10 @@
 { options, config, lib, namespace, ... }:
 
 with lib; with lib.${namespace}; let
-  cfg = config.${namespace}.apps.rofi;
+  cfg = config.${namespace}.desktop.components.rofi;
   desktop = config.${namespace}.desktop;
 in {
-  options.${namespace}.apps.rofi = with types; {
+  options.${namespace}.desktop.components.rofi = with types; {
     enable = mkEnableOption "rofi";
   };
 

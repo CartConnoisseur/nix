@@ -1,10 +1,10 @@
 { options, config, lib, pkgs, namespace, ... }:
 
 with lib; with lib.${namespace}; let
-  cfg = config.${namespace}.apps.polybar;
+  cfg = config.${namespace}.desktop.components.polybar;
   desktop = config.${namespace}.desktop;
 in {
-  options.${namespace}.apps.polybar = with types; {
+  options.${namespace}.desktop.components.polybar = with types; {
     enable = mkEnableOption "polybar";
   };
 

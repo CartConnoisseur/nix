@@ -14,6 +14,7 @@ in {
         "shinobu.png"
         "skull.png"
       ];
+      apply = value: ./bg/${value};
     };
 
     theme = {

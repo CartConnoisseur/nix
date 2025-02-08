@@ -1,11 +1,9 @@
 { options, config, lib, namespace, ... }:
 
-#TODO: move somewhere else
-# most likely will move several things into modules/desktop/components or similar
 with lib; with lib.${namespace}; let
-  cfg = config.${namespace}.apps.picom;
+  cfg = config.${namespace}.desktop.components.picom;
 in {
-  options.${namespace}.apps.picom = with types; {
+  options.${namespace}.desktop.components.picom = with types; {
     enable = mkEnableOption "picom";
   };
 
