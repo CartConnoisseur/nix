@@ -11,6 +11,7 @@ in {
     cxl = {
       apps = {
         i3.enable = true;
+        polybar.enable = true;
         kitty.enable = true;
       };
     };

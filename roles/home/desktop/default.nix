@@ -67,7 +67,6 @@ let cfg = config.home.roles.desktop; in {
 
     services = {
       picom.enable = true;
-      polybar.enable = true;
 
       flameshot.enable = cfg.screenshot;
     };
