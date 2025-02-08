@@ -11,7 +11,7 @@ in {
   config = mkIf cfg.enable {
     services.polybar = {
       enable = true;
-      script = "polybar";
+      script = "";
 
       package = pkgs.polybar.override {
         i3Support = true;
