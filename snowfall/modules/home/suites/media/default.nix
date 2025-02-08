@@ -11,6 +11,7 @@ in {
     cxl = {
       apps = {
         cmus.enable = true;
+        mpv.enable = true;
       };
     };
   };
