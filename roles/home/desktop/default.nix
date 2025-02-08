@@ -59,10 +59,6 @@ let cfg = config.home.roles.desktop; in {
   config = mkIf cfg.enable {
     gtk.enable = true;
 
-    programs = {
-      fastfetch.enable = cfg.fetch;
-    };
-
     home = {
       packages = with pkgs; [
         (writeShellScriptBin "switch-theme" ''

@@ -9,6 +9,7 @@ with lib; with lib.${namespace}; {
       desktop.enable = true;
       dev.enable = true;
       media.enable = true;
+      misc.enable = true;
     };
 
     apps.discord.enable = true;
