@@ -62,7 +62,6 @@ let cfg = config.home.roles.desktop; in {
     programs = {
       rofi.enable = true;
 
-      mpv.enable = cfg.mpv;
       fastfetch.enable = cfg.fetch;
     };
 
