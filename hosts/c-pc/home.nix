@@ -15,8 +15,6 @@
     allowOther = true;
 
     directories = [
-      "code"
-      
       ".local/bin"
       ".local/share/applications"
 

@@ -8,8 +8,6 @@
     ../../roles
   ];
 
-  programs.fuse.userAllowOther = true;
-
   users.users = {
     root.hashedPasswordFile = "/secrets/passwords/root";
 
@@ -17,13 +15,6 @@
       isNormalUser = true;
       hashedPasswordFile = "/secrets/passwords/c";
       extraGroups = [ "wheel" ];
-    };
-  };
-
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "c" = import ./home.nix;
     };
   };
 

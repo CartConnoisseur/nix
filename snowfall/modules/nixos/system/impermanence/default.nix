@@ -8,6 +8,8 @@ in {
   };
 
   config = mkIf cfg.enable {
+    programs.fuse.userAllowOther = true;
+
     environment.persistence."/persist/system" = {
       hideMounts = true;
 

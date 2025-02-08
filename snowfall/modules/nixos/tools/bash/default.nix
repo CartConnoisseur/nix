@@ -10,7 +10,6 @@ in {
   config = mkIf cfg.enable {
     environment.localBinInPath = true;
     
-    #TODO: add c="codium ." alias
     programs.bash = {
       shellAliases = {
         lsa = "ls -lAsh";
