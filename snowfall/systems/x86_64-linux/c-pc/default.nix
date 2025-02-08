@@ -13,6 +13,7 @@ with lib; with lib.${namespace}; {
       
       impermanence.enable = true;
 
+      fonts.nerdfonts = true;
       fonts.extra = with pkgs; [
         minecraftia
       ];
