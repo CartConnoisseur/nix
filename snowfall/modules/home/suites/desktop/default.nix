@@ -13,6 +13,7 @@ in {
         i3.enable = true;
 
         polybar.enable = true;
+        rofi.enable = true;
         picom.enable = true;
 
         kitty.enable = true;
