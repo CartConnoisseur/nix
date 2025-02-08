@@ -6,6 +6,7 @@ with lib; with lib.${namespace}; {
       common.enable = true;
       desktop.enable = true;
       dev.enable = true;
+      media.enable = true;
     };
 
     desktop.background = "shinobu.png";
