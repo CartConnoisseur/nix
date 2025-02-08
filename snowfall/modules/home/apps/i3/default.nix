@@ -9,6 +9,16 @@ in {
   };
 
   config = mkIf cfg.enable {
+    #TODO: these probably shouldnt go here
+    home.packages = with pkgs; [
+      kdePackages.breeze
+    ];
+
+    home.file.".Xresources".text = ''
+      Xcursor.size:   24
+      Xcursor.theme:  breeze_cursors
+    '';
+
     xsession.windowManager.i3 = {
       enable = true;
       config = let

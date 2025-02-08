@@ -77,14 +77,7 @@ let cfg = config.home.roles.desktop; in {
 
           i3-msg restart
         '')
-
-        kdePackages.breeze
       ];
-
-      file.".Xresources".text = ''
-        Xcursor.size:   24
-        Xcursor.theme:  breeze_cursors
-      '';
     };
   };
 }
