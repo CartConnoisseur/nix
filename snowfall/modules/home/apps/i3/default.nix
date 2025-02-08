@@ -102,8 +102,7 @@ in {
         };
   
         startup = [
-          { command = "polybar-msg cmd quit"; always = true; notification = false; }
-          { command = "polybar"; always = true; notification = false; }
+          { command = "polybar-msg cmd quit; polybar"; always = true; notification = false; }
           { command = "systemctl --user restart picom"; always = true; notification = false; }
           #TODO: better path
           { command = "${pkgs.feh}/bin/feh --bg-fill ${../../desktop/bg/${desktop.background}}"; always = true; notification = false; }
