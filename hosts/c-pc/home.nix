@@ -57,7 +57,6 @@
 
     directories = [
       ".gnupg"
-      ".ssh"
     ];
   };
 
