@@ -22,6 +22,7 @@ in {
         picom.enable = true;
 
         gtk.enable = true;
+        fcitx5.enable = true;
       };
     };
   };

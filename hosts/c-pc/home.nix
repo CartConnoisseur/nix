@@ -25,9 +25,6 @@
 
       ".config/Obsidian"
 
-      ".config/fcitx"
-      ".config/fcitx5"
-
       ".config/qBittorrent"
       ".local/share/qBittorrent"
       ".cache/qBittorrent"

@@ -115,7 +115,8 @@ in {
           { command = "polybar-msg cmd quit; polybar"; always = true; notification = false; }
           { command = "systemctl --user restart picom"; always = true; notification = false; }
           { command = "${pkgs.feh}/bin/feh --bg-fill ${desktop.background}"; always = true; notification = false; }
-          { command = "${pkgs.fcitx5}/bin/fcitx5 -r -d"; always = true; notification = false; }
+        ] ++ optionals desktop.components.fcitx5.enable [
+          { command = "fcitx5 -dr"; always = true; notification = false; }
         ];
   
         keybindings = {

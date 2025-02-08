@@ -11,7 +11,7 @@ in {
     cxl = {
       hardware = {
         audio.enable = true;
-        keyboard.jp = true;
+        keyboard.jp.enable = true;
       };
 
       apps = {

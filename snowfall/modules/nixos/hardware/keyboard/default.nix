@@ -5,7 +5,7 @@ with lib; with lib.${namespace}; let
 in {
   options.${namespace}.hardware.keyboard = with types; {
     enable = mkEnableOption "keyboard hardware tweaks";
-    jp = mkEnableOption "japanese ime support";
+    jp.enable = mkEnableOption "japanese ime support";
   };
 
   config = mkIf cfg.enable {
@@ -29,13 +29,13 @@ in {
       };
     };
 
-    i18n.inputMethod = mkIf cfg.jp {
+    i18n.inputMethod = mkIf cfg.jp.enable {
       enable = true;
       type = "fcitx5";
       fcitx5.addons = with pkgs; [ fcitx5-mozc ];
     };
 
-    environment.variables = mkIf cfg.jp {
+    environment.variables = mkIf cfg.jp.enable {
       # Required for fcitx5 support in kitty
       GLFW_IM_MODULE = "ibus";
     };
