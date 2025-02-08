@@ -1,7 +1,0 @@
-{ pkgs, ... }:
-
-{
-  environment = {
-    localBinInPath = true;
-  };
-}
