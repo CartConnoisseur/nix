@@ -52,4 +52,3 @@ in {
     cxl.desktop.theme.colors = import ./theme/${cfg.theme.name}.nix;
   };
 }
-
