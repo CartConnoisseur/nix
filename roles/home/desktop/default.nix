@@ -63,10 +63,6 @@ let cfg = config.home.roles.desktop; in {
       fastfetch.enable = cfg.fetch;
     };
 
-    services = {
-      flameshot.enable = cfg.screenshot;
-    };
-
     home = {
       packages = with pkgs; [
         (writeShellScriptBin "switch-theme" ''

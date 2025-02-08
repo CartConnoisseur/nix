@@ -17,6 +17,7 @@ in {
         picom.enable = true;
 
         kitty.enable = true;
+        flameshot.enable = true;
       };
     };
   };
