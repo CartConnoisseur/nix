@@ -1,10 +1,10 @@
 { options, config, lib, pkgs, namespace, ... }:
 
 with lib; with lib.${namespace}; let
-  cfg = config.${namespace}.apps.i3;
+  cfg = config.${namespace}.desktop.components.i3;
   desktop = config.${namespace}.desktop;
 in {
-  options.${namespace}.apps.i3 = with types; {
+  options.${namespace}.desktop.components.i3 = with types; {
     enable = mkEnableOption "i3";
   };
 
@@ -114,8 +114,7 @@ in {
         startup = [
           { command = "polybar-msg cmd quit; polybar"; always = true; notification = false; }
           { command = "systemctl --user restart picom"; always = true; notification = false; }
-          #TODO: better path
-          { command = "${pkgs.feh}/bin/feh --bg-fill ${../../desktop/bg/${desktop.background}}"; always = true; notification = false; }
+          { command = "${pkgs.feh}/bin/feh --bg-fill ${desktop.background}"; always = true; notification = false; }
           { command = "${pkgs.fcitx5}/bin/fcitx5 -r -d"; always = true; notification = false; }
         ];
   

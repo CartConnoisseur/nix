@@ -10,19 +10,20 @@ in {
   config = mkIf cfg.enable {
     cxl = {
       apps = {
+        kitty.enable = true;
+        flameshot.enable = true;
+      };
+
+      desktop.components = {
         i3.enable = true;
 
         polybar.enable = true;
         rofi.enable = true;
         picom.enable = true;
 
-        kitty.enable = true;
-        flameshot.enable = true;
-      };
-
-      desktop.components = {
         gtk.enable = true;
       };
     };
   };
 }
+
