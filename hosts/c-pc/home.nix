@@ -58,8 +58,6 @@
     jellyfin-media-player
     mkvtoolnix
 
-    gimp
-
     anki-bin
 
     obsidian

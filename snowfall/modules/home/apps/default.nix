@@ -2,6 +2,7 @@
 
 with lib; with lib.${namespace}; {
   imports = [
+    (mkSimpleApp "gimp" {})
     (mkSimpleApp "qbittorrent" {
       persist = [
         ".config/qBittorrent"
