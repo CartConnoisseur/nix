@@ -14,6 +14,8 @@ with lib; with lib.${namespace}; {
     };
 
     apps.discord.enable = true;
+    apps.qbittorrent.enable = true;
+    
     apps.prismlauncher.extra.rusherhack.enable = true;
 
     tools.git = {
