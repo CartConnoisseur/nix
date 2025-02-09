@@ -18,6 +18,7 @@ in {
         vim.enable = true;
         git.enable = true;
         misc.enable = true;
+        rebuild.enable = true;
       };
     };
   };
