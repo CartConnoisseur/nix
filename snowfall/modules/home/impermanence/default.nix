@@ -30,6 +30,7 @@ in {
       allowOther = true;
 
       directories = mkIf cfg.skeleton [
+        ".local/share/applications"
         ".local/bin"
 
         "Downloads"
