@@ -1,10 +1,6 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
-
   boot = {
     loader.grub = {
       enable = true;
@@ -22,9 +18,10 @@
       availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
       kernelModules = [ ];
 
-      postDeviceCommands = lib.mkAfter ''
-        zfs rollback -r zpool/root@blank && zfs rollback -r zpool/home@blank
-      '';
+      #TODO: re-enable impermanence
+      # postDeviceCommands = lib.mkAfter ''
+      #   zfs rollback -r zpool/root@blank && zfs rollback -r zpool/home@blank
+      # '';
 
       postMountCommands = lib.mkAfter ''
         chmod u=rw,g=,o= /secrets
@@ -51,6 +48,8 @@
 
   swapDevices = [ ];
 
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.enableRedistributableFirmware = true;
+  hardware.cpu.intel.updateMicrocode = true;
+
+  nixpkgs.hostPlatform =  "x86_64-linux";
 }

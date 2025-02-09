@@ -1,44 +1,14 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  imports = [
-    ./hardware.nix
-    ../../core
-    ../../roles
-  ];
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   environment.persistence."/persist/system" = {
-    hideMounts = true;
-    
     directories = [
-      "/etc/nixos"
-      "/var/log"
-      "/var/lib/nixos"
-      "/var/lib/systemd/coredump"
-
       "/var/lib/acme"
 
       "/srv/web"
       "/srv/minecraft"
     ];
-
-    files = [
-      "/etc/machine-id"
-    ];
   };
-
-  programs.fuse.userAllowOther = true;
-
-  networking = {
-    hostName = "copenhagen";
-    hostId = "a50062ff";
-
-    useDHCP = true;
-  };
-
-  time.timeZone = "America/Los_Angeles";
 
   users.users = {
     root.hashedPasswordFile = "/secrets/passwords/root";
@@ -51,13 +21,6 @@
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIDO8JxqS7B2n3YlNtlVMZGARi+GG/z7wLiiyl52qSZc caroline@larimo.re" # c-pc
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICGftQ5W8QMIVhgDijreliiMgIqwQvxwTkpMftJdQWu+ caroline@larimo.re" # phoenix
       ];
-    };
-  };
-
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "c" = import ./home/c.nix;
     };
   };
 
@@ -106,6 +69,4 @@
   environment.systemPackages = with pkgs; [
     ffmpeg
   ];
-
-  system.stateVersion = "23.11";
 }
