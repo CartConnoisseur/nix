@@ -28,8 +28,6 @@
       ".config/jellyfin"
       ".local/share/jellyfin"
       ".cache/jellyfin"
-
-      ".local/share/lutris"
     ];
   };
 
