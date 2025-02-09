@@ -13,11 +13,14 @@ with lib; with lib.${namespace}; {
       misc.enable = true;
     };
 
-    apps.discord.enable = true;
-    apps.gimp.enable = true;
-    apps.qbittorrent.enable = true;
+    apps = {
+      discord.enable = true;
+      gimp.enable = true;
+      qbittorrent.enable = true;
+      nicotine.enable = true;
 
-    apps.prismlauncher.extra.rusherhack.enable = true;
+      prismlauncher.extra.rusherhack.enable = true;
+    };
 
     tools.git = {
       name = "Caroline Larimore";
