@@ -23,8 +23,6 @@
 
       ".irssi"
 
-      ".config/Obsidian"
-
       ".config/jellyfin"
       ".local/share/jellyfin"
       ".cache/jellyfin"
@@ -39,18 +37,12 @@
     zoxide.enable = true;
   };
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "obsidian"
-  ];
-
   home.packages = with pkgs; [
     pfetch
 
     irssi
 
     mkvtoolnix
-
-    obsidian
 
     #TODO: latest update broke
     # jetbrains.idea-community
