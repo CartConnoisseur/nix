@@ -24,6 +24,7 @@ in {
 
       tools = {
         cloc.enable = true;
+        tmux.enable = true;
       };
     };
   };

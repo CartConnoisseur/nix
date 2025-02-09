@@ -30,8 +30,6 @@
   };
 
   programs = {
-    tmux.enable = true;
-
     zoxide.enable = true;
   };
 
