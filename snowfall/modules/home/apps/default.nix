@@ -39,5 +39,10 @@ with lib; with lib.${namespace}; {
       persist = [ ".irssi" ];
     })
     (mkSimpleApp "pfetch" {})
+    (mkSimpleApp "cmatrix" {})
+    (mkSimpleApp "asciiquarium" {})
+    (mkSimpleApp "pipes" {})
+    (mkSimpleApp "cowsay" {})
+    (mkSimpleApp "figlet" {})
   ];
 }

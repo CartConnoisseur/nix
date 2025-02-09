@@ -19,8 +19,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    (writeShellScriptBin "toys" "nix-shell -p cmatrix asciiquarium pipes cowsay figlet neofetch")
-    
     jellyfin
 
     go

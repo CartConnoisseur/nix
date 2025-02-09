@@ -12,6 +12,11 @@ in {
       apps = {
         fastfetch.enable = true;
         pfetch.enable = true;
+        cmatrix.enable = true;
+        asciiquarium.enable = true;
+        pipes.enable = true;
+        cowsay.enable = true;
+        figlet.enable = true;
       };
     };
   };
