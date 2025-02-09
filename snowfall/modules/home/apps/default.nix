@@ -35,5 +35,8 @@ with lib; with lib.${namespace}; {
         ".cache/JetBrains"
       ];
     })
+    (mkSimpleApp "irssi" {
+      persist = [ ".irssi" ];
+    })
   ];
 }

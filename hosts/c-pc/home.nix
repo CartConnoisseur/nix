@@ -15,13 +15,10 @@
     allowOther = true;
 
     directories = [
-      ".local/bin"
       ".local/share/applications"
 
       ".mozilla"
       ".wine"
-
-      ".irssi"
 
       ".config/jellyfin"
       ".local/share/jellyfin"
@@ -31,8 +28,6 @@
 
   home.packages = with pkgs; [
     pfetch
-
-    irssi
 
     mkvtoolnix
   ];
