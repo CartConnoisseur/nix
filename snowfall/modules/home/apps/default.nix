@@ -24,5 +24,8 @@ with lib; with lib.${namespace}; {
     (mkSimpleApp "jellyfin" {
       packages = [ jellyfin-media-player ];
     })
+    (mkSimpleApp "lutris" {
+      persist = [ ".local/share/lutris" ];
+    })
   ];
 }

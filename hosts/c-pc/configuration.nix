@@ -36,7 +36,6 @@
     go
     jdk21
 
-    lutris
     libGL
   ];
   

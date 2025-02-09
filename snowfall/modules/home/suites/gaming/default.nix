@@ -12,6 +12,7 @@ in {
       apps = {
         steam.enable = true;
         prismlauncher.enable = true;
+        lutris.enable = true;
       };
     };
   };
