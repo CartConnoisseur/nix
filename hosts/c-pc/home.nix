@@ -25,10 +25,6 @@
 
       ".config/Obsidian"
 
-      ".config/qBittorrent"
-      ".local/share/qBittorrent"
-      ".cache/qBittorrent"
-
       ".config/jellyfin"
       ".local/share/jellyfin"
       ".cache/jellyfin"
@@ -58,7 +54,6 @@
 
     irssi
 
-    qbittorrent
     nicotine-plus
     jellyfin-media-player
     mkvtoolnix
