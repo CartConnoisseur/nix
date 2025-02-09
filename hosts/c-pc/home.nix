@@ -22,8 +22,6 @@
   };
 
   home.packages = with pkgs; [
-    pfetch
-
     mkvtoolnix
   ];
 
