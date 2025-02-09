@@ -30,8 +30,7 @@
     firefox
     wineWowPackages.stable
     winetricks
-
-    ffmpeg
+    
     jellyfin
 
     go
