@@ -17,8 +17,6 @@
     directories = [
       ".local/share/applications"
 
-      ".wine"
-
       ".config/jellyfin"
       ".local/share/jellyfin"
       ".cache/jellyfin"
