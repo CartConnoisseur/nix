@@ -15,6 +15,7 @@ in {
         git.enable = true;
         ssh.enable = true;
         gpg.enable = true;
+        btop.enable = true;
       };
     };
   };

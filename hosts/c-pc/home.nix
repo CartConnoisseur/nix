@@ -31,7 +31,6 @@
 
   programs = {
     feh.enable = true;
-    btop.enable = true;
     tmux.enable = true;
 
     zoxide.enable = true;
