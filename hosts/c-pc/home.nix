@@ -17,7 +17,6 @@
     directories = [
       ".local/share/applications"
 
-      ".mozilla"
       ".wine"
 
       ".config/jellyfin"
