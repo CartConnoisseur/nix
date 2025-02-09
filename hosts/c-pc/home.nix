@@ -31,9 +31,6 @@
 
       ".local/share/Anki2"
       ".local/share/lutris"
-
-      ".config/nicotine"
-      ".local/share/nicotine"
     ];
   };
 
@@ -54,7 +51,6 @@
 
     irssi
 
-    nicotine-plus
     jellyfin-media-player
     mkvtoolnix
 
