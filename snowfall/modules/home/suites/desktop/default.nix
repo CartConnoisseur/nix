@@ -12,6 +12,7 @@ in {
       apps = {
         kitty.enable = true;
         flameshot.enable = true;
+        firefox.enable = true;
       };
 
       desktop.components = {
