@@ -27,5 +27,13 @@ with lib; with lib.${namespace}; {
     (mkSimpleApp "lutris" {
       persist = [ ".local/share/lutris" ];
     })
+    (mkSimpleApp "intellij" {
+      packages = [ jetbrains.idea-community ];
+      persist = [
+        ".config/JetBrains"
+        ".local/share/JetBrains"
+        ".cache/JetBrains"
+      ];
+    })
   ];
 }
