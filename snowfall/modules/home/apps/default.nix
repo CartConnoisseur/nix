@@ -17,5 +17,9 @@ with lib; with lib.${namespace}; {
         ".local/share/nicotine"
       ];
     })
+    (mkSimpleApp "anki" {
+      packages = [ anki-bin ];
+      persist = [ ".local/share/Anki2" ];
+    })
   ];
 }

@@ -29,7 +29,6 @@
       ".local/share/jellyfin"
       ".cache/jellyfin"
 
-      ".local/share/Anki2"
       ".local/share/lutris"
     ];
   };
@@ -53,8 +52,6 @@
 
     jellyfin-media-player
     mkvtoolnix
-
-    anki-bin
 
     obsidian
 
