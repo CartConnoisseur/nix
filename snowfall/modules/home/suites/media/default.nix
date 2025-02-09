@@ -13,6 +13,10 @@ in {
         cmus.enable = true;
         mpv.enable = true;
       };
+
+      tools = {
+        ffmpeg.enable = true;
+      };
     };
   };
 }
