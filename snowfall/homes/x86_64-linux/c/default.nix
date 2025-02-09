@@ -24,6 +24,8 @@ with lib; with lib.${namespace}; {
       prismlauncher.extra.rusherhack.enable = true;
     };
 
+    tools.wine.enable = true;
+
     tools.git = {
       name = "Caroline Larimore";
       email = "caroline@larimo.re";
