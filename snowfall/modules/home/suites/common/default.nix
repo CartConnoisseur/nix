@@ -16,6 +16,7 @@ in {
         ssh.enable = true;
         gpg.enable = true;
         btop.enable = true;
+        zoxide.enable = true;
       };
     };
   };
