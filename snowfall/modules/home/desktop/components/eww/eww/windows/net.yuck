@@ -1,0 +1,35 @@
+(box :class "panel"
+    :orientation "v"
+    :spacing 8
+    :space-evenly true
+    :height {100+16}
+    :width {(100+8)*3+8}
+
+    (graph
+        :value {net.rx}
+        :thickness 2
+        :time-range "30s"
+        :min 0
+        :max 100
+        :dynamic true
+        :line-style "round"
+    )
+
+    {"Download: " + round(net.rx/1024/1024, 2) + " MiB/s (peak: " + round(net.rx_peak/1024/1024, 2) + " MiB/s)"}
+
+    (graph
+        :value {net.tx}
+        :thickness 2
+        :time-range "30s"
+        :min 0
+        :max 100
+        :dynamic true
+        :line-style "round"
+    )
+
+    {"Upload: " + round(net.tx/1024/1024, 2) + " MiB/s (peak: " + round(net.tx_peak/1024/1024, 2) + " MiB/s)"}
+)
+
+(deflisten net
+    `/home/c/net.sh`
+)
