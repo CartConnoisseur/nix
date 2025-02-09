@@ -10,8 +10,11 @@ in {
   config = mkIf cfg.enable {
     cxl = {
       apps = {
-        cmus.enable = true;
+        feh.enable = true;
         mpv.enable = true;
+
+        cmus.enable = true;
+        
         jellyfin.enable = true;
       };
 
