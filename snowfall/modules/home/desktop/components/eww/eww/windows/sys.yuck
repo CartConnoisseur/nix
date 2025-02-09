@@ -1,6 +1,6 @@
 (defwindow sys
-    ;:monitor "<primary>"
-    :monitor "DisplayPort-1"
+    :monitor "<primary>"
+    ;:monitor "HDMI-A-0"
     :geometry (geometry
         :x "0px"
         :y "0px"

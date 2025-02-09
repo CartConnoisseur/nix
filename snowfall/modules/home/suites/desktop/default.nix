@@ -21,6 +21,7 @@ in {
         polybar.enable = true;
         rofi.enable = true;
         picom.enable = true;
+        eww.enable = true;
 
         gtk.enable = true;
         fcitx5.enable = true;
