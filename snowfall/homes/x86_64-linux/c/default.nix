@@ -19,6 +19,7 @@ with lib; with lib.${namespace}; {
       qbittorrent.enable = true;
       nicotine.enable = true;
       anki.enable = true;
+      obsidian.enable = true;
 
       prismlauncher.extra.rusherhack.enable = true;
     };
