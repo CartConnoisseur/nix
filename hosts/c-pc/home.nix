@@ -50,7 +50,6 @@
 
     irssi
 
-    jellyfin-media-player
     mkvtoolnix
 
     obsidian

@@ -12,6 +12,7 @@ in {
       apps = {
         cmus.enable = true;
         mpv.enable = true;
+        jellyfin.enable = true;
       };
 
       tools = {

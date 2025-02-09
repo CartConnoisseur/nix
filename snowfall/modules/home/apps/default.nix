@@ -21,5 +21,8 @@ with lib; with lib.${namespace}; {
       packages = [ anki-bin ];
       persist = [ ".local/share/Anki2" ];
     })
+    (mkSimpleApp "jellyfin" {
+      packages = [ jellyfin-media-player ];
+    })
   ];
 }
