@@ -3,6 +3,24 @@
 with lib; with lib.${namespace}; {
   imports = with pkgs; [
     (mkSimpleApp "gimp" {})
+    (mkSimpleApp "jellyfin" { packages = [ jellyfin-media-player ]; })
+    (mkSimpleApp "lutris" { persist = [ ".local/share/lutris" ]; })
+    (mkSimpleApp "irssi" { persist = [ ".irssi" ]; })
+
+    (mkSimpleApp "intellij" {
+      packages = [ jetbrains.idea-community ];
+      persist = [
+        ".config/JetBrains"
+        ".local/share/JetBrains"
+        ".cache/JetBrains"
+      ];
+    })
+
+    (mkSimpleApp "anki" {
+      packages = [ anki-bin ];
+      persist = [ ".local/share/Anki2" ];
+    })
+
     (mkSimpleApp "qbittorrent" {
       persist = [
         ".config/qBittorrent"
@@ -17,27 +35,7 @@ with lib; with lib.${namespace}; {
         ".local/share/nicotine"
       ];
     })
-    (mkSimpleApp "anki" {
-      packages = [ anki-bin ];
-      persist = [ ".local/share/Anki2" ];
-    })
-    (mkSimpleApp "jellyfin" {
-      packages = [ jellyfin-media-player ];
-    })
-    (mkSimpleApp "lutris" {
-      persist = [ ".local/share/lutris" ];
-    })
-    (mkSimpleApp "intellij" {
-      packages = [ jetbrains.idea-community ];
-      persist = [
-        ".config/JetBrains"
-        ".local/share/JetBrains"
-        ".cache/JetBrains"
-      ];
-    })
-    (mkSimpleApp "irssi" {
-      persist = [ ".irssi" ];
-    })
+
     (mkSimpleApp "pfetch" {})
     (mkSimpleApp "cmatrix" {})
     (mkSimpleApp "asciiquarium" {})
