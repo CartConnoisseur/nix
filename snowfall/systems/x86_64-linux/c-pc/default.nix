@@ -43,6 +43,12 @@ with lib; with lib.${namespace}; {
     };
   };
 
+  services = {
+    printing.enable = true;
+    hardware.openrgb.enable = true;
+    udev.enable = true;
+  };
+
   snowfallorg.users."c" = {
     admin = true;
   };
