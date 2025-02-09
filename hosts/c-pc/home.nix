@@ -43,9 +43,6 @@
     irssi
 
     mkvtoolnix
-
-    #TODO: latest update broke
-    # jetbrains.idea-community
   ];
 
   home.stateVersion = "23.11";

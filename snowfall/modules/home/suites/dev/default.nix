@@ -19,6 +19,7 @@ in {
     cxl = {
       apps = {
         vscode.enable = desktop.enable;
+        intellij.enable = desktop.enable;
       };
 
       tools = {
