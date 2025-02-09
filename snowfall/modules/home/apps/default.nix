@@ -38,5 +38,6 @@ with lib; with lib.${namespace}; {
     (mkSimpleApp "irssi" {
       persist = [ ".irssi" ];
     })
+    (mkSimpleApp "pfetch" {})
   ];
 }

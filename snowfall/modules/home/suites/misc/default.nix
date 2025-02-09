@@ -11,6 +11,7 @@ in {
     cxl = {
       apps = {
         fastfetch.enable = true;
+        pfetch.enable = true;
       };
     };
   };
