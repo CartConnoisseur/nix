@@ -5,7 +5,7 @@ with lib; with lib.${namespace}; {
     ./hardware.nix
     ./network.nix
   ];
-  
+
   cxl = {
     system = {
       hostname = "c-pc";
@@ -51,6 +51,11 @@ with lib; with lib.${namespace}; {
 
   snowfallorg.users."c" = {
     admin = true;
+  };
+
+  users.users = {
+    root.hashedPasswordFile = "/secrets/passwords/root";
+    "c".hashedPasswordFile = "/secrets/passwords/c";
   };
 
   system.stateVersion = "23.11";
