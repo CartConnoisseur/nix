@@ -15,8 +15,6 @@
     allowOther = true;
 
     directories = [
-      ".local/share/applications"
-
       ".config/jellyfin"
       ".local/share/jellyfin"
       ".cache/jellyfin"
