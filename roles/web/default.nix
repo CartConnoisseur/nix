@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./images
     ./personal
     ./stargazers
   ];

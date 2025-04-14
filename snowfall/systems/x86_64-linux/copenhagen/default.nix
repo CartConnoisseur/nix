@@ -18,6 +18,7 @@ with lib; with lib.${namespace}; {
     services = {
       web = {
         enable = true;
+        images.enable = true;
       }
     }
   };
