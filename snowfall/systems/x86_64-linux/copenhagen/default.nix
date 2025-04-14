@@ -19,6 +19,7 @@ with lib; with lib.${namespace}; {
       web = {
         enable = true;
         images.enable = true;
+        stargazers.enable = true;
       }
     }
   };

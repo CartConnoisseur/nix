@@ -3,7 +3,6 @@
 {
   environment.persistence."/persist/system" = {
     directories = [
-      "/srv/web"
       "/srv/minecraft"
     ];
   };
