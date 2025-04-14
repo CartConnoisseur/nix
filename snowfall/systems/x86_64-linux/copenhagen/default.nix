@@ -14,6 +14,12 @@ with lib; with lib.${namespace}; {
       impermanence.enable = true;
       impermanence.home.enable = true;
     };
+
+    services = {
+      web = {
+        enable = true;
+      }
+    }
   };
 
   system.stateVersion = "23.11";
