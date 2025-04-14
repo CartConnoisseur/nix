@@ -37,11 +37,6 @@
         port = 25569;
       };
     };
-    web = {
-      images.enable = true;
-      stargazers.enable = true;
-      personal.enable = true;
-    };
   };
 
   programs = {

@@ -1,8 +1,9 @@
-{ config, pkgs, lib, ... }:
-with lib;
+{ options, config, lib, pkgs, namespace, ... }:
 
-let 
-  cfg = config.roles.web.personal;
+with lib; with lib.${namespace}; let
+  cfg = config.${namespace}.services.web.personal;
+  impermanence = config.${namespace}.system.impermanence;
+
   package = (pkgs.buildGoModule rec {
     pname = "site";
     version = "6612d84c63a7bbc2a5b70607f2ec32ea070c4659";
@@ -23,11 +24,13 @@ let
     vendorHash = "sha256-2/4Wv7nsaT0wnUzkRgHKpSswigDj9nOvlmYXK29rvLU=";
   });
 in {
-  options.roles.web.personal = {
-    enable = mkEnableOption "personal site";
+  options.${namespace}.services.personal.images = with types; {
+    enable = mkEnableOption "personal site webserver";
   };
 
   config = mkIf cfg.enable {
+    cxl.services.web.enable = true;
+
     networking.firewall.allowedTCPPorts = [ 80 443 ];
     
     services.nginx = {
@@ -47,7 +50,7 @@ in {
       };
     };
 
-    systemd.services."web.personal" = {
+    systemd.services."cxl.web.personal" = {
       enable = true;
       wantedBy = [ "multi-user.target" ];
 
