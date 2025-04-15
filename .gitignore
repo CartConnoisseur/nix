@@ -2,12 +2,10 @@
 # widget development without rebuilding my entire system for every change,
 # using `eww -c /etc/nixos/snowfall/modules/home/desktop/components/eww/eww`.
 # It is just a static copy of the generated file
-#TODO: change path on finalization
-snowfall/modules/home/desktop/components/eww/eww/colors.css
+modules/home/desktop/components/eww/eww/colors.css
 
 # WIP new stuff. ignored because git is annoying about it
-#TODO: change path on finalization
-snowfall/modules/home/desktop/components/eww/eww/new
+modules/home/desktop/components/eww/eww/new
 
 # NixOS VM files
 result

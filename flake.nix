@@ -23,7 +23,7 @@
     src = ./.;
 
     snowfall = {
-      root = ./snowfall;
+      root = ./.;
       namespace = "cxl";
 
       meta = {
