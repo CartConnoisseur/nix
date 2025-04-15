@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-with lib;
+{ options, config, lib, pkgs, namespace, ... }:
 
-let cfg = config.roles.minecraft.servers.stargazers; in {
-  options.roles.minecraft.servers.stargazers = {
-    enable = mkEnableOption "stargazers server";
+with lib; with lib.${namespace}; let
+  cfg = config.${namespace}.services.minecraft.stargazers;
+  impermanence = config.${namespace}.system.impermanence;
+in {
+  options.${namespace}.services.minecraft.stargazers = with types; {
+    enable = mkEnableOption "stargazers minecraft server";
 
     port = mkOption {
       type = types.port;
@@ -13,12 +15,23 @@ let cfg = config.roles.minecraft.servers.stargazers; in {
 
     start = mkOption {
       type = types.bool;
-      default = false;
+      default = true;
       description = "autostart";
     };
   };
 
   config = mkIf cfg.enable {
+    cxl.services.minecraft.enable = true;
+
+    #TODO: enable tmux
+    #cxl.tools.tmux.enable = true;
+
+    environment.persistence.${impermanence.location} = {
+      directories = [
+        "/srv/minecraft/stargazers"
+      ];
+    };
+
     services.minecraft-servers.servers.stargazers = {
       enable = true;
       openFirewall = true;

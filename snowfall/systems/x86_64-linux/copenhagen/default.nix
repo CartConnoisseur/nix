@@ -17,11 +17,17 @@ with lib; with lib.${namespace}; {
 
     services = {
       web = {
-        enable = true;
         images.enable = true;
         stargazers.enable = true;
-      }
-    }
+      };
+
+      minecraft = {
+        stargazers = {
+          enable = true;
+          port = 25566;
+        };
+      };
+    };
   };
 
   system.stateVersion = "23.11";
