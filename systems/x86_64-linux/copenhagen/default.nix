@@ -53,7 +53,15 @@ with lib; with lib.${namespace}; {
     admin = true;
 
     home.config = {
-      cxl.tools.git.key = "DE64538967CA0C68";
+      cxl = {
+        impermanence = {
+          skeleton = false;
+          location = lib.mkForce "/persist/home/c";
+          secure.location = lib.mkForce "/persist/secure/home/c";
+        };
+
+        tools.git.key = "DE64538967CA0C68";
+      };
     };
   };
 

@@ -37,9 +37,14 @@
       nix-minecraft.nixosModules.minecraft-servers
     ];
 
+    overlays = with inputs; [
+      nix-minecraft.overlay
+    ];
+
     channels-config.allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) [
       "discord"
       "obsidian"
+      "minecraft-server"
     ];
   };
 }

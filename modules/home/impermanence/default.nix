@@ -1,9 +1,8 @@
 { options, config, osConfig, lib, namespace, inputs, host, ... }:
 
 with lib; with lib.${namespace}; let
-  cfg = config.${namespace}.impermanence // {
-    inherit (osConfig.${namespace}.system.impermanence.home) enable location secure;
-  };
+  cfg = config.${namespace}.impermanence;
+  os = osConfig.${namespace}.system.impermanence.home;
 in {
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
@@ -22,7 +21,7 @@ in {
 
   config = {
     ${namespace}.impermanence = {
-      inherit (cfg) enable location secure;
+      inherit (os) enable location secure;
     };
 
     home.persistence.${cfg.location} = {
