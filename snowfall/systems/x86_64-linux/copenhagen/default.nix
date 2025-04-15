@@ -15,6 +15,8 @@ with lib; with lib.${namespace}; {
       impermanence.home.enable = true;
     };
 
+    suites.common.enable = true;
+
     services = {
       ssh = {
         enable = true;
@@ -33,13 +35,27 @@ with lib; with lib.${namespace}; {
           enable = true;
           port = 25566;
         };
-        
+
         zenith = {
           enable = true;
           port = 25569;
         };
       };
     };
+  };
+
+  services = {
+    pcscd.enable = true;
+    udev.enable = true;
+  };
+
+  snowfallorg.users."c" = {
+    admin = true;
+  };
+
+  users.users = {
+    root.hashedPasswordFile = "/secrets/passwords/root";
+    "c".hashedPasswordFile = "/secrets/passwords/c";
   };
 
   system.stateVersion = "23.11";
