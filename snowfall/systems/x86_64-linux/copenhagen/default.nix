@@ -16,6 +16,11 @@ with lib; with lib.${namespace}; {
     };
 
     services = {
+      ssh = {
+        enable = true;
+        port = 42069;
+      };
+
       web = {
         personal.enable = true;
         landing.enable = true;

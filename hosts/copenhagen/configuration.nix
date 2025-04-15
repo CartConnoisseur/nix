@@ -24,14 +24,6 @@
 
   services = {
     pcscd.enable = true;
-    openssh = {
-      enable = true;
-      ports = [ 42069 ];
-      settings = {
-        PermitRootLogin = "no";
-        PasswordAuthentication = false;
-      };
-    };
   };
 
   environment.systemPackages = with pkgs; [
