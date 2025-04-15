@@ -1,7 +1,8 @@
-{ options, config, lib, pkgs, namespace, ... }:
+{ options, config, lib, namespace, ... }:
 
 with lib; with lib.${namespace}; let
   cfg = config.${namespace}.desktop.components.gtk;
+  theme = config.${namespace}.desktop.theme;
 in {
   options.${namespace}.desktop.components.gtk = with types; {
     enable = mkEnableOption "gtk";
@@ -11,11 +12,7 @@ in {
     gtk = {
       enable = true;
 
-      #TODO: dynamic theming
-      theme = {
-        package = pkgs.gruvbox-gtk-theme;
-        name = "Gruvbox-Dark";
-      };
+      theme = theme.gtk;
 
       font = {
         name = "monospace";

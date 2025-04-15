@@ -1,8 +1,13 @@
 { config, lib, namespace, ... }:
 
-with lib; with lib.${namespace}; {
+with lib; with lib.${namespace}; let
+  themes = config.${namespace}.desktop.themes;
+in {
   cxl = {
-    desktop.background = "shinobu.png";
+    desktop = {
+      background = "shinobu.png";
+      theme = themes."gruvbox";
+    };
 
     suites = {
       common.enable = true;
