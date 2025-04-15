@@ -51,6 +51,10 @@ with lib; with lib.${namespace}; {
 
   snowfallorg.users."c" = {
     admin = true;
+
+    home.config = {
+      cxl.desktop.enable = true;
+    };
   };
 
   users.users = {

@@ -4,6 +4,8 @@ with lib; with lib.${namespace}; let
   cfg = config.${namespace}.desktop;
 in {
   options.${namespace}.desktop = with types; {
+    enable = mkEnableOption "desktop";
+
     background = mkOption {
       type = enum [
         "lycoris.png"

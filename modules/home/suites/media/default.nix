@@ -2,6 +2,7 @@
 
 with lib; with lib.${namespace}; let
   cfg = config.${namespace}.suites.media;
+  desktop = config.${namespace}.desktop;
 in {
   options.${namespace}.suites.media = with types; {
     enable = mkEnableOption "media";
@@ -9,7 +10,7 @@ in {
 
   config = mkIf cfg.enable {
     cxl = {
-      apps = {
+      apps = mkIf desktop.enable {
         feh.enable = true;
         mpv.enable = true;
 

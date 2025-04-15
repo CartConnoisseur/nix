@@ -2,12 +2,13 @@
 
 with lib; with lib.${namespace}; let
   cfg = config.${namespace}.suites.desktop;
+  desktop = config.${namespace}.desktop;
 in {
   options.${namespace}.suites.desktop = with types; {
     enable = mkEnableOption "desktop";
   };
 
-  config = mkIf cfg.enable {
+  config = mkIf (cfg.enable && desktop.enable) {
     cxl = {
       apps = {
         kitty.enable = true;
