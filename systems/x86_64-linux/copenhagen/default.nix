@@ -52,7 +52,7 @@ with lib; with lib.${namespace}; {
   snowfallorg.users."c" = {
     admin = true;
 
-    config = {
+    home.config = {
       cxl.tools.git.key = "DE64538967CA0C68";
     };
   };

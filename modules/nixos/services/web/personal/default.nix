@@ -24,7 +24,7 @@ with lib; with lib.${namespace}; let
     vendorHash = "sha256-2/4Wv7nsaT0wnUzkRgHKpSswigDj9nOvlmYXK29rvLU=";
   });
 in {
-  options.${namespace}.services.personal.images = with types; {
+  options.${namespace}.services.web.personal = with types; {
     enable = mkEnableOption "personal site webserver";
   };
 

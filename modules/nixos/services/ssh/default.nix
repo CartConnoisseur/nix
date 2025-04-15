@@ -15,7 +15,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    openssh = {
+    services.openssh = {
       enable = true;
       ports = [ cfg.port ];
       
