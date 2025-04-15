@@ -51,11 +51,25 @@ with lib; with lib.${namespace}; {
 
   snowfallorg.users."c" = {
     admin = true;
+
+    config = {
+      cxl.tools.git.key = "DE64538967CA0C68";
+    };
   };
 
   users.users = {
     root.hashedPasswordFile = "/secrets/passwords/root";
-    "c".hashedPasswordFile = "/secrets/passwords/c";
+
+    "c" = {
+      hashedPasswordFile = "/secrets/passwords/c";
+
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIDO8JxqS7B2n3YlNtlVMZGARi+GG/z7wLiiyl52qSZc caroline@larimo.re" # c-pc
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICGftQ5W8QMIVhgDijreliiMgIqwQvxwTkpMftJdQWu+ caroline@larimo.re" # phoenix
+      ];
+
+      extraGroups = [ "minecraft" ];
+    };
   };
 
   system.stateVersion = "23.11";
