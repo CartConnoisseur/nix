@@ -28,6 +28,7 @@ with lib; with lib.${namespace}; {
         landing.enable = true;
         images.enable = true;
         stargazers.enable = true;
+        status.enable = true;
       };
 
       minecraft = {
