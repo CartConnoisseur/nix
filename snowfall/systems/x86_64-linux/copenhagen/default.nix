@@ -17,6 +17,8 @@ with lib; with lib.${namespace}; {
 
     services = {
       web = {
+        personal.enable = true;
+        landing.enable = true;
         images.enable = true;
         stargazers.enable = true;
       };

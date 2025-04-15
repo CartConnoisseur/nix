@@ -37,7 +37,7 @@ in {
       enable = true;
       virtualHosts = {
         "caroline.larimo.re" = {
-          serverAliases = [ "cxl.sh" ];
+          # serverAliases = [ "cxl.sh" ];
 
           addSSL = true;
           enableACME = true;
