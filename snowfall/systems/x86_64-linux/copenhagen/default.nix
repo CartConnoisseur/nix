@@ -28,6 +28,11 @@ with lib; with lib.${namespace}; {
           enable = true;
           port = 25566;
         };
+        
+        zenith = {
+          enable = true;
+          port = 25569;
+        };
       };
     };
   };

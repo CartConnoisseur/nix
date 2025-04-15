@@ -15,15 +15,6 @@
     };
   };
 
-  roles = {
-    minecraft = {
-      zenith = {
-        enable = true;
-        port = 25569;
-      };
-    };
-  };
-
   programs = {
     gnupg.agent = {
       enable = true;
