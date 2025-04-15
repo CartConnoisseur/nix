@@ -29,7 +29,6 @@ with lib; with lib.${namespace}; {
     tools.git = {
       name = "Caroline Larimore";
       email = "caroline@larimo.re";
-      key = "314C14641E707B68";
     };
   };
 

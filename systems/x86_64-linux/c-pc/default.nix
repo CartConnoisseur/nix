@@ -53,7 +53,10 @@ with lib; with lib.${namespace}; {
     admin = true;
 
     home.config = {
-      cxl.desktop.enable = true;
+      cxl = {
+        desktop.enable = true;
+        tools.git.key = "314C14641E707B68";
+      };
     };
   };
 
