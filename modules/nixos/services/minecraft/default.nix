@@ -8,6 +8,8 @@ in {
   };
 
   config = mkIf cfg.enable {
+    cxl.tools.tmux.enable = true;
+    
     services.minecraft-servers = {
       enable = true;
       eula = true;

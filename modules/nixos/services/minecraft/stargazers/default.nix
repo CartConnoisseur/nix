@@ -23,9 +23,6 @@ in {
   config = mkIf cfg.enable {
     cxl.services.minecraft.enable = true;
 
-    #TODO: enable tmux
-    #cxl.tools.tmux.enable = true;
-
     environment.persistence.${impermanence.location} = {
       directories = [
         "/srv/minecraft/stargazers"
