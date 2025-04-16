@@ -55,19 +55,19 @@
 
                     (button :class "icon"
                         :width 36
-                        :onclick `playerctl --player=cmus,firefox,%any previous`
+                        :onclick `playerctl --player=playerctld,cmus,firefox,%any previous`
                         
                         "󰒮"
                     )
                     (button :class "icon"
-                        :onclick `playerctl --player=cmus,firefox,%any play-pause`
+                        :onclick `playerctl --player=playerctld,cmus,firefox,%any play-pause`
                         :width 36
 
                         { song.status == "Playing" ? "󰏤" : "󰐊" }
                     )
                     (button :class "icon"
                         :width 36
-                        :onclick `playerctl --player=cmus,firefox,%any next`
+                        :onclick `playerctl --player=playerctld,cmus,firefox,%any next`
 
                         "󰒭"
                     )
@@ -89,14 +89,14 @@
 )
 
 (deflisten song-cover
-    `playerctl --player=cmus,firefox,%any -F metadata title | get-album-art`
+    `playerctl --player=playerctld,cmus,firefox,%any -F metadata title | get-album-art`
 )
 
 (deflisten song
-    `playerctl --player=cmus,firefox,%any -F metadata --format='{"title": "{{title}}", "album": "{{album}}", "artist": "{{artist}}", "status": "{{status}}", "length": "{{mpris:length}}"}'`
+    `playerctl --player=playerctld,cmus,firefox,%any -F metadata --format='{"title": "{{title}}", "album": "{{album}}", "artist": "{{artist}}", "status": "{{status}}", "length": "{{mpris:length}}"}'`
 )
 
 (defpoll song-position
     :interval "0.2s"
-    `playerctl --player=cmus,firefox,%any position`
+    `playerctl --player=playerctld,cmus,firefox,%any position`
 )

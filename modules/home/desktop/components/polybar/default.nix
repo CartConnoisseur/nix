@@ -89,7 +89,7 @@ in {
         "module/music" = {
           type = "custom/script";
 
-          exec = "playerctl --player=cmus,firefox,%any -F metadata --format='{{title}} - {{artist}}'";
+          exec = "playerctl --player=playerctld,cmus,firefox,%any -F metadata --format='{{title}} - {{artist}}'";
           tail = true;
 
           format = {

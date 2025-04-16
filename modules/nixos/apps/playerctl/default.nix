@@ -12,7 +12,6 @@ in {
       playerctl
     ];
 
-    #TODO: enable, eventually
-    services.playerctld.enable = false;
+    services.playerctld.enable = true;
   };
 }
