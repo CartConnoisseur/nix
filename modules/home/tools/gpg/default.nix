@@ -15,6 +15,11 @@ in {
       ];
     };
 
+    #NOTE: required for pinentry-gnome3
+    home.packages = with pkgs; [
+      gcr
+    ];
+
     programs.gpg.enable = true;
 
     services.gpg-agent = {
