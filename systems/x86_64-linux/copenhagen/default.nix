@@ -35,6 +35,7 @@ with lib; with lib.${namespace}; {
         stargazers = {
           enable = true;
           port = 25566;
+          start = false;
         };
 
         zenith = {
