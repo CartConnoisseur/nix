@@ -11,5 +11,8 @@ with lib; with lib.${namespace}; {
       ];
       persist = [ ".wine" ];
     })
+    (mkSimpleTool "mute" {
+      packages = [ cxl.mute ];
+    })
   ];
 }

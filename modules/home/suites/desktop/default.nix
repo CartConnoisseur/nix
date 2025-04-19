@@ -16,6 +16,10 @@ in {
         firefox.enable = true;
       };
 
+      tools = {
+        mute.enable = true;
+      };
+
       desktop.components = {
         i3.enable = true;
 
