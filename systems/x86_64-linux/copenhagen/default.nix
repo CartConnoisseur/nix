@@ -32,6 +32,11 @@ with lib; with lib.${namespace}; {
       };
 
       minecraft = {
+        beta = {
+          enable = true;
+          port = 25565;
+        };
+
         stargazers = {
           enable = true;
           port = 25566;
