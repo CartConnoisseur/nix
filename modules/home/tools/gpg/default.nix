@@ -24,7 +24,7 @@ in {
 
     services.gpg-agent = {
       enable = true;
-      enableSshSupport = true;
+
       pinentryPackage = (pkgs.writeShellScriptBin "pinentry-wrapper" ''
         if [[ -v DISPLAY ]]; then
           exec ${pkgs.pinentry-gnome3}/bin/pinentry-gnome3 "$@"
