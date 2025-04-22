@@ -16,6 +16,10 @@ else
 fi
 
 function prompt.git {
+    if ! command -v __git_ps1 &> /dev/null; then
+        return 1
+    fi
+
     GIT_PS1_STATESEPARATOR=';'
     GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWUNTRACKEDFILES=
