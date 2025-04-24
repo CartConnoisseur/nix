@@ -16,6 +16,8 @@ stdenv.mkDerivation rec {
     mkdir -p $out/bin $out/lib/minecraft
     cp -v $src $out/lib/minecraft/server.jar
 
+    ${pkgs.jdk8}/bin/jar uf $out/lib/minecraft/server.jar -C ${./patches/list-command} ha.class
+
     cat > $out/bin/minecraft-server << EOF
     #!/bin/sh
     exec ${pkgs.jre8_headless}/bin/java \$@ -jar $out/lib/minecraft/server.jar nogui
