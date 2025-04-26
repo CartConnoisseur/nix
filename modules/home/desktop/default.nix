@@ -4,7 +4,7 @@ with lib; with lib.${namespace}; let
   cfg = config.${namespace}.desktop;
   themeType = with types; submodule {
     options = {
-      name = mkOption {
+      vim = mkOption {
         type = str;
       };
 

@@ -2,8 +2,7 @@
 
 with lib; with lib.${namespace}; {
   cxl.desktop.themes."gruvbox" = {
-    #TODO: grab this from attr name somehow
-    name = "gruvbox";
+    vim = "gruvbox";
 
     gtk = {
       package = pkgs.gruvbox-gtk-theme;

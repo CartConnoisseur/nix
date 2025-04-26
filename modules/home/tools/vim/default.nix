@@ -16,7 +16,7 @@ in {
 
       set termguicolors
       set background=dark
-      colorscheme ${theme.name}
+      colorscheme ${theme.vim}
   
       syntax on
 
