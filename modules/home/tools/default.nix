@@ -14,5 +14,8 @@ with lib; with lib.${namespace}; {
     (mkSimpleTool "mute" {
       packages = [ cxl.mute ];
     })
+    (mkSimpleTool "click" {
+      packages = [ cxl.click ];
+    })
   ];
 }

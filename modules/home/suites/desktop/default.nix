@@ -18,6 +18,7 @@ in {
 
       tools = {
         mute.enable = true;
+        click.enable = true;
       };
 
       desktop.components = {
