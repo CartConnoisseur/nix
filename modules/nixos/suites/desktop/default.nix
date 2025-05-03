@@ -12,6 +12,10 @@ in {
       hardware = {
         audio.enable = true;
         keyboard.jp.enable = true;
+        rgb = {
+          enable = true;
+          headphones = true;
+        };
       };
 
       apps = {
