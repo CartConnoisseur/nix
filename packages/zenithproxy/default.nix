@@ -1,7 +1,7 @@
-{ lib, pkgs, stdenv, ... }:
+{ lib, pkgs, stdenvNoCC, autoPatchelfHook, ... }:
 
 let
-  zenithproxy-launcher = stdenv.mkDerivation rec {
+  zenithproxy-launcher = stdenvNoCC.mkDerivation rec {
     pname = "zenithproxy-launcher";
     version = "v3";
 
@@ -9,6 +9,12 @@ let
       url = "https://github.com/rfresh2/ZenithProxy/releases/download/launcher-${version}/ZenithProxy-launcher-linux-amd64.zip";
       hash = "sha256-ImoPNNxn3kpOWGkXwgQBAj/dJlK9BR50PSJnTwUVxU8=";
     };
+    
+    buildInputs = with pkgs; [
+      zlib
+    ];
+
+    nativeBuildInputs = [ autoPatchelfHook ];
 
     installPhase = ''
       runHook preInstall
@@ -21,7 +27,6 @@ in pkgs.buildFHSEnv {
 
   targetPkgs = (pkgs: with pkgs; [
     zenithproxy-launcher
-    zlib
   ]);
 
   runScript = pkgs.writeShellScript "zenithproxy-wrapper" ''
