@@ -10,8 +10,6 @@ in {
 
   config = mkIf cfg.enable {
     cxl.services.web.enable = true;
-
-    networking.firewall.allowedTCPPorts = [ 80 443 ];
     
     services.nginx = {
       enable = true;

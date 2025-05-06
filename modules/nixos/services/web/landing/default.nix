@@ -16,8 +16,6 @@ in {
         "/srv/web/landing"
       ];
     };
-
-    networking.firewall.allowedTCPPorts = [ 80 443 ];
     
     services.nginx = {
       enable = true;
