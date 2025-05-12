@@ -26,6 +26,8 @@ in {
       ];
     };
 
+    services.arrpc.enable = true;
+
     xdg.configFile."Vencord/themes/nix.theme.css".text = let c = desktop.theme.colors; in ''
       @import url(https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/BasicBackground.css);
 
