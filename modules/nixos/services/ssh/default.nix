@@ -7,17 +7,17 @@ in {
   options.${namespace}.services.ssh = with types; {
     enable = mkEnableOption "ssh server";
 
-    port = mkOption {
-      type = types.port;
-      default = 22;
-      description = "ssh server port";
+    ports = mkOption {
+      type = listOf port;
+      default = [ 22 ];
+      description = "ssh server ports";
     };
   };
 
   config = mkIf cfg.enable {
     services.openssh = {
       enable = true;
-      ports = [ cfg.port ];
+      ports = cfg.ports;
       
       settings = {
         PermitRootLogin = "no";

@@ -20,7 +20,7 @@ with lib; with lib.${namespace}; {
     services = {
       ssh = {
         enable = true;
-        port = 42069;
+        ports = [ 22 42069 ];
       };
 
       web = {
