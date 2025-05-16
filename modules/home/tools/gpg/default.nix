@@ -25,7 +25,7 @@ in {
     services.gpg-agent = {
       enable = true;
 
-      pinentryPackage = (pkgs.writeShellScriptBin "pinentry-wrapper" ''
+      pinentry.package = (pkgs.writeShellScriptBin "pinentry-wrapper" ''
         if [[ -v DISPLAY ]]; then
           exec ${pkgs.pinentry-gnome3}/bin/pinentry-gnome3 "$@"
         fi
