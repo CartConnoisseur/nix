@@ -17,5 +17,8 @@ with lib; with lib.${namespace}; {
     (mkSimpleTool "click" {
       packages = [ cxl.click ];
     })
+    (mkSimpleTool "mkenv" {
+      packages = [ cxl.mkenv ];
+    })
   ];
 }

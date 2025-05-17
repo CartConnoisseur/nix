@@ -25,6 +25,7 @@ in {
       tools = {
         cloc.enable = true;
         tmux.enable = true;
+        mkenv.enable = true;
       };
     };
   };
