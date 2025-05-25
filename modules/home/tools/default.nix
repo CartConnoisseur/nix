@@ -20,5 +20,8 @@ with lib; with lib.${namespace}; {
     (mkSimpleTool "mkenv" {
       packages = [ cxl.mkenv ];
     })
+    (mkSimpleTool "fork" {
+      packages = [ cxl.fork ];
+    })
   ];
 }
