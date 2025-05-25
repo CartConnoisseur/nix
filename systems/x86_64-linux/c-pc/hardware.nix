@@ -5,8 +5,6 @@
     loader.grub = {
       enable = true;
 
-      useOSProber = true;
-
       zfsSupport = true;
       efiSupport = true;
       efiInstallAsRemovable = true;
