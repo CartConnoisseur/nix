@@ -26,6 +26,7 @@ in {
         cloc.enable = true;
         tmux.enable = true;
         mkenv.enable = true;
+        neovim.enable = true;
         fork.enable = desktop.enable;
       };
     };

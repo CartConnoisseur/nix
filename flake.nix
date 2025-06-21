@@ -16,6 +16,11 @@
 
     impermanence.url = "github:nix-community/impermanence";
     nix-minecraft.url = "github:CartConnoisseur/nix-minecraft";
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: inputs.snowfall-lib.mkFlake {
@@ -35,6 +40,10 @@
     systems.modules.nixos = with inputs; [
       impermanence.nixosModules.impermanence
       nix-minecraft.nixosModules.minecraft-servers
+    ];
+
+    homes.modules = with inputs; [
+      nixvim.homeManagerModules.nixvim
     ];
 
     overlays = with inputs; [
