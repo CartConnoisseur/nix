@@ -23,6 +23,17 @@ in {
 
           rightalt = "rightmeta";
           rightmeta = "rightalt";
+
+          pause = "toggle(revert)";
+        };
+
+        revert = {
+          # un-swap alt and meta keys
+          leftalt = "leftalt";
+          leftmeta = "leftmeta";
+
+          rightalt = "rightalt";
+          rightmeta = "rightmeta";
         };
       };
     };
