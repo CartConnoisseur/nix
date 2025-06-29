@@ -34,6 +34,8 @@ in {
 
       plugins.nix.enable = true;
       plugins.trouble.enable = true;
+
+      plugins.web-devicons.enable = true;
     };
   };
 }
