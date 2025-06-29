@@ -64,7 +64,7 @@ in {
 
           module.margin = 1;
           modules = {
-            left = "stat music";
+            left = "stat music anki";
             center = "i3";
             right = "wlan eth filesystem keyboard xkeyboard pulseaudio date";
           };
@@ -109,6 +109,44 @@ in {
           format = {
             prefix = {
               text = "󱕍 ";
+              foreground = "#${c.accent}";
+            };
+          };
+        };
+
+        "module/anki" = {
+          type = "custom/script";
+
+          interval = 600;
+          interval-fail = 10;
+
+          exec = pkgs.writeShellScript "get-anki-status" ''
+            count="$(${pkgs.sqlite}/bin/sqlite3 --readonly ~/.local/share/Anki2/$(whoami)/collection.anki2 <<EOF
+              SELECT
+                count()
+              FROM cards JOIN col
+              WHERE
+                queue = 2 AND
+                datetime(col.crt, 'unixepoch', '+' || due || ' day')
+                  <= datetime('now', 'localtime')
+            EOF
+            )"
+
+            if ! [[ "$count" =~ ^[0-9]+$ ]]; then
+              echo ":3"
+              exit 1
+            fi
+
+            if [[ "$count" -eq 0 ]]; then
+              exit
+            fi
+
+            echo "$count"
+          '';
+
+          format = {
+            prefix = {
+              text = "󰏬 ";
               foreground = "#${c.accent}";
             };
           };
