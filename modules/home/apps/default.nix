@@ -2,7 +2,7 @@
 
 with lib; with lib.${namespace}; {
   imports = with pkgs; [
-    (mkSimpleApp "gimp" {})
+    (mkSimpleApp "gimp" { packages = [ gimp3 ]; })
     (mkSimpleApp "jellyfin" { packages = [ jellyfin-media-player ]; })
     (mkSimpleApp "lutris" { persist = [ ".local/share/lutris" ]; })
     (mkSimpleApp "irssi" { persist = [ ".irssi" ]; })
