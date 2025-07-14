@@ -14,6 +14,8 @@ in {
       config = {
         screenshot-format = "png";
         screenshot-template = "~/Pictures/Screenshots/mpv/%F/%P";
+
+        sub-auto = "fuzzy";
       };
     };
   };
