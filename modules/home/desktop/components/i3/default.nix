@@ -207,6 +207,7 @@ in {
   
           # Misc container binds
           "${mod}+Shift+space" = "floating toggle";
+          "${mod}+Ctrl+Shift+space" = "sticky toggle";
           "${mod}+f" = "fullscreen toggle";
   
           "${mod}+w" = "split h";
