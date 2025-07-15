@@ -17,6 +17,22 @@ in {
 
         sub-auto = "fuzzy";
       };
+
+      profiles = {
+        ja = {
+          profile-restore = "copy";
+
+          sub-font-size = 54;
+          sub-bold = true;
+
+          sub-border-style = "outline-and-shadow";
+          sub-outline-size = 1.2;
+          sub-shadow-offset = 0.8;
+
+          sub-margin-x = 60;
+          sub-margin-y = 46;
+        };
+      };
     };
   };
 }
