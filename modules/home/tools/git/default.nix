@@ -39,7 +39,11 @@ in {
       ignores = [
         "*~"
         "*.swp"
-      ];  
+      ];
+
+      extraConfig = {
+        init.defaultBranch = "main";
+      };
     };
   };
 }
