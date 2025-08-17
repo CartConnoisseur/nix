@@ -35,7 +35,7 @@ in {
                           ${pkgs.ffmpeg}/bin/ffmpeg -y -v quiet -i "$cmus_path" -c:v copy -f mjpeg ~/$OUTFILE
                       fi
                   else
-                      mpris=$(${pkgs.playerctl}/bin/playerctl --player=playerctld,cmus,firefox,%any metadata mpris:artUrl)
+                      mpris=$(until ${pkgs.playerctl}/bin/playerctl --player=playerctld,cmus,firefox,%any metadata mpris:artUrl; do :; done)
 
                       if [[ $mpris == data:image* ]]; then
                           echo $mpris | sed s/.*,//g | base64 --decode > ~/$OUTFILE
