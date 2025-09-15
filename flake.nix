@@ -43,7 +43,7 @@
     ];
 
     homes.modules = with inputs; [
-      nixvim.homeManagerModules.nixvim
+      nixvim.homeModules.nixvim
     ];
 
     overlays = with inputs; [
