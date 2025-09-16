@@ -22,6 +22,8 @@ in {
               "0" = "Scroll_Lock";
             };
 
+            "Hotkey/AltTriggerKeys" = {};
+
             Behavior = {
               ActiveByDefault = "True"; # `true` outputs lowercase "true"
               # resetStateWhenFocusIn = "All";
