@@ -19,6 +19,8 @@ in {
       interactiveShellInit = ''
         source "${./prompt.sh}"
 
+        bind "set completion-ignore-case on"
+
         mkcd() {
           mkdir -p "$1"
           cd "$1"
