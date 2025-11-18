@@ -24,6 +24,8 @@ in {
         blur-background-exclude = [
           "window_type = 'dock'"
         ];
+
+        corner-radius = 0;
       };
     };
   };
