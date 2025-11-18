@@ -28,8 +28,14 @@ in {
     programs.git = {
       enable = true;
 
-      userName = cfg.name;
-      userEmail = cfg.email;
+      settings = {
+        user = {
+          name = cfg.name;
+          email = cfg.email;
+        };
+
+        init.defaultBranch = "main";
+      };
 
       signing = {
         key = cfg.key;
@@ -40,10 +46,6 @@ in {
         "*~"
         "*.swp"
       ];
-
-      extraConfig = {
-        init.defaultBranch = "main";
-      };
     };
   };
 }

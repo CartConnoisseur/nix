@@ -16,7 +16,8 @@ in {
 
         cmus.enable = true;
         
-        jellyfin.enable = true;
+        #TODO: re-enable once qt6 version releases
+        jellyfin.enable = false;
       };
 
       tools = {
