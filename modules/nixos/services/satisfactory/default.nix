@@ -4,6 +4,7 @@
 
 with lib; with lib.${namespace}; let
   cfg = config.${namespace}.services.satisfactory;
+  impermanence = config.${namespace}.system.impermanence;
 in {
   options.${namespace}.services.satisfactory = {
     enable = lib.mkEnableOption "Enable Satisfactory Dedicated Server";
@@ -39,6 +40,12 @@ in {
   };
   
   config = lib.mkIf cfg.enable {
+    environment.persistence.${impermanence.location} = {
+      directories = [
+        cfg.dir
+      ];
+    };
+
     users.users.satisfactory = {
       group = "satisfactory";
       home = cfg.dir;
