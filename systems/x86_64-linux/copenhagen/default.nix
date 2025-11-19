@@ -48,6 +48,10 @@ with lib; with lib.${namespace}; {
           port = 25569;
         };
       };
+
+      satisfactory = {
+        enable = true;
+      };
     };
   };
 

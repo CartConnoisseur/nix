@@ -54,6 +54,8 @@
       "discord"
       "obsidian"
       "minecraft-server"
+      "steamcmd"
+      "steam-unwrapped"
     ];
 
     channels-config.permittedInsecurePackages = [
