@@ -21,7 +21,7 @@ in {
         noto-fonts
         noto-fonts-cjk-sans
         noto-fonts-cjk-serif
-        noto-fonts-emoji
+        noto-fonts-color-emoji
       ] ++ (
         optionals cfg.nerdfonts (
           builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts)
