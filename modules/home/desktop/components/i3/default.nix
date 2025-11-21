@@ -131,12 +131,11 @@ in {
           "${mod}+Num_Lock" = "exec --no-startup-id polybar-msg cmd toggle";
   
           # Screenshots
-          #TODO: screen and full should be swapped, but currently screen is fucky :'(
-          "Shift+Print" = "exec --no-startup-id ${pkgs.flameshot}/bin/flameshot screen -c";
-          "Print" = "exec --no-startup-id ${pkgs.flameshot}/bin/flameshot full -c";
+          "Print" = "exec --no-startup-id ${pkgs.flameshot}/bin/flameshot screen -c";
+          "Shift+Print" = "exec --no-startup-id ${pkgs.flameshot}/bin/flameshot full -c";
           "${mod}+Shift+s" = "exec --no-startup-id ${pkgs.flameshot}/bin/flameshot gui -c";
           "Mod1+Shift+s" = "exec --no-startup-id ${pkgs.flameshot}/bin/flameshot gui -c";
-          "${mod}+Ctrl+Shift+s" = "exec --no-startup-id ${pkgs.flameshot}/bin/flameshot launcher -c";
+          "${mod}+Ctrl+Shift+s" = "exec --no-startup-id ${pkgs.flameshot}/bin/flameshot gui";
   
           # Media keys
           "XF86AudioRaiseVolume" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +2%";
