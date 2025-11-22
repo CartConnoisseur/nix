@@ -46,6 +46,10 @@ in {
     home.persistence.${cfg.secure.location} = {
       enable = cfg.enable;
       allowOther = false;
+
+      directories = mkIf cfg.skeleton [
+        "Secure"
+      ];
     };
   };
 }
