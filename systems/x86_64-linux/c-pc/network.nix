@@ -14,9 +14,17 @@
     firewall = {
       enable = false;
 
-      allowedTCPPorts = [ 8096 50000 ];
-      allowedUDPPorts = [ ];
+      allowedTCPPorts = [
+        8096 # jellyfin
+        50000 # qbittorrent
+      ];
+      
+      allowedUDPPorts = [
+        51820 # wireguard
+      ];
     };
+
+    wg-quick.interfaces.wg0.configFile = "/secrets/wireguard.conf";
   };
 
   environment.etc."wpa_supplicant.conf" = {
