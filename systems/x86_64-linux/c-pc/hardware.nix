@@ -52,6 +52,8 @@
   hardware.enableRedistributableFirmware = true;
   hardware.cpu.amd.updateMicrocode = true;
 
+  hardware.amdgpu.opencl.enable = true;
+
   services = {
     xserver.videoDrivers = [ "amdgpu" ];
     
