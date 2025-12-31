@@ -66,7 +66,7 @@ in {
           modules = {
             left = "stat music anki";
             center = "i3";
-            right = "wlan eth filesystem keyboard xkeyboard pulseaudio date";
+            right = "wlan eth filesystem keyboard xkeyboard microphone pulseaudio date";
           };
         };
 
@@ -218,6 +218,32 @@ in {
           ramp.volume = {
             text = [ "󰕿" "󰖀" "󰕾" ];
             foreground = "#${c.accent}";
+          };
+        };
+
+        "module/microphone" = {
+          type = "custom/script";
+
+          exec = pkgs.writeShellScript "get-microphone-status" ''
+            function update {
+              while read -r _; do
+                state="$(pactl get-source-mute @DEFAULT_SOURCE@)"
+                if [[ $state == 'Mute: yes' ]]; then
+                  printf '󰍭\n'
+                else
+                  printf '\n'
+                fi
+              done
+            }
+
+            echo 'dummy' | update
+            pactl subscribe | grep --line-buffered -F 'source' | update
+          '';
+
+          tail = true;
+
+          format = {
+            foreground = "#${c.bg3}";
           };
         };
 
