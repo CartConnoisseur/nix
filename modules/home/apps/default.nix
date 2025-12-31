@@ -8,7 +8,7 @@ with lib; with lib.${namespace}; {
     (mkSimpleApp "irssi" { persist = [ ".irssi" ]; })
 
     (mkSimpleApp "intellij" {
-      packages = [ jetbrains.idea-community ];
+      packages = [ jetbrains.idea-oss ];
       persist = [
         ".config/JetBrains"
         ".local/share/JetBrains"
