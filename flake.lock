@@ -189,6 +189,26 @@
         "type": "github"
       }
     },
+    "k95aux": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1767145683,
+        "narHash": "sha256-LToddvibO6KaAEmPl5p2uEk4TPrK8qy3a+qCrMgO17k=",
+        "owner": "CartConnoisseur",
+        "repo": "k95aux",
+        "rev": "aa68b4a33baef397b096b6613efc86040500d8e1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "CartConnoisseur",
+        "repo": "k95aux",
+        "type": "github"
+      }
+    },
     "nix-minecraft": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -291,6 +311,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "impermanence": "impermanence",
+        "k95aux": "k95aux",
         "nix-minecraft": "nix-minecraft",
         "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",

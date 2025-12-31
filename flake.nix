@@ -17,6 +17,11 @@
     impermanence.url = "github:nix-community/impermanence";
     nix-minecraft.url = "github:CartConnoisseur/nix-minecraft";
 
+    k95aux = {
+      url = "github:CartConnoisseur/k95aux";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -40,6 +45,7 @@
     systems.modules.nixos = with inputs; [
       impermanence.nixosModules.impermanence
       nix-minecraft.nixosModules.minecraft-servers
+      k95aux.nixosModules.k95aux
     ];
 
     homes.modules = with inputs; [
