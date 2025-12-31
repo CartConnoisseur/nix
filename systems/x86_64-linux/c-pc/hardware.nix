@@ -1,6 +1,10 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
+  cxl = {
+    hardware.keyboard.k95.enable = true;
+  };
+
   boot = {
     loader.grub = {
       enable = true;
