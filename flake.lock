@@ -150,11 +150,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1767164894,
-        "narHash": "sha256-b7U/kPqBLoIartY6DcC2nQi67yo29GNz2LJZbuOEAlU=",
+        "lastModified": 1767994782,
+        "narHash": "sha256-843/0knZrY3os6rxc7hYDY6d6LIEZW+pccmWc8md7dg=",
         "owner": "CartConnoisseur",
         "repo": "k95aux",
-        "rev": "dd243ac83973e30df048c3c96df4073522bfcb78",
+        "rev": "09b48d3fdf73614b245e902c8ecda5f21acfc9ae",
         "type": "github"
       },
       "original": {
