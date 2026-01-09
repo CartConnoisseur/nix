@@ -51,7 +51,9 @@
     "/mnt/4tb"        = { fsType = "ext4"; device = "/dev/disk/by-label/4tb"; };
   };
 
-  swapDevices = [ ];
+  swapDevices = [
+    { device = "/dev/disk/by-label/swap"; }
+  ];
 
   hardware.enableRedistributableFirmware = true;
   hardware.cpu.amd.updateMicrocode = true;
