@@ -15,7 +15,7 @@
     };
 
     impermanence.url = "github:nix-community/impermanence";
-    nix-minecraft.url = "github:CartConnoisseur/nix-minecraft";
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
     k95aux = {
       url = "github:CartConnoisseur/k95aux";
