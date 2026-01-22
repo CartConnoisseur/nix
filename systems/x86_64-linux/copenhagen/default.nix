@@ -65,12 +65,7 @@ with lib; with lib.${namespace}; {
 
     home.config = {
       cxl = {
-        impermanence = {
-          skeleton = false;
-          location = lib.mkForce "/persist/home/c";
-          secure.location = lib.mkForce "/persist/secure/home/c";
-        };
-
+        impermanence.skeleton = false;
         tools.git.key = "DE64538967CA0C68";
       };
     };

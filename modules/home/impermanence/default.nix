@@ -4,10 +4,6 @@ with lib; with lib.${namespace}; let
   cfg = config.${namespace}.impermanence;
   os = osConfig.${namespace}.system.impermanence.home;
 in {
-  imports = [
-    inputs.impermanence.nixosModules.home-manager.impermanence
-  ];
-
   options.${namespace}.impermanence = with types; {
     skeleton = mkOption {
       type = bool;
@@ -26,8 +22,6 @@ in {
 
     home.persistence.${cfg.location} = {
       enable = cfg.enable;
-      allowOther = true;
-
       directories = mkIf cfg.skeleton [
         ".local/share/applications"
         ".local/bin"
@@ -45,8 +39,6 @@ in {
 
     home.persistence.${cfg.secure.location} = {
       enable = cfg.enable;
-      allowOther = false;
-
       directories = mkIf cfg.skeleton [
         "Secure"
       ];

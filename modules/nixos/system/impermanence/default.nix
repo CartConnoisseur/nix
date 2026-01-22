@@ -11,18 +11,24 @@ in {
       default = "/persist/system";
     };
 
-    #TODO: multi-user support
     home = {
       enable = mkEnableOption "home impermanence";
 
+      # in a completely undocumented and non-overridable change (yes im a little upset),
+      # home impermanence moved from the location provided to the location provided + $HOME.
+      # forcing me to move all my shit is NOT cool. dont remove user choice for no reason.
+      # especially not in a breaking change, and ESPECIALLY not an *UNDOCUMENTED ONE!*
+
+      # anyways, now home is at just /persist while system is in a subdir. because that
+      # makes sense. actual persist path = /persist/home/c
       location = mkOption {
         type = str;
-        default = "/persist/home";
+        default = "/persist";
       };
 
       secure.location = mkOption {
         type = str;
-        default = "/persist/secure/home";
+        default = "/persist/secure";
       };
     };
   };

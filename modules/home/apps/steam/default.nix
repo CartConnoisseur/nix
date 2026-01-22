@@ -17,7 +17,6 @@ in {
     home.persistence.${impermanence.location} = {
       directories = [{
         directory = ".local/share/Steam";
-        method = "symlink";
       }];
     };
 
