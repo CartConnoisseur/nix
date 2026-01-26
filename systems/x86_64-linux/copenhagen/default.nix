@@ -37,6 +37,11 @@ with lib; with lib.${namespace}; {
           port = 25565;
         };
 
+        tower = {
+          enable = true;
+          port = 25567;
+        };
+
         stargazers = {
           enable = true;
           port = 25566;
