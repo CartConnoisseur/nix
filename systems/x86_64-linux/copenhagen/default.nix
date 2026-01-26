@@ -27,7 +27,7 @@ with lib; with lib.${namespace}; {
         personal.enable = true;
         landing.enable = true;
         images.enable = true;
-        stargazers.enable = true;
+        stargazers.enable = false;
         status.enable = true;
       };
 
