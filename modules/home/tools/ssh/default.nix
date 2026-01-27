@@ -15,7 +15,28 @@ in {
       ];
     };
 
-    programs.ssh.enable = true;
+    programs.ssh = {
+      enable = true;
+
+      #TODO: set up match block for copenhagen to enable forwarding
+      enableDefaultConfig = false;
+      matchBlocks."*" = { # old default config
+        forwardAgent = false;
+        addKeysToAgent = "no";
+
+        compression = false;
+
+        serverAliveInterval = 0;
+        serverAliveCountMax = 3;
+
+        hashKnownHosts = false;
+        userKnownHostsFile = "~/.ssh/known_hosts";
+
+        controlMaster = "no";
+        controlPath = "~/.ssh/master-%r@%n:%p";
+        controlPersist = "no";
+      };
+    };
 
     services.gpg-agent = {
       enableSshSupport = true;
