@@ -4,7 +4,16 @@ with lib; with lib.${namespace}; {
   imports = with pkgs; [
     (mkSimpleApp "gimp" { packages = [ gimp3 ]; })
     (mkSimpleApp "jellyfin" { packages = [ jellyfin-media-player ]; })
+    
     (mkSimpleApp "lutris" { persist = [ ".local/share/lutris" ]; })
+    (mkSimpleApp "hytale" {
+      packages = [ hytale-launcher ];
+      persist = [
+        ".local/share/hytale-launcher"
+        ".local/share/Hytale"
+      ];
+    })
+
     (mkSimpleApp "irssi" { persist = [ ".irssi" ]; })
 
     (mkSimpleApp "intellij" {

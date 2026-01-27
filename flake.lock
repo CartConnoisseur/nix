@@ -149,6 +149,26 @@
         "type": "github"
       }
     },
+    "hytale-launcher": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1769500474,
+        "narHash": "sha256-zYpn6sYt28OI5BJKO9+47lQLtJbSGddpi/8p1MsTOlc=",
+        "owner": "CartConnoisseur",
+        "repo": "hytale-launcher-flake",
+        "rev": "f53e84541f16ff1f6810598c2d4ac866406870b6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "CartConnoisseur",
+        "repo": "hytale-launcher-flake",
+        "type": "github"
+      }
+    },
     "impermanence": {
       "inputs": {
         "home-manager": "home-manager_2",
@@ -281,6 +301,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "hytale-launcher": "hytale-launcher",
         "impermanence": "impermanence",
         "k95aux": "k95aux",
         "nix-minecraft": "nix-minecraft",

@@ -14,6 +14,7 @@ in {
         steam.enable = true;
         prismlauncher.enable = true;
         lutris.enable = true;
+        hytale.enable = true;
       };
     };
   };

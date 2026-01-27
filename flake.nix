@@ -22,6 +22,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hytale-launcher = {
+      url = "github:CartConnoisseur/hytale-launcher-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -54,6 +59,7 @@
 
     overlays = with inputs; [
       nix-minecraft.overlay
+      hytale-launcher.overlay
     ];
 
     channels-config.allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) [
