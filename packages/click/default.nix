@@ -2,7 +2,7 @@
 
 let
   xdotool = "${pkgs.xdotool}/bin/xdotool";
-  xwininfo = "${pkgs.xorg.xwininfo}/bin/xwininfo";
+  xwininfo = "${pkgs.xwininfo}/bin/xwininfo";
   awk = "${pkgs.gawk}/bin/awk";
 in pkgs.writeShellScriptBin "click" ''
   set -euo pipefail

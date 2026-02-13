@@ -6,7 +6,7 @@ with lib; with lib.${namespace}; {
     (mkSimpleTool "ffmpeg" {})
     (mkSimpleTool "wine" {
       packages = [
-        wineWowPackages.stable
+        wineWow64Packages.stable
         winetricks
       ];
       persist = [ ".wine" ];
