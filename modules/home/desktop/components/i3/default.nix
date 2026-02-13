@@ -40,8 +40,8 @@ in {
   
         output = {
           primary = "primary";
-          left = "DVI-D-0";
-          right = "DisplayPort-1 HDMI-A-0";
+          left = "DVI-D-1";
+          right = "DP-2 HDMI-1";
         };
       in {
         modifier = "${mod}";
