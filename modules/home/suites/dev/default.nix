@@ -27,6 +27,7 @@ in {
         tmux.enable = true;
         mkenv.enable = true;
         neovim.enable = true;
+        serve.enable = true;
         fork.enable = desktop.enable;
       };
     };

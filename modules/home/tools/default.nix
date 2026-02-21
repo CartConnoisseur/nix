@@ -23,5 +23,8 @@ with lib; with lib.${namespace}; {
     (mkSimpleTool "fork" {
       packages = [ cxl.fork ];
     })
+    (mkSimpleTool "serve" {
+      packages = [ cxl.serve ];
+    })
   ];
 }
