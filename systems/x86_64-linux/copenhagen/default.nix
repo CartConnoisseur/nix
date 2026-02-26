@@ -24,8 +24,8 @@ with lib; with lib.${namespace}; {
       };
 
       web = {
+        cxl.sh.enable = true;
         personal.enable = true;
-        landing.enable = true;
         images.enable = true;
         stargazers.enable = false;
         status.enable = true;
