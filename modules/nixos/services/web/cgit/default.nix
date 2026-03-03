@@ -11,6 +11,11 @@ in {
       type = str;
     };
 
+    ssl = mkOption {
+      type = bool;
+      default = true;
+    };
+
     path = mkOption {
       type = path;
       default = "/srv/git";
@@ -69,12 +74,12 @@ in {
       enable = true;
       virtualHosts = {
         "${cfg.virtualHost}" = {
-          addSSL = true;
-          enableACME = true;
+          addSSL = cfg.ssl;
+          enableACME = cfg.ssl;
         };
         "private.${cfg.virtualHost}" = {
-          addSSL = true;
-          enableACME = true;
+          addSSL = cfg.ssl;
+          enableACME = cfg.ssl;
 
           extraConfig = ''
             ssl_client_certificate ${./ca.crt};
