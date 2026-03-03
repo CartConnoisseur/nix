@@ -70,8 +70,8 @@ in {
       enable = true;
       virtualHosts = {
         "${cfg.virtualHost}" = {
-          # addSSL = true;
-          # enableACME = true;
+          addSSL = true;
+          enableACME = true;
           locations."/private/" = {
             basicAuth = {
               c = "password";
