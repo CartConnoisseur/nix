@@ -60,6 +60,8 @@ in {
             you are welcome to clone them over http(s) from here, though, if you wish.
           ''}";
 
+          source-filter = "${package}/lib/cgit/filters/syntax-highlighting.py";
+          about-filter = "${package}/lib/cgit/filters/about-formatting.sh";
           readme = ":README.md";
         };
 
