@@ -52,8 +52,7 @@ in {
       "private" = {
         enable = true;
         scanPath = cfg.path;
-        nginx.virtualHost = cfg.virtualHost;
-        nginx.location = "/private/";
+        nginx.virtualHost = "private.${cfg.virtualHost}";
 
         user = "git";
         group = "git";
@@ -72,11 +71,15 @@ in {
         "${cfg.virtualHost}" = {
           addSSL = true;
           enableACME = true;
-          locations."/private/" = {
-            basicAuth = {
-              c = "password";
-            };
-          };
+        };
+        "private.${cfg.virtualHost}" = {
+          addSSL = true;
+          enableACME = true;
+
+          extraConfig = ''
+            ssl_client_certificate ${./ca.crt};
+            ssl_verify_client on;
+          '';
         };
       };
     };
