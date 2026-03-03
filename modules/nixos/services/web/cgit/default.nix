@@ -3,6 +3,13 @@
 with lib; with lib.${namespace}; let
   cfg = config.${namespace}.services.web.cgit;
   impermanence = config.${namespace}.system.impermanence;
+  package = (pkgs.cgit.overrideAttrs (previousAttrs: {
+    postInstall = (previousAttrs.postInstall or "") + ''
+      rm $out/cgit/favicon.ico # automatically fetched by browsers
+      # install -m 0644 $\{./favicon.ico} $out/cgit/favicon.ico
+      # install -m 0644 $\{./icon.png} $out/cgit/cgit.png
+    '';
+  }));
 in {
   options.${namespace}.services.web.cgit = with types; {
     enable = mkEnableOption "git.cxl.sh webserver";
@@ -28,6 +35,8 @@ in {
     services.cgit = {
       "public" = {
         enable = true;
+        package = package;
+
         scanPath = cfg.path;
         nginx.virtualHost = cfg.virtualHost;
 
@@ -39,6 +48,9 @@ in {
 
           enable-git-config = true;
           enable-index-owner = true;
+
+          favicon = "";
+          logo = "";
 
           root-title = cfg.virtualHost;
           root-desc = "caroline's git mirror :3 (see about tab)";
