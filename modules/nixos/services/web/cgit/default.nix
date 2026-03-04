@@ -32,13 +32,12 @@ in {
   config = mkIf cfg.enable {
     cxl.services.web.enable = true;
 
-    services.cgit = {
-      "public" = {
-        enable = true;
+    services.cgit = let
+      base = {
         package = package;
 
-        scanPath = cfg.path;
         nginx.virtualHost = cfg.virtualHost;
+        scanPath = cfg.path;
 
         user = "git";
         group = "git";
@@ -69,17 +68,21 @@ in {
 
         gitHttpBackend.checkExportOkFiles = true;
       };
-
-      "private" = {
+    in {
+      "public" = base // {
         enable = true;
-        scanPath = cfg.path;
+      };
+
+      "private" = base // {
+        enable = true;
         nginx.virtualHost = "private.${cfg.virtualHost}";
 
-        user = "git";
-        group = "git";
-
-        settings = {
+        settings = base.settings // {
+          strict-export = "";
           enable-git-config = false;
+
+          root-title = "private.${cfg.virtualHost}";
+          root-desc = "caroline's (private) git mirror :3";
         };
 
         gitHttpBackend.enable = false;
@@ -94,7 +97,7 @@ in {
           enableACME = cfg.ssl;
         };
         "private.${cfg.virtualHost}" = {
-          addSSL = cfg.ssl;
+          forceSSL = cfg.ssl;
           enableACME = cfg.ssl;
 
           extraConfig = ''
