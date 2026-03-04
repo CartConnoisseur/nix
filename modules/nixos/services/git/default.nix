@@ -87,7 +87,7 @@ in {
         serviceConfig = {
           Type = "oneshot";
           User = "git";
-          WorkingDirectory = cfg.path + "/repositories";
+          WorkingDirectory = cfg.path + "/repositories/mirror";
         };
       };
     };
