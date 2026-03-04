@@ -63,6 +63,8 @@ with lib; with lib.${namespace}; {
         adminPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIDO8JxqS7B2n3YlNtlVMZGARi+GG/z7wLiiyl52qSZc caroline@larimo.re";
         host = "git.cxl.sh";
       };
+
+      unbound.enable = true;
     };
   };
 
