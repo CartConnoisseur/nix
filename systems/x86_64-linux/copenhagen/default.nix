@@ -64,6 +64,11 @@ with lib; with lib.${namespace}; {
         host = "git.cxl.sh";
       };
 
+      matrix = {
+        enable = true;
+        host = "cxl.sh";
+      };
+
       unbound.enable = true;
     };
   };
