@@ -15,6 +15,10 @@ with lib; with lib.${namespace}; {
     })
 
     (mkSimpleApp "irssi" { persist = [ ".irssi" ]; })
+    (mkSimpleApp "cinny" {
+      packages = [ cinny-desktop ];
+      persist = [ ".local/share/cinny" ];
+    })
 
     (mkSimpleApp "intellij" {
       packages = [ jetbrains.idea-oss ];

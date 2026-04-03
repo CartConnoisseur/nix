@@ -20,6 +20,7 @@ in {
 
     apps = {
       discord.enable = true;
+      cinny.enable = true;
       gimp.enable = true;
       qbittorrent.enable = true;
       nicotine.enable = true;
