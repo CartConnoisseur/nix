@@ -13,6 +13,7 @@ in {
       enable = true;
 
       theme = theme.gtk;
+      gtk4.theme = theme.gtk;
 
       font = {
         name = "monospace";

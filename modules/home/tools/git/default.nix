@@ -38,6 +38,7 @@ in {
       };
 
       signing = {
+        format = "openpgp";
         key = cfg.key;
         signByDefault = cfg.sign;
       };
