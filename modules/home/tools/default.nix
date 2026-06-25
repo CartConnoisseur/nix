@@ -26,5 +26,8 @@ with lib; with lib.${namespace}; {
     (mkSimpleTool "serve" {
       packages = [ cxl.serve ];
     })
+    (mkSimpleTool "dump" {
+      packages = [ cxl.dump ];
+    })
   ];
 }
