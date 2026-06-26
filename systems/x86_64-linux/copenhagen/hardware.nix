@@ -28,6 +28,8 @@
       '';
     };
 
+    zfs.forceImportRoot = false;
+
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
 

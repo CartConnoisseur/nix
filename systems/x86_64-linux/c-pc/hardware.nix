@@ -31,6 +31,8 @@
       '';
     };
 
+    zfs.forceImportRoot = false;
+
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
 
