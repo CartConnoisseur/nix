@@ -11,6 +11,7 @@ in {
   config = mkIf cfg.enable {
     programs.nixvim = {
       enable = true;
+      nixpkgs.useGlobalPackages = true;
 
       colorschemes."${theme.vim}".enable = true;
 

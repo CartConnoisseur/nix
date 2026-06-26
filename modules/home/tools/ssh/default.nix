@@ -18,24 +18,27 @@ in {
     programs.ssh = {
       enable = true;
 
-      #TODO: set up match block for copenhagen to enable forwarding
-      enableDefaultConfig = false;
-      matchBlocks."*" = { # old default config
-        forwardAgent = false;
-        addKeysToAgent = "no";
+      #TODO: set up host block for copenhagen to enable forwarding
+      settings = {
+        "Host *" = { # old default config
+          ForwardAgent = false;
+          AddKeysToAgent = false;
 
-        compression = false;
+          Compression = false;
 
-        serverAliveInterval = 0;
-        serverAliveCountMax = 3;
+          ServerAliveInterval = 0;
+          ServerAliveCountMax = 3;
 
-        hashKnownHosts = false;
-        userKnownHostsFile = "~/.ssh/known_hosts";
+          HashKnownHosts = false;
+          UserKnownHostsFile = "~/.ssh/known_hosts";
 
-        controlMaster = "no";
-        controlPath = "~/.ssh/master-%r@%n:%p";
-        controlPersist = "no";
+          ControlMaster = false;
+          ControlPath = "~/.ssh/master-%r@%n:%p";
+          ControlPersist = false;
+        };
       };
+
+      enableDefaultConfig = false;
     };
 
     services.gpg-agent = {
