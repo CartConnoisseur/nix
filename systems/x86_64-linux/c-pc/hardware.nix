@@ -1,8 +1,33 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  cxl = {
-    hardware.keyboard.k95.enable = true;
+  cxl.hardware = {
+    keyboard.k95.enable = true;
+
+    boot.rollback.zfs = {
+      enable = true;
+      volumes = [
+        "zpool/root@blank"
+        #TODO: re-enable home impermanence
+        # "zpool/home@blank"
+      ];
+    };
+  };
+
+  #TODO: deduplicate
+  systemd.services = {
+    "cxl.init.set-secrets-mode" = {
+      requires = [ "secrets.mount" ];
+      requiredBy = [ "local-fs.target" ];
+
+      script = ''
+        chmod u=rw,g=,o= /secrets
+      '';
+
+      serviceConfig = {
+        Type = "oneshot";
+      };
+    };
   };
 
   boot = {
@@ -21,14 +46,6 @@
     initrd = {
       availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
       kernelModules = [ "amdgpu" ];
-
-      postDeviceCommands = lib.mkAfter ''
-        zfs rollback -r zpool/root@blank && zfs rollback -r zpool/home@blank
-      '';
-
-      postMountCommands = lib.mkAfter ''
-        chmod u=rw,g=,o= /secrets
-      '';
     };
 
     zfs.forceImportRoot = false;

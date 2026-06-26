@@ -1,6 +1,34 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
+  cxl.hardware = {
+    boot.rollback.zfs = {
+      #TODO: re-enable impermanence
+      enable = false;
+
+      volumes = [
+        "zpool/root@blank"
+        "zpool/home@blank"
+      ];
+    };
+  };
+
+  #TODO: deduplicate
+  systemd.services = {
+    "cxl.init.set-secrets-mode" = {
+      requires = [ "secrets.mount" ];
+      requiredBy = [ "local-fs.target" ];
+
+      script = ''
+        chmod u=rw,g=,o= /secrets
+      '';
+
+      serviceConfig = {
+        Type = "oneshot";
+      };
+    };
+  };
+
   boot = {
     loader.grub = {
       enable = true;
@@ -17,15 +45,6 @@
     initrd = {
       availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
       kernelModules = [ ];
-
-      #TODO: re-enable impermanence
-      # postDeviceCommands = lib.mkAfter ''
-      #   zfs rollback -r zpool/root@blank && zfs rollback -r zpool/home@blank
-      # '';
-
-      postMountCommands = lib.mkAfter ''
-        chmod u=rw,g=,o= /secrets
-      '';
     };
 
     zfs.forceImportRoot = false;
