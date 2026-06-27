@@ -28,6 +28,7 @@ in {
         mkenv.enable = true;
         neovim.enable = true;
         serve.enable = true;
+        dump.enable = true;
         fork.enable = desktop.enable;
       };
     };
