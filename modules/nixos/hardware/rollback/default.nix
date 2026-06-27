@@ -44,9 +44,11 @@ in {
         name = strings.replaceString "/" "-" "${namespace}.boot.rollback-${value.pool}/${value.volume}";
         value = {
           description = "Rollback ZFS dataset ${value.pool}/${value.volume} to ${value.snapshot}";
+          after = [ "zfs-import-${value.pool}.service" ];
+          before = [ "sysroot.mount" "local-fs.target" ];
 
           requires = [ "zfs-import-${value.pool}.service" ];
-          wantedBy = [ "sysroot.mount" ];
+          wantedBy = [ "initrd.target" ];
 
           unitConfig.DefaultDependencies = false;
 

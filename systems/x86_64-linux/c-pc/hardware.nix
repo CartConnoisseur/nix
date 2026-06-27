@@ -17,8 +17,11 @@
   #TODO: deduplicate
   systemd.services = {
     "cxl.init.set-secrets-mode" = {
+      after = [ "secrets.mount" ];
+      before = [ "local-fs.target" ];
+
       requires = [ "secrets.mount" ];
-      requiredBy = [ "local-fs.target" ];
+      requiredBy = [ "initrd.target" ];
 
       script = ''
         chmod u=rw,g=,o= /secrets
