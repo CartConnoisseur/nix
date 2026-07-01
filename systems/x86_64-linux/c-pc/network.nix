@@ -7,7 +7,7 @@
     wireless = {
       enable = true;
       
-      # Import /etc/wpa_supplicant.conf networks
+      # Import /etc/wpa_supplicant/imperative.conf networks
       allowAuxiliaryImperativeNetworks = true;
     };
 
@@ -27,7 +27,7 @@
     wg-quick.interfaces.wg0.configFile = "/secrets/wireguard.conf";
   };
 
-  environment.etc."wpa_supplicant.conf" = {
+  environment.etc."wpa_supplicant/imperative.conf" = {
     source = "/secrets/wireless.conf";
   };
 }
