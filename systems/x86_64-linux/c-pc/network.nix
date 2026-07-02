@@ -29,5 +29,8 @@
 
   environment.etc."wpa_supplicant/imperative.conf" = {
     source = "/secrets/wireless.conf";
+    mode = "0440";
+    user = "wpa_supplicant";
+    group = "wpa_supplicant";
   };
 }
